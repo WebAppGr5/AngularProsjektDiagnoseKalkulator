@@ -7,16 +7,23 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { EndreComponent } from './endre/endre.component';
+import { LagreComponent } from './lagre/lagre.component';
+import { InfoSymptomGruppeComponent } from './infoSymptomGruppe/infoSymptomGruppe.component';
+import { InfoSymptomComponent } from './infoSymptom/infoSymptom.component';
+import { InfoDiagnoseComponent } from './infoDiagnose/infoDiagnose.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    EndreComponent,
+    LagreComponent,
+    InfoSymptomGruppeComponent,
+    InfoSymptomComponent,
+    InfoDiagnoseComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -24,8 +31,11 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'endre', component: EndreComponent, pathMatch: 'full' },
+      { path: 'lagre', component: LagreComponent, pathMatch: 'full' },
+      { path: 'infoSymptomGruppe', component: InfoSymptomGruppeComponent, pathMatch: 'full' },
+      { path: 'infoSymptom', component: InfoSymptomComponent, pathMatch: 'full' },
+      { path: 'infoDiagnose', component: InfoDiagnoseComponent, pathMatch: 'full' }
     ])
   ],
   providers: [],
