@@ -6,14 +6,14 @@ namespace obligDiagnoseVerktøyy.Model.entities
     {
         [Key]
         [RegularExpression(@"^[0-9]{1,6}$")]
-        public int diagnoseGruppeId { get; set;  }
+        public int diagnoseGruppeId { get; set; }
 
         [Required]
-        [RegularExpression(@"^[a-zA-Z0-9\s-]{3,20}$")]
+        [RegularExpression(@"^[a-zA-Z0-9\s-]{3,40}$")]
         public string navn { get; set; } //Forklaringen kan hentes ut herfra
-      //
+        //
 
-        public List<Diagnose> diagnose { get; set;}
+        public List<Diagnose> diagnose { get; set; }
 
         [Required]
         [MaxLength(700)]

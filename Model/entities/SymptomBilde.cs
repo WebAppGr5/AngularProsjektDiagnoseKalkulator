@@ -8,22 +8,20 @@ namespace obligDiagnoseVerktøyy.Model.entities
         [Key]
         [RegularExpression(@"^[0-9]{1,6}$")]
         public int symptomBildeId { get; set; }
-        
+
         [Required]
         [JsonIgnore]
         public List<SymptomSymptomBilde> symptomSymptomBilde { get; set; }
-       
+
         [Required]
         [RegularExpression(@"^[0-9]{1,6}$")]
         public int diagnoseId { get; set; }
 
- 
+
         [Required]
-        [MaxLength(30)]
-        [MinLength(3)]
-        [RegularExpression(@"^[a-zA-Z0-9\s-]{3,20}$")]
+        [RegularExpression(@"^[a-zA-Z0-9\s-]{3,40}$")]
         public string navn { get; set; }
-     
+
 
         [Required]
         [MaxLength(700)]

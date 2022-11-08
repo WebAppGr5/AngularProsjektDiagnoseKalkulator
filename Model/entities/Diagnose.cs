@@ -7,23 +7,22 @@ namespace obligDiagnoseVerktøyy.Model.entities
     {
         [Key]
         [RegularExpression(@"^[0-9]{1,6}$")]
-        public int diagnoseId { get; set;   }
+        public int diagnoseId { get; set; }
 
         [Required]
-        [MaxLength(20)]
-        [MinLength(3)]
-        [RegularExpression(@"^[a-zA-Z0-9\s-]{3,20}$")]
-        public string navn {get; set; }
+
+        [RegularExpression(@"^[a-zA-Z0-9\s-]{3,40}$")]
+        public string navn { get; set; }
 
 
         [Required]
         [MaxLength(700)]
-        public string beskrivelse { get; set;} 
+        public string beskrivelse { get; set; }
 
 
-        public List<SymptomBilde> symptomBilde { get; set;  }
+        public List<SymptomBilde> symptomBilde { get; set; }
 
-        
+
         public int diagnoseGruppeId { get; set; }
 
 
@@ -33,7 +32,7 @@ namespace obligDiagnoseVerktøyy.Model.entities
         public DiagnoseGruppe diagnoseGruppe { get; set; }
 
 
-   
+
     }
 
 }
