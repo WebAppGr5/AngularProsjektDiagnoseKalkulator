@@ -19,6 +19,7 @@ using obligDiagnoseVerktøyy.Repository.implementation;
 using Microsoft.Extensions.Logging;
 using obligDiagnoseVerktøyy.Model.DTO;
 using System.Data.SqlTypes;
+using obligDiagnoseVerktøyy.Model.viewModels;
 
 namespace obligDiagnoseVerktøyy.Controllers.implementations
 {
@@ -45,8 +46,8 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             this._symptomRepository = symptomRepository;
         }
 
-        
- 
+
+
 
         [HttpGet]
         public async Task<IActionResult> forgetDiagnose(int id)
@@ -58,7 +59,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
             try
             {
+
                 _diagnoseRepository.deleteDiagnose(id);
+                _logger.LogInformation("Diagnose med id " + id + " er slettet");
                 return Ok();
             }
             catch (EntityNotFoundException ex)
@@ -73,7 +76,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
         }
 
-        public async Task<IActionResult> update ([FromBody] DiagnoseChangeDTO diagnose)
+        public async Task<IActionResult> update([FromBody] DiagnoseChangeDTO diagnose)
         {
             if (ModelState.IsValid)
             {
@@ -82,11 +85,16 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                 {
                     Diagnose diagnosen = new Diagnose
                     {
-                        beskrivelse = diagnose.beskrivelse, diagnoseGruppe = null, diagnoseGruppeId = -1,
-                        diagnoseId = diagnose.diagnoseId, dypForklaring = diagnose.dypForklaring, navn = diagnose.navn,
+                        beskrivelse = diagnose.beskrivelse,
+                        diagnoseGruppe = null,
+                        diagnoseGruppeId = -1,
+                        diagnoseId = diagnose.diagnoseId,
+                        dypForklaring = diagnose.dypForklaring,
+                        navn = diagnose.navn,
                         symptomBilde = null
                     };
                     _diagnoseRepository.update(diagnosen);
+                    _logger.LogInformation("Diagnose med id " + diagnose.diagnoseId + " er oppdatert til " + diagnose.ToString());
                     return Ok(diagnose);
                 }
                 catch (EntityNotFoundException ex)
@@ -97,7 +105,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                 catch (Exception ex)
                 {
 
-                    _logger.LogError("Klarte ikke å endre diagnose");
+                    _logger.LogError("Could not change diagnose");
                     return BadRequest(new List<Diagnose>());
                 }
             }
@@ -119,8 +127,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
             try
             {
-
-                return Ok(_diagnoseRepository.hentDiagnoseGittDiagnoseId(id));
+                DiagnoseDetailModel diagnose = await _diagnoseRepository.hentDiagnoseGittDiagnoseId(id);
+                _logger.LogInformation("Did get diagnose with  id " + id);
+                return Ok(diagnose);
             }
             catch (EntityNotFoundException ex)
             {
@@ -144,7 +153,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
             try
             {
-                return Ok(_symptomRepository.hentSymptomGittSymptomId(id));
+                SymptomDetailModel symptom = await _symptomRepository.hentSymptomGittSymptomId(id);
+                _logger.LogInformation("Did get symptom with  id " + id);
+                return Ok(symptom);
             }
             catch (EntityNotFoundException ex)
             {
@@ -168,7 +179,10 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
             try
             {
-                return Ok(_symptomGruppeRepository.hentSymptomGruppeGittSymptomGruppeId(id));
+                SymptomGruppeDetailModel symptomgruppe =
+                    await _symptomGruppeRepository.hentSymptomGruppeGittSymptomGruppeId(id);
+                _logger.LogInformation("Did get symptom group with id " + id);
+                return Ok(symptomgruppe);
             }
             catch (EntityNotFoundException ex)
             {
@@ -195,6 +209,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                         return BadRequest("diagnose got bad server input");
                     }
                     _diagnoseRepository.addDiagnose(diagnose);
+                    _logger.LogInformation("Created new diagnose equal to " + diagnose.ToString());
                     return Ok(diagnose);
                 }
                 catch (EntityNotFoundException ex)
@@ -219,22 +234,23 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         }
 
         //Liste over int id, f.eks 1 2 4 6 7
-        public async Task<IActionResult> getDiagnoserGittSymptomer( [FromBody] List<SymptomDTO> symptomliste)
+        public async Task<IActionResult> getDiagnoserGittSymptomer([FromBody] List<SymptomDTO> symptomliste)
         {
-            
+
 
             try
             {
-                
+
                 if (symptomliste.Count == 0)
                     return Ok(new List<Diagnose>());
-                    
+
                 List<SymptomBilde> symptombilder = await _symptomBildeRepository.hentSymptomBilder(symptomliste);
-                if(symptombilder.Count == 0)
+                if (symptombilder.Count == 0)
                 {
                     return Ok(new List<Diagnose>());
                 }
-                    List<DiagnoseListModel> diagnoser = await _diagnoseRepository.hentDiagnoser(symptombilder);
+                List<DiagnoseListModel> diagnoser = await _diagnoseRepository.hentDiagnoser(symptombilder);
+                _logger.LogInformation("Returned list of symptomDTO with size " + symptomliste.Count);
                 return Ok(diagnoser);
             }
             catch (EntityNotFoundException ex)
@@ -250,25 +266,27 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         }
 
 
-     
+
         [HttpGet]
         public async Task<IActionResult> getSymptomerGittGruppeId(int id)
         {
-            
-                if ( id < 0)
-                {
-                    _logger.LogError("Bad id input");
-                    return BadRequest("Bad id input");
-                }
-                try
+
+            if (id < 0)
             {
-                return Ok(await _symptomRepository.hentSymptomer(id));
+                _logger.LogError("Bad id input");
+                return BadRequest("Bad id input");
             }
-                catch (EntityNotFoundException ex)
-                {
-                    _logger.LogError("bad id");
-                    return NotFound("bad id");
-                }
+            try
+            {
+                List<SymptomListModel> symptomListe = await _symptomRepository.hentSymptomer(id);
+                _logger.LogInformation("Returned list of SymptomListModel with id " + id + " size " + symptomListe.Count);
+                return Ok(symptomListe);
+            }
+            catch (EntityNotFoundException ex)
+            {
+                _logger.LogError("bad id");
+                return NotFound("bad id");
+            }
             catch (Exception ex)
             {
                 _logger.LogError("Kunne ikke hente symptomer gitt id");
@@ -280,14 +298,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         {
             try
             {
-                return Ok(await _diagnoseGruppeRepository.hentDiagnoseGrupper());
+                List<DiagnoseGruppe> diagnoseGruppe = await _diagnoseGruppeRepository.hentDiagnoseGrupper();
+                _logger.LogInformation("Returned list of DiagnoseGruppe with size " + diagnoseGruppe.Count);
+                return Ok(diagnoseGruppe);
             }
             catch (EntityNotFoundException ex)
             {
                 _logger.LogError("bad id");
                 return NotFound("bad id");
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 _logger.LogError("Kunne ikke hente diagnose grupper");
                 return BadRequest("Something went wrong");
             }
@@ -297,7 +318,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         {
             try
             {
-                return Ok(await _symptomRepository.hentSymptomer());
+                List<Symptom> symptomer = await _symptomRepository.hentSymptomer();
+                _logger.LogInformation("Returned list of symptomer with size " + symptomer.Count);
+                return Ok(symptomer);
             }
             catch (EntityNotFoundException ex)
             {
@@ -314,14 +337,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         {
             try
             {
-                return Ok(await  _diagnoseRepository.hentDiagnoser());
+                List<Diagnose> diagnoser = await _diagnoseRepository.hentDiagnoser();
+                _logger.LogInformation("Returned list of diagnoser with size " + diagnoser.Count);
+                return Ok(diagnoser);
             }
             catch (EntityNotFoundException ex)
             {
                 _logger.LogError("bad id");
                 return NotFound("bad id");
             }
-            catch (Exception ex){
+            catch (Exception ex)
+            {
                 _logger.LogError("Kunne ikke hente diagnoser");
                 return BadRequest("Something went wrong");
             }
@@ -334,15 +360,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                 _logger.LogError("Bad id input");
                 return BadRequest("Bad id input");
             }
-                try
+            try
             {
-                return Ok(await _diagnoseRepository.hentDiagnoser(id));
+                List<Diagnose> diagnoser = await _diagnoseRepository.hentDiagnoser(id);
+                _logger.LogInformation("Returned list of diagnoser with id " + id + " and size " + diagnoser.Count);
+                return Ok(diagnoser);
             }
-                catch (EntityNotFoundException ex)
-                {
-                    _logger.LogError("bad id");
-                    return NotFound("bad id");
-                }
+            catch (EntityNotFoundException ex)
+            {
+                _logger.LogError("bad id");
+                return NotFound("bad id");
+            }
             catch (Exception ex)
             {
                 _logger.LogError("Kunne ikke hente diagnoser gitt id");
@@ -356,7 +384,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             {
                 try
                 {
-                    return Ok(await _symptomGruppeRepository.hentSymptomGrupper());
+                    List<SymptomGruppe> symptomGrupper = await _symptomGruppeRepository.hentSymptomGrupper();
+                    _logger.LogInformation("Returned list of symptomGrupper with size " + symptomGrupper.Count);
+                    return Ok(symptomGrupper);
                 }
                 catch (EntityNotFoundException ex)
                 {
@@ -376,8 +406,8 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
 
         }
-  
+
     }
 
-      
+
 }
