@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using obligDiagnoseVerktøyy.Repository.implementation;
 using obligDiagnoseVerktøyy.Repository.interfaces;
-using ObligDiagnoseVerktøyy.data;
-using ObligDiagnoseVerktøyy.Data;
+using DiagnoseKalkulatorAngular.data;
+using DiagnoseKalkulatorAngular.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +18,8 @@ builder.Services.AddLogging(logging =>
     logging.AddFile("Logs/diagnoseLog.txt");
 });
 builder.Services.AddLogging();
-
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddControllersWithViews();
 builder.Services.AddOptions();
 builder.Services.AddTransient<IDiagnoseRepository, DiagnoseRepository>();
 builder.Services.AddTransient<IDiagnoseGruppeRepository, DiagnoseGruppeRepository>();
@@ -43,6 +44,7 @@ if (!app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+app.UseDefaultFiles();
 app.UseStaticFiles();
 app.UseRouting();
 

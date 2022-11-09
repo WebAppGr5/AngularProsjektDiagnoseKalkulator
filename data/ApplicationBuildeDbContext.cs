@@ -1,11 +1,11 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using obligDiagnoseVerktøyy.Model.entities;
-using ObligDiagnoseVerktøyy.Data;
 using System.Xml;
+using DiagnoseKalkulatorAngular.Data;
 using static System.Reflection.Metadata.BlobBuilder;
 
-namespace ObligDiagnoseVerktøyy.data
+namespace DiagnoseKalkulatorAngular.data
 {
 
     public static class ApplicationBuilderExtensions

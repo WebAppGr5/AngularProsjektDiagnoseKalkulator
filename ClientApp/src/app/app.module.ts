@@ -33,9 +33,9 @@ import { InfoDiagnoseComponent } from './infoDiagnose/infoDiagnose.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'endre', component: EndreComponent, pathMatch: 'full' },
       { path: 'lagre', component: LagreComponent, pathMatch: 'full' },
-      { path: 'infoSymptomGruppe', component: InfoSymptomGruppeComponent, pathMatch: 'full' },
-      { path: 'infoSymptom', component: InfoSymptomComponent, pathMatch: 'full' },
-      { path: 'infoDiagnose', component: InfoDiagnoseComponent, pathMatch: 'full' }
+      { path: 'infoSymptomGruppe', component: InfoSymptomGruppeComponent, pathMatch: 'prefix' },
+      { path: 'infoSymptom', component: InfoSymptomComponent, pathMatch: 'prefix' },
+      { path: 'infoDiagnose', component: InfoDiagnoseComponent, pathMatch: 'prefix' }
     ])
   ],
   providers: [],

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using obligDiagnoseVerktøyy.Model.entities;
 using obligDiagnoseVerktøyy.Repository.interfaces;
-using ObligDiagnoseVerktøyy.Data;
+using DiagnoseKalkulatorAngular.Data;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -26,30 +26,29 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
             List<Diagnose> diagnoser = new List<Diagnose>();
             symptomBilder.ForEach(async (x) =>
             {
-                Diagnose diagnose = await  db.diagnose.Where((y) => x.diagnoseId == y.diagnoseId).FirstAsync();
+                Diagnose diagnose = await db.diagnose.Where((y) => x.diagnoseId == y.diagnoseId).FirstAsync();
                 if (diagnose == null)
                     throw new EntityNotFoundException("Diagnose returned with null value");
                 diagnoser.Add(diagnose);
 
             });
 
-            List<DiagnoseListModel> diagnoseListModel =  diagnoser.Distinct().ToList().ConvertAll((x) => new DiagnoseListModel { beskrivelse = x.beskrivelse, diagnoseId = x.diagnoseId, navn = x.navn});
+            List<DiagnoseListModel> diagnoseListModel = diagnoser.Distinct().ToList().ConvertAll((x) => new DiagnoseListModel { beskrivelse = x.beskrivelse, diagnoseId = x.diagnoseId, navn = x.navn });
             return diagnoseListModel;
         }
 
 
         public async void addDiagnose(DiagnoseCreateDTO diagnosDto)
         {
-            Diagnose diagnose = new Diagnose { beskrivelse = diagnosDto.beskrivelse, navn = diagnosDto.navn,diagnoseGruppeId = 4,dypForklaring = diagnosDto.dypForklaring};
-            if (diagnosDto.dypForklaring == null)
-                diagnose.dypForklaring = diagnose.beskrivelse;
+            Diagnose diagnose = new Diagnose { beskrivelse = diagnosDto.beskrivelse, navn = diagnosDto.navn, diagnoseGruppeId = 4, dypForklaring = diagnosDto.dypForklaring };
+
             db.diagnose.Add(diagnose);
             db.SaveChanges();
 
             //Diagnose har nå id
 
             SymptomBilde symptomBilde = new SymptomBilde
-                { beskrivelse = diagnosDto.beskrivelse, navn = diagnosDto.beskrivelse, diagnoseId = diagnose.diagnoseId,dypForklaring = " "};
+            { beskrivelse = diagnosDto.beskrivelse, navn = diagnosDto.beskrivelse, diagnoseId = diagnose.diagnoseId, dypForklaring = " " };
 
 
 
@@ -57,10 +56,10 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
             db.SaveChanges();
 
             List<int> symptomId = diagnosDto.symptomer.ConvertAll((x) => int.Parse(x));
-            for(int i = 0; i < symptomId.Count; i++ )
+            for (int i = 0; i < symptomId.Count; i++)
             {
                 SymptomSymptomBilde symptomSymptomBilde = new SymptomSymptomBilde
-                    { symptomBildeId = symptomBilde.symptomBildeId, symptomId = symptomId[i], varighet = diagnosDto.varigheter[i] };
+                { symptomBildeId = symptomBilde.symptomBildeId, symptomId = symptomId[i], varighet = diagnosDto.varigheter[i] };
                 db.symptomSymptomBilde.Add(symptomSymptomBilde);
             }
             await db.SaveChangesAsync();
@@ -72,26 +71,26 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
             if (diagnosen == null)
                 throw new EntityNotFoundException("Diagnose returned with null value");
 
-                      diagnosen.navn = diagnose.navn;
-                      diagnosen.beskrivelse = diagnose.beskrivelse;
-                      diagnosen.dypForklaring = diagnose.dypForklaring;
-                      if (diagnosen.dypForklaring == null)
-                          diagnosen.dypForklaring = diagnosen.beskrivelse;
+            diagnosen.navn = diagnose.navn;
+            diagnosen.beskrivelse = diagnose.beskrivelse;
+            diagnosen.dypForklaring = diagnose.dypForklaring;
+            if (diagnosen.dypForklaring == null)
+                diagnosen.dypForklaring = diagnosen.beskrivelse;
             db.diagnose.Update(diagnosen);
-             await db.SaveChangesAsync();
+            await db.SaveChangesAsync();
 
         }
 
         public async void Add(Diagnose diagnose)
         {
 
-            await  db.diagnose.AddAsync(diagnose);
+            await db.diagnose.AddAsync(diagnose);
             await db.SaveChangesAsync();
 
         }
-        public async  void deleteDiagnose(int diagnoseId)
+        public async void deleteDiagnose(int diagnoseId)
         {
-            Diagnose diagnose = await  db.diagnose.FindAsync(diagnoseId);
+            Diagnose diagnose = await db.diagnose.FindAsync(diagnoseId);
             if (diagnose == null)
                 throw new EntityNotFoundException("Diagnose returned with null value");
 
@@ -99,28 +98,34 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
             await db.SaveChangesAsync();
 
         }
-        public async  Task<DiagnoseDetailModel> hentDiagnoseGittDiagnoseId(int diagnoseId)
+        public async Task<DiagnoseDetailModel> hentDiagnoseGittDiagnoseId(int diagnoseId)
         {
-            Diagnose diagnose = await  db.diagnose.FindAsync(diagnoseId);
+            Diagnose diagnose = await db.diagnose.FindAsync(diagnoseId);
             if (diagnose == null)
                 throw new EntityNotFoundException("Diagnose returned with null value");
             DiagnoseDetailModel diagnoseListModle = new DiagnoseDetailModel()
             {
-                beskrivelse = diagnose.beskrivelse, diagnoseId = diagnose.diagnoseId, navn = diagnose.navn,
+                beskrivelse = diagnose.beskrivelse,
+                diagnoseId = diagnose.diagnoseId,
+                navn = diagnose.navn,
                 dypForklaring = diagnose.dypForklaring
             };
             return diagnoseListModle;
 
         }
-        public async  Task<List<Diagnose>> hentDiagnoser()
+        public async Task<List<DiagnoseListModel>> hentDiagnoser()
         {
-            List<Diagnose> diagnoser = await  db.diagnose.ToListAsync();
-            return diagnoser;
+            List<Diagnose> diagnoser = await db.diagnose.ToListAsync();
+            List<DiagnoseListModel> diagnoseListModel = diagnoser.ConvertAll((x) => new DiagnoseListModel()
+            { beskrivelse = x.beskrivelse, diagnoseId = x.diagnoseId, navn = x.navn });
+            return diagnoseListModel;
         }
-        public async  Task<List<Diagnose>> hentDiagnoser(int diagnoseGruppeId)
+        public async Task<List<DiagnoseListModel>> hentDiagnoser(int diagnoseGruppeId)
         {
-            List<Diagnose> diagnoser = await  db.diagnose.Where((x) => x.diagnoseGruppeId == diagnoseGruppeId).ToListAsync();
-            return diagnoser;
+            List<Diagnose> diagnoser = await db.diagnose.Where((x) => x.diagnoseGruppeId == diagnoseGruppeId).ToListAsync();
+            List<DiagnoseListModel> diagnoseListModel = diagnoser.ConvertAll((x) => new DiagnoseListModel()
+            { beskrivelse = x.beskrivelse, diagnoseId = x.diagnoseId, navn = x.navn });
+            return diagnoseListModel;
         }
     }
 }
