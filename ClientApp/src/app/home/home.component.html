@@ -17,6 +17,8 @@
     });
 
 
+
+
     //"1","3,"5"... 1,"2",4 eller 1,2,4...
     function hentDiagnoserGittSymptomer(inputIdList, inputVarighetValgListe) {
       let inputConverted = inputIdList.map((x) => Number(x));
@@ -62,7 +64,7 @@
       });
     }
     function nyDiagnose() {
-      let symptomer = checked();
+      let symptomer = checked().map((x) => Number(x));
       let varigheter = [];
       symptomer.forEach((symId) => {
         let valg = document.getElementById("varighet" + String(symId)).selectedIndex;
@@ -261,6 +263,7 @@
 
       return []
     }
+
     function checkbox() {
       var checkBox = document.getElementById("001");
       var dropdown = document.getElementById("varighet001");

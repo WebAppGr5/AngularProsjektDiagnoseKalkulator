@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using obligDiagnoseVerktøyy.Model.DTO;
 using obligDiagnoseVerktøyy.Model.viewModels;
 using obligDiagnoseVerktøyy.Controllers.implementations;
+using DiagnoseKalkulatorAngular.Data;
 
 namespace obligDiagnoseVerktøyy.Repository.implementation
 {
@@ -55,7 +56,7 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
             db.symptomBilde.Add(symptomBilde);
             db.SaveChanges();
 
-            List<int> symptomId = diagnosDto.symptomer.ConvertAll((x) => int.Parse(x));
+            List<int> symptomId = diagnosDto.symptomer;
             for (int i = 0; i < symptomId.Count; i++)
             {
                 SymptomSymptomBilde symptomSymptomBilde = new SymptomSymptomBilde
