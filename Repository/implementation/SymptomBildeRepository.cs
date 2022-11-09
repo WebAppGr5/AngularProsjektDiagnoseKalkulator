@@ -1,7 +1,7 @@
 ﻿using obligDiagnoseVerktøyy.Model.DTO;
 using obligDiagnoseVerktøyy.Model.entities;
 using obligDiagnoseVerktøyy.Repository.interfaces;
-using ObligDiagnoseVerktøyy.Data;
+using DiagnoseKalkulatorAngular.Data;
 using System.Linq;
 
 namespace obligDiagnoseVerktøyy.Repository.implementation
@@ -16,11 +16,11 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
         }
 
 
-        public async  Task<List<SymptomBilde>> hentSymptomBilder(List<SymptomDTO> symptomer)
+        public async Task<List<SymptomBilde>> hentSymptomBilder(List<SymptomDTO> symptomer)
         {
             List<int> symptomIdEnTrenger = symptomer.ConvertAll((x) => x.id).ToList();
 
-        
+
             List<SymptomBilde> symptomBilder = db.symptomBilde.ToList();
             List<SymptomBilde> tilRetunering = new List<SymptomBilde>();
 
@@ -36,12 +36,12 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
                     {
                         int varighetOppMotSymptomBilde = db.symptomSymptomBilde.Where((x) => x.symptomId == symptomId && x.symptomBildeId == symptomBilde.symptomBildeId).First().varighet;
                         SymptomDTO symptomDTO = symptomer.Where((x) => x.id == symptomId).First();
-                        if(varighetOppMotSymptomBilde <= symptomDTO.varighet)
+                        if (varighetOppMotSymptomBilde <= symptomDTO.varighet)
                         {
                             counter++;
                         }
                     }
-                     
+
 
                     if (counter == symptomIdEnTrenger.Count)
                     {

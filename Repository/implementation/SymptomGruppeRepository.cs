@@ -3,7 +3,7 @@ using obligDiagnoseVerktøyy.Controllers.implementations;
 using obligDiagnoseVerktøyy.Model.entities;
 using obligDiagnoseVerktøyy.Model.viewModels;
 using obligDiagnoseVerktøyy.Repository.interfaces;
-using ObligDiagnoseVerktøyy.Data;
+using DiagnoseKalkulatorAngular.Data;
 
 namespace obligDiagnoseVerktøyy.Repository.implementation
 {
@@ -21,7 +21,8 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
             if (symptomGruppe == null)
                 throw new EntityNotFoundException("symptomGruppe returned with null value");
             SymptomGruppeDetailModel symptomGruppeDetail = new SymptomGruppeDetailModel()
-            {symptomGruppeId = symptomGruppe.symptomGruppeId,
+            {
+                symptomGruppeId = symptomGruppe.symptomGruppeId,
                 beskrivelse = symptomGruppe.beskrivelse,
                 dypForklaring = symptomGruppe.dypForklaring,
                 navn = symptomGruppe.navn
@@ -38,11 +39,13 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
         }
 
 
-        public async Task<List<SymptomGruppe>> hentSymptomGrupper()
+        public async Task<List<SymptomGruppeListModel>> hentSymptomGrupper()
         {
-            List<SymptomGruppe> symptomGruppe = await  db.symptomGruppe.ToListAsync();
+            List<SymptomGruppe> symptomGruppe = await db.symptomGruppe.ToListAsync();
+            List<SymptomGruppeListModel> symptomGruppeList = symptomGruppe.ConvertAll((x) => new SymptomGruppeListModel
+            { beskrivelse = x.beskrivelse, navn = x.navn, symptomGruppeId = x.symptomGruppeId });
 
-            return symptomGruppe;
+            return symptomGruppeList;
         }
     }
 }

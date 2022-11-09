@@ -8,7 +8,7 @@ using System;
 
 using obligDiagnoseVerktøyy.Model.entities;
 
-namespace ObligDiagnoseVerktøyy.Data
+namespace DiagnoseKalkulatorAngular.Data
 {
     public class ApplicationDbContext : DbContext
     {
