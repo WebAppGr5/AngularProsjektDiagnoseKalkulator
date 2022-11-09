@@ -4,8 +4,7 @@ namespace obligDiagnoseVerktøyy.Model.DTO
 {
     public class DiagnoseCreateDTO
     {
-        [MaxLength(30)]
-        [MinLength(3)]
+
         [RegularExpression(@"^[a-zA-Z0-9\s-]{3,40}$")]
         public string navn { get; set; }
 
@@ -16,7 +15,9 @@ namespace obligDiagnoseVerktøyy.Model.DTO
         [Required]
         [MaxLength(5000)]
         public string dypForklaring { get; set; }
-        public List<string> symptomer { get; set; }
+        [Required]
+        public List<int> symptomer { get; set; }
+        [Required]
         public List<int> varigheter { get; set; }
     }
 }
