@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Logg inn</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"
+          integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+          crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Logg inn</h1>
+    <form class="form">
+      <div class="form-group">
+        <label>Brukernavn</label>
+        <input type="text" id="bruker" onchange="validerBruker(this.value)"/>
+        <span id="feilBruker" style="color:darkred"></span>
+      </div>
+      <div class="form-group">
+        <label>Passord:</label>
+        <input type="password" id="passord" onchange="validerPassord(this.value)"/>
+      </div>
+      <div class="form-group">
+        <input type="button" value="Logg inn" onclick="LoggInn()" class="btn btn-primary" />
+        <span id="feilPassord" style="color:darkred"></span>
+      </div>
+      
+    </form>
+  </div>
+</body>
+
+</html>
