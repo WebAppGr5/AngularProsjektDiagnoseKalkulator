@@ -18,7 +18,7 @@ export class LagreComponent {
 
       navn: ["", Validators.compose([
         Validators.required,
-        Validators.pattern(/^[a-zA-Z0-9\s-]{3,40}$/),
+        Validators.pattern(/^[a-zA-ZÆØÅæøå0-9\s-]{3,40}$/),
       ])],
       beskrivelse: ["", Validators.compose([
         Validators.required,

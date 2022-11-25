@@ -7,7 +7,7 @@ namespace obligDiagnoseVerktøyy.Model.DTO
         [RegularExpression(@"^[0-9]{1,6}$")]
         public int diagnoseId { get; set; }
 
-        [RegularExpression(@"^[a-zA-Z0-9\s-]{3,40}$")]
+        [RegularExpression(@"^[a-zA-ZÆØÅæøå0-9\s-]{3,40}$")]
         public string navn { get; set; }
 
         [Required]

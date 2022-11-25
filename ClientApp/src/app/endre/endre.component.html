@@ -487,8 +487,7 @@
           <textarea class="boks boks1" formControlName="dypForklaring" id="dypForklaringDiagnose"></textarea>
         </div>
 
-        <button class="knapp" id="nyDiagnose" onclick="nyDiagnose()">Lagre diagnose</button>
-        <button class="knapp" id="endreDiagnose" onclick="utforEndring()">Utfør endring</button>
+        <button class="knapp" id="endreDiagnose" (click)="utforEndring()"  [disabled]="!this.endreSchema.valid">>Utfør endring</button>
 
       </form>
     </div>
