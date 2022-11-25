@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using obligDiagnoseVerktøyy.Model.entities;
 using System.Xml;
 using DiagnoseKalkulatorAngular.Data;
+using symptkalk.model;
+using symptkalk.Model;
 using static System.Reflection.Metadata.BlobBuilder;
 
 namespace DiagnoseKalkulatorAngular.data
@@ -23,7 +25,8 @@ namespace DiagnoseKalkulatorAngular.data
             db.symptomSymptomBilde.ToList().ForEach((x) => db.Remove(x));
             db.symptomGruppe.ToList().ForEach((x) => db.Remove(x));
             db.symptomBilde.ToList().ForEach((x) => db.Remove(x));
-
+            db.brukerInfo.ToList().ForEach((x) => db.Remove(x));
+            db.brukerLogin.ToList().ForEach((x) => db.Remove(x));
 
             db.SaveChanges();
 
@@ -35,7 +38,47 @@ namespace DiagnoseKalkulatorAngular.data
             List<SymptomGruppe> symptomGrupper;
             List<SymptomBilde> symptomBilder;
             List<SymptomSymptomBilde> symptomSymptomBilder;
+            List<BrukerInfo> brukerInfo;
+            List<BrukerLogIn> brukerLogIn;
 
+            
+
+            brukerInfo = new List<BrukerInfo>
+            {
+                new BrukerInfo
+                {
+                    etternavn = "per",
+                    Fornavn = "jola",
+                    ID = 1
+                },
+                new BrukerInfo
+                {
+                    etternavn = "ter",
+                    Fornavn = "saga",
+                    ID = 2
+                }
+            };
+            brukerInfo.ForEach((x) => db.brukerInfo.Add(x));
+            db.SaveChanges();
+
+
+            brukerLogIn = new List<BrukerLogIn>
+            {
+                new BrukerLogIn
+                {
+                    brukernavn = "tora",
+                    ID=1,
+                    passord="123456"
+                },
+                new BrukerLogIn
+                {
+                    brukernavn = "tarfo",
+                    ID=2,
+                    passord="test1234"
+                }
+            };
+            brukerLogIn.ForEach((x) => db.brukerLogin.Add(x));
+            db.SaveChanges();
 
             diagnoseGrupper = new List<DiagnoseGruppe>
             {

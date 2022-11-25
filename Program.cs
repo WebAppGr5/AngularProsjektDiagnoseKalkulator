@@ -26,6 +26,7 @@ builder.Services.AddTransient<IDiagnoseGruppeRepository, DiagnoseGruppeRepositor
 builder.Services.AddTransient<ISymptomBildeRepository, SymptomBildeRepository>();
 builder.Services.AddTransient<ISymptomGruppeRepository, SymptomGruppeRepository>();
 builder.Services.AddTransient<ISymptomRepository, SymptomRepository>();
+builder.Services.AddTransient<IBrukerRepository, BrukerRepository>();
 builder.Services.AddSession(options =>
 {
     options.Cookie.Name = ".DiagnoseKalkulator.Session";

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using obligDiagnoseVerktøyy.Repository.interfaces;
 using symptkalk.Model;
 
 namespace symptkalk.controller
@@ -10,14 +11,14 @@ namespace symptkalk.controller
     [Route("[controller]/[action]")]
     public class logInController : ControllerBase
     {
-        private IbrukerRepository _db;
+        private IBrukerRepository _db;
 
-        private ILogger<KundeController> _log;
+        private ILogger<logInController> _log;
 
         private const string _LoggetInn = "InnLogget";
         private const string _ikkeLoggetInn = "";
 
-        public brukerController(IbrukerRepository db, ILogger<KundeController> log) 
+        public logInController(IBrukerRepository db, ILogger<logInController> log) 
         {
             _db = db;
             _log = log;
