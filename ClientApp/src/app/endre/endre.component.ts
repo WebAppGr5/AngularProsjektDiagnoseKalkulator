@@ -19,7 +19,7 @@ export class EndreComponent {
 
       navn: [null, Validators.compose([
         Validators.required,
-        Validators.pattern(/^[a-zA-Z0-9\s-]{3,40}$/),
+        Validators.pattern(/^[a-zA-ZÆØÅæøå0-9\s-]{3,40}$/),
       ])],
       beskrivelse: ["", Validators.compose([
         Validators.required,
@@ -40,7 +40,19 @@ export class EndreComponent {
       return;
     const headers = { 'content-type': 'application/json; charset=utf-8' };
     const url = "Diagnose/hentDiagnoseGittDiagnoseId/" + String(id);
-    this.http.get<DiagnoseDetailModel>(url, { 'headers': headers }).subscribe((res) => { });
+    this.http.get<DiagnoseDetailModel>(url, { 'headers': headers }).subscribe((res) => {
+      this.endreSchema.setValue({
+        navn: String(res.navn),
+        beskrivelse: String(res.beskrivelse),
+        diagnoseId: Number(res.diagnoseId),
+        dypForklaring: String(res.dypForklaring)
+
+      });
+      this.endreSchema.value.navn = res.navn;
+      this.endreSchema.value.beskrivelse = res.beskrivelse;
+      this.endreSchema.value.diagnoseId = res.diagnoseId;
+      this.endreSchema.value.dypForklaring = res.dypForklaring;
+    });
   }
   ngOnInit() {
     this.route.params.subscribe(params => {

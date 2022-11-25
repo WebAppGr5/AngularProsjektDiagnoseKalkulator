@@ -5,7 +5,7 @@ namespace obligDiagnoseVerktøyy.Model.DTO
     public class DiagnoseCreateDTO
     {
 
-        [RegularExpression(@"^[a-zA-Z0-9\s-]{3,40}$")]
+        [RegularExpression(@"^[a-zA-Z0-9ÆØÅæøå\s-]{3,40}$")]
         public string navn { get; set; }
 
         [Required]
