@@ -13,6 +13,6 @@ export class LagreComponent {
   constructor(private http: HttpClient, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => { this.id = params.id })
+
   }
 }
