@@ -12,6 +12,7 @@ import { LagreComponent } from './lagre/lagre.component';
 import { InfoSymptomGruppeComponent } from './infoSymptomGruppe/infoSymptomGruppe.component';
 import { InfoSymptomComponent } from './infoSymptom/infoSymptom.component';
 import { InfoDiagnoseComponent } from './infoDiagnose/infoDiagnose.component';
+import { ListDiagnoserComponent } from './diagnoseListe/listdiagnoser.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { InfoDiagnoseComponent } from './infoDiagnose/infoDiagnose.component';
     LagreComponent,
     InfoSymptomGruppeComponent,
     InfoSymptomComponent,
-    InfoDiagnoseComponent
+    InfoDiagnoseComponent,
+    ListDiagnoserComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,7 +38,9 @@ import { InfoDiagnoseComponent } from './infoDiagnose/infoDiagnose.component';
       { path: 'lagre', component: LagreComponent, pathMatch: 'full' },
       { path: 'infoSymptomGruppe/:id', component: InfoSymptomGruppeComponent, pathMatch: 'prefix' },
       { path: 'infoSymptom/:id', component: InfoSymptomComponent, pathMatch: 'prefix' },
-      { path: 'infoDiagnose/:id', component: InfoDiagnoseComponent, pathMatch: 'prefix' }
+      { path: 'infoDiagnose/:id', component: InfoDiagnoseComponent, pathMatch: 'prefix' },
+      { path: 'listDiagnoser', component: ListDiagnoserComponent, pathMatch: 'prefix' }
+      
     ])
   ],
   providers: [],

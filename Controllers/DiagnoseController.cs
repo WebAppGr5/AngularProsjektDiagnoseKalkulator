@@ -337,6 +337,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                 return BadRequest("Something went wrong");
             }
         }
+        [HttpGet]
         public async Task<IActionResult> getDiagnoser()
         {
             try
