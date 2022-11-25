@@ -33,6 +33,46 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ClientApp\src\models\DiagnoseChangeDTO.ts" />
+    <None Remove="ClientApp\src\models\DiagnoseCreateDTO.ts" />
+    <None Remove="ClientApp\src\models\DiagnoseDetailModel.ts" />
+    <None Remove="ClientApp\src\models\DiagnoseListModel.ts" />
+    <None Remove="ClientApp\src\models\SymptomDetailModel.ts" />
+    <None Remove="ClientApp\src\models\SymptomDTO.ts" />
+    <None Remove="ClientApp\src\models\SymptomGruppeDetailModel.ts" />
+    <None Remove="ClientApp\src\models\SymptomGruppeListModel.ts" />
+    <None Remove="ClientApp\src\models\SymptomListModel.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\models\SymptomGruppeDetailModel.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\models\SymptomDetailModel.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\models\DiagnoseChangeDTO.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\models\DiagnoseCreateDTO.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\models\SymptomDTO.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\models\DiagnoseDetailModel.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\models\SymptomListModel.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\models\SymptomGruppeListModel.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\models\DiagnoseListModel.ts" />
+  </ItemGroup>
+
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
