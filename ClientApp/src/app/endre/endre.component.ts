@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 
+import { DiagnoseDetailModel } from '../../models/DiagnoseDetailModel';
+
 @Component({
   selector: 'app-endre',
   templateUrl: './endre.component.html',
@@ -32,9 +34,24 @@ export class EndreComponent {
       ])]
     });
   }
- 
+
+  getDiagnose(id: Number) {
+    if (id == null)
+      return;
+    const headers = { 'content-type': 'application/json; charset=utf-8' };
+    const url = "Diagnose/hentDiagnoseGittDiagnoseId/" + String(id);
+    this.http.get<DiagnoseDetailModel>(url, { 'headers': headers }).subscribe((res) => { });
+  }
   ngOnInit() {
-    this.route.params.subscribe(params => { this.id = params.id })
+    this.route.params.subscribe(params => {
+      
+      if (params.id != null) {
+        this.id = params.id;
+        this.getDiagnose(Number(this.id));
+      }
+
+    })
+
 
   }
 }
