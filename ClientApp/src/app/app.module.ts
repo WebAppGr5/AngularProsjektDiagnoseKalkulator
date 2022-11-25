@@ -32,11 +32,11 @@ import { InfoDiagnoseComponent } from './infoDiagnose/infoDiagnose.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'endre', component: EndreComponent, pathMatch: 'full' },
+      { path: 'endre/:id', component: EndreComponent, pathMatch: 'full' },
       { path: 'lagre', component: LagreComponent, pathMatch: 'full' },
-      { path: 'infoSymptomGruppe', component: InfoSymptomGruppeComponent, pathMatch: 'prefix' },
-      { path: 'infoSymptom', component: InfoSymptomComponent, pathMatch: 'prefix' },
-      { path: 'infoDiagnose', component: InfoDiagnoseComponent, pathMatch: 'prefix' }
+      { path: 'infoSymptomGruppe/:id', component: InfoSymptomGruppeComponent, pathMatch: 'prefix' },
+      { path: 'infoSymptom/:id', component: InfoSymptomComponent, pathMatch: 'prefix' },
+      { path: 'infoDiagnose/:id', component: InfoDiagnoseComponent, pathMatch: 'prefix' }
     ])
   ],
   providers: [],

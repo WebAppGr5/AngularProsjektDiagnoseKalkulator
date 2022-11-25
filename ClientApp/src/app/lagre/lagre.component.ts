@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DiagnoseDetailModel } from '../../models/DiagnoseDetailModel';
 
 @Component({
   selector: 'app-lagre',
@@ -9,10 +10,29 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LagreComponent {
   id: Number | undefined;
+  lageSchema: FormGroup;
+  diagnose: DiagnoseDetailModel | undefined;
 
-  constructor(private http: HttpClient, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) { }
+  constructor(private http: HttpClient, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
+    this.lageSchema = fb.group({
+
+      navn: ["", Validators.compose([
+        Validators.required,
+        Validators.pattern(/^[a-zA-Z0-9\s-]{3,40}$/),
+      ])],
+      beskrivelse: ["", Validators.compose([
+        Validators.required,
+        Validators.maxLength(700)
+      ])],
+      dypForklaring: ["", Validators.compose([
+        Validators.required,
+        Validators.maxLength(5000)
+      ])]
+    });
+  }
+
 
   ngOnInit() {
-    this.route.params.subscribe(params => { this.id = params.id })
+
   }
 }

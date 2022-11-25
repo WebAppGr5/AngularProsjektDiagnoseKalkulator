@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SymptomGruppeListModel } from '../../models/SymptomGruppeListModel';
 import { SymptomListModel } from '../../models/SymptomListModel';
@@ -10,6 +11,7 @@ import { SymptomListModel } from '../../models/SymptomListModel';
 })
 export class HomeComponent {
 
+
   symptomGrupper: SymptomGruppeListModel[] | undefined;
   //Alternativ 1... motta symptomgrupper, og bruk map for å finne tilhørende symptomer
   symptomer: Map<Number, SymptomListModel[]>
@@ -17,7 +19,7 @@ export class HomeComponent {
   //Alternativ 2: hent alle symptomer, og plasser dem i riktig kategori før en printer ut.
   symptomerAlt2: SymptomListModel[] | undefined;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
+  constructor(private http: HttpClient, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
     this.symptomer = new Map<Number, SymptomListModel[]>();
     //this.symptomer.set(1, ...)
     //liste: SymptomListModel[] = this.symptomer.get(...);
