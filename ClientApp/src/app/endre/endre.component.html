@@ -458,7 +458,7 @@
   <div class="bokser">
 
     <div class="boks boks1">
-      <div>
+      <form [formGroup]="endreSchema">
         Id er: {{id}}
         <h2 class='underoverskrift'>Lagre diagnose/Endre diagnose:</h2>
         <span>
@@ -466,22 +466,31 @@
           Når en endrer diagnose ved å trykke på endre knapp ved siden av diagnose, og trykker utfør endring, så
           vil ikke diagnosen få nye symptomer/varigheter.
         </span>
-        <input class="boks boks1" type="hidden" id="diagnoseIdEndre"/>
+        <input class="boks boks1" type="hidden" formControlName="diagnoseId" id="diagnoseIdEndre" />
         <div>
-          <label for="navnDiagnose"><strong>Navn</strong></label><br/>
-          <input class="input" id="navnDiagnose"/>
+
+          <label for="navnDiagnose"><strong>Navn</strong></label><br />
+          <span style="color:red" *ngIf="this.endreSchema.controls['navn'].status=='INVALID'"> Ugyldig input</span><br />
+          <input class="input" formControlName="navn" id="navnDiagnose" />
         </div>
         <div>
-          <label for="beskrivelseDiagnose"><strong>Beskrivelse</strong></label><br/><textarea class="boks boks1" id="beskrivelseDiagnose"></textarea>
+
+          <label for="beskrivelseDiagnose"><strong>Beskrivelse</strong></label><br />
+          <span style="color:red" *ngIf="this.endreSchema.controls['beskrivelse'].status=='INVALID'"> Ugyldig input</span><br />
+          <textarea class="boks boks1" formControlName="beskrivelse" id="beskrivelseDiagnose"></textarea>
         </div>
 
         <div>
-          <label for="dypForklaringDiagnose"><strong>Dyp forklaring</strong></label><br/><textarea class="boks boks1" id="dypForklaringDiagnose"></textarea>
+
+          <label for="dypForklaringDiagnose"><strong>Dyp forklaring</strong></label><br />
+          <span style="color:red" *ngIf="this.endreSchema.controls['dypForklaring'].status=='INVALID'">Ugyldig input</span><br />
+          <textarea class="boks boks1" formControlName="dypForklaring" id="dypForklaringDiagnose"></textarea>
         </div>
 
         <button class="knapp" id="nyDiagnose" onclick="nyDiagnose()">Lagre diagnose</button>
         <button class="knapp" id="endreDiagnose" onclick="utforEndring()">Utfør endring</button>
-      </div>
+
+      </form>
     </div>
   </div>
 </body>
