@@ -5,10 +5,11 @@ using System.Diagnostics.CodeAnalysis;
 namespace symptkalk.Model
 {
     [ExcludeFromCodeCoverage]
+    //Lager modell for personlig info om bruker
     public class BrukerInfo
     {
         [Key]
-        [RegularExpression(@"[a-zA-zæøåÆØÅ. \-]{3,25}")]
+        [RegularExpression(@"[\d-]{4}")]
         public int ID { get; set; }
 
         [RegularExpression(@"[a-zA-zæøåÆØÅ. \-]{3,20}")]
