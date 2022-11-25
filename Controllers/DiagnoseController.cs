@@ -76,7 +76,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> update([FromBody] DiagnoseChangeDTO diagnose)
         {
             if (ModelState.IsValid)

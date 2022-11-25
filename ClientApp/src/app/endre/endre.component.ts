@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
+import { DiagnoseChangeDTO } from '../../models/DiagnoseChangeDTO';
+
 
 import { DiagnoseDetailModel } from '../../models/DiagnoseDetailModel';
 
@@ -53,6 +55,20 @@ export class EndreComponent {
       this.endreSchema.value.diagnoseId = res.diagnoseId;
       this.endreSchema.value.dypForklaring = res.dypForklaring;
     });
+  }
+
+  utforEndring() {
+    if (this.endreSchema.valid) {
+      const diagnoseChangeDTO = new DiagnoseChangeDTO(this.endreSchema.value.navn, this.endreSchema.value.beskrivelse, this.endreSchema.value.dypForklaring, this.endreSchema.value.diagnoseId);
+      const headers = { 'content-type': 'application/json; charset=utf-8' };
+      const data = JSON.stringify(diagnoseChangeDTO);
+
+      const url = "Diagnose/Update/";
+      this.http.put(url, data, {'headers':headers}).subscribe((res) => {
+   
+      });
+
+    }
   }
   ngOnInit() {
     this.route.params.subscribe(params => {
