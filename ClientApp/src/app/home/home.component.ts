@@ -40,6 +40,13 @@ export class HomeComponent {
 
     if (this.symptomGruppeMap) {
       const symptomGruppeListModel = this.symptomGruppeMap.get(Number(symptomGruppeId));
+      const symptomer = this.symptomerMap.get(Number(symptomGruppeId));
+      //Når en legger closer, så har en ikke valgt noen av disse symtomene
+      if (symptomer) {
+        symptomer.forEach((symptom) => {
+          symptom.doHave = false;
+        });
+      }
       if (symptomGruppeListModel) {
         if (symptomGruppeListModel.hidden)
           symptomGruppeListModel.hidden = false;
@@ -47,6 +54,24 @@ export class HomeComponent {
           symptomGruppeListModel.hidden = true;
       }
     }
+
+  }
+  toggleSelectList(symptomGruppeId: Number, symptomId: Number) {
+    if (this.symptomerMap) {
+      const symptomer = this.symptomerMap.get(Number(symptomGruppeId));
+      if (symptomer) {
+        const symptomListModel = symptomer.filter((x) => x.symptomId == symptomId)[0];
+        if (symptomListModel) {
+          if (symptomListModel.doHave)
+            symptomListModel.doHave = false;
+          else
+            symptomListModel.doHave = true;
+        }
+      }
+
+    }
+  }
+  sendIdAndSelectListToServer() {
 
   }
   hentSymptomGrupper() {
