@@ -52,6 +52,10 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         [HttpGet("{id}")]
         public async Task<IActionResult> forgetDiagnose([FromRoute] int id)
         {
+            bool erLoggetInn = true;
+            if (!erLoggetInn)
+                return Unauthorized("Need to be loged in to do this");
+
             if (id < 0)
             {
                 _logger.LogInformation("Bad id input");
@@ -79,6 +83,10 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         [HttpPut]
         public async Task<IActionResult> update([FromBody] DiagnoseChangeDTO diagnose)
         {
+            bool erLoggetInn = true;
+            if (!erLoggetInn)
+                return Unauthorized("Need to be loged in to do this");
+
             if (ModelState.IsValid)
             {
 
@@ -202,6 +210,10 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         [HttpPost]
         public async Task<IActionResult> nyDiagnose([FromBody] DiagnoseCreateDTO diagnose)
         {
+            bool erLoggetInn = true;
+            if (!erLoggetInn)
+                return Unauthorized("Need to be loged in to do this");
+
             if (ModelState.IsValid)
             {
                 try

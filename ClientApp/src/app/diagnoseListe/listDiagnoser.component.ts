@@ -34,6 +34,10 @@ export class ListDiagnoserComponent {
 
   }
   forgetDiagnose(diagnoseId: Number) {
-
+    const url = "Diagnose/forgetDiagnose/" + String(diagnoseId);
+    const headers = { 'content-type': 'application/json; charset=utf-8' };
+    this.http.get<any>(url, { 'headers': headers }).subscribe((res) => {
+       this.hentDiagnoser();
+    });
   }
 }
