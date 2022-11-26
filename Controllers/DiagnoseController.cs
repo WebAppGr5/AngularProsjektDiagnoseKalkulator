@@ -266,7 +266,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
         }
 
-        //Liste over int id, f.eks 1 2 4 6 7
+
         [HttpPost]
         /**
        *  Ulike symptombilder består av ulike symptomer. SymptomDTO består av liste av varigheter og symptomer.
