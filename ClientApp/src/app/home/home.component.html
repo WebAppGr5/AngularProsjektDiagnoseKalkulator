@@ -438,6 +438,7 @@
 
 
 
+
   <div class="bokser">
     <div class="boks boks1">
       <div class="underoverskrift">
@@ -450,21 +451,38 @@
               {{symptomGruppe.navn}}<img class='dropDownIkon' src='img/pilned.png' alt='dropdown ikon'>";
             </button>
             <div *ngIf="!symptomGruppe.hidden">
-              test
+              <div *ngFor="let symptom of symptomerMap.get(symptomGruppe.symptomGruppeId)">
+                <input class="symptomene" type="checkbox" id="String({{symptom.symptomId}})" name="symptom" value="String(symptom.name)" (click)="toggleSelectList(symptomGruppe.symptomGruppeId,symptom.symptomId)">
+                <label for=" + String(symptom.symptomId) + ">{{symptom.navn}}</label>
+                <label  class="symptomene" for="varighet symptom.symptomId" *ngIf="symptom.doHave"> Velg varighet:</label>
+                <select class="varighet" id="varighet + String(symptom.symptomId)  " *ngIf="symptom.doHave" (change)="sendIdAndSelectListToServer()">
+                  <option>--</option>
+                  <option>1-3 dager</option>
+                  <option>Flere dager</option>
+                  <option>1-3 uker</option>
+                  <option>1-3 måneder</option>
+                  <option>Flere måneder</option>
+                  <option>1-3 år</option>
+                  <option>Flere år</option>
+                </select>    <br />
+              </div>
+
             </div>
 
           </div>
         </div>
+
       </div>
 
-    </div>
 
-    <div class="boks boks2">
-      <div id="diagnoser">
+  </div>
 
-        <h2 class='underoverskrift'>Diagnoser:</h2>
-      </div>
+  <div class="boks boks2">
+    <div id="diagnoser">
+
+      <h2 class='underoverskrift'>Diagnoser:</h2>
     </div>
+  </div>
   </div>
   <div class="bokser">
 
@@ -484,7 +502,7 @@
       <button [routerLink]="['/infoSymptom',3]"> Test info symptom 2 </button>
       <button [routerLink]="['/infoSymptom',8]"> Test info symptom 3 </button>
     </div>
-    </div>
+  </div>
 </body>
 </html>
 
