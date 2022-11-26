@@ -37,7 +37,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
         public DiagnoseController(IDiagnoseRepository diagnoseRepository, IDiagnoseGruppeRepository diagnoseGruppeRepository, ISymptomBildeRepository symptomBildeRepository, ISymptomGruppeRepository symptomGruppeRepository, ISymptomRepository symptomRepository, ILogger<DiagnoseController> logger)
         {
-            List<string> symptomListe = new List<string>();
+
             this._logger = logger;
             this._diagnoseRepository = diagnoseRepository;
             this._diagnoseGruppeRepository = diagnoseGruppeRepository;
