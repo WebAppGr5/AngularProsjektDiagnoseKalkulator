@@ -37,7 +37,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
         public DiagnoseController(IDiagnoseRepository diagnoseRepository, IDiagnoseGruppeRepository diagnoseGruppeRepository, ISymptomBildeRepository symptomBildeRepository, ISymptomGruppeRepository symptomGruppeRepository, ISymptomRepository symptomRepository, ILogger<DiagnoseController> logger)
         {
-            List<string> symptomListe = new List<string>();
+
             this._logger = logger;
             this._diagnoseRepository = diagnoseRepository;
             this._diagnoseGruppeRepository = diagnoseGruppeRepository;
@@ -50,8 +50,15 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
 
         [HttpGet("{id}")]
+        /**
+         *  Sletter diagnose med gitt id
+         */
         public async Task<IActionResult> forgetDiagnose([FromRoute] int id)
         {
+            bool erLoggetInn = true;
+            if (!erLoggetInn)
+                return Unauthorized("Need to be loged in to do this");
+
             if (id < 0)
             {
                 _logger.LogInformation("Bad id input");
@@ -77,8 +84,15 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         }
 
         [HttpPut]
+        /**
+         *  Oppdaterer diagnose med info tilsvarende DiagnoseChangeDTO diagnose
+         */
         public async Task<IActionResult> update([FromBody] DiagnoseChangeDTO diagnose)
         {
+            bool erLoggetInn = true;
+            if (!erLoggetInn)
+                return Unauthorized("Need to be loged in to do this");
+
             if (ModelState.IsValid)
             {
 
@@ -118,6 +132,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         }
 
         [HttpGet("{id}")]
+        /**
+         *  Henter diagnose med gitt id
+         */
         public async Task<IActionResult> hentDiagnoseGittDiagnoseId([FromRoute] int id)
         {
             if (id < 0)
@@ -145,6 +162,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
         }
         [HttpGet("{id}")]
+        /**
+         *  Henter symptomer med gitt id
+         */
         public async Task<IActionResult> hentSymptomGittSymptomId([FromRoute] int id)
         {
             if (id < 0)
@@ -172,6 +192,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         }
 
         [HttpGet("{id}")]
+        /**
+         *  Henter symptomer med gitt gruppe id
+         */
         public async Task<IActionResult> hentSymptomGruppeGittSymptomGruppeId([FromRoute] int id)
         {
             if (id < 0)
@@ -200,8 +223,15 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         }
 
         [HttpPost]
+        /**
+         *  Lager ny diagnose med innhold fra  DiagnoseCreateDTO diagnose
+         */
         public async Task<IActionResult> nyDiagnose([FromBody] DiagnoseCreateDTO diagnose)
         {
+            bool erLoggetInn = true;
+            if (!erLoggetInn)
+                return Unauthorized("Need to be loged in to do this");
+
             if (ModelState.IsValid)
             {
                 try
@@ -236,8 +266,20 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
         }
 
-        //Liste over int id, f.eks 1 2 4 6 7
+
         [HttpPost]
+        /**
+       *  Ulike symptombilder består av ulike symptomer. SymptomDTO består av liste av varigheter og symptomer.
+       *  Hvert symptom har en varighet. Hvis symptomet befant seg i posisjon J i symptomlisten, så 
+       *  befinner varigheten assosiert med dette symptomet i posisjon J i listen over varigheter.
+       *  
+       *  Så lenge symptomSymtombilde (en mange til mange, med symptom i posisjon J) har en varighet større eller lik
+       *  varigheten i posisjon J i varighet listen, så vil symptombilde være med i listen.
+       *  
+       *  Symptombilder uten symptomer som er i listen som kommer inn, blir ikke med i retunert liste.
+       *  Dvs, at tom liste av symptomer, medfører at ingenting blir retunert.
+       *  
+       */
         public async Task<IActionResult> getDiagnoserGittSymptomer([FromBody] List<SymptomDTO> symptomliste)
         {
 
@@ -272,6 +314,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
 
         [HttpGet("{id}")]
+        /**
+         *  Symptomer gitt gruppe id
+         */
         public async Task<IActionResult> getSymptomerGittGruppeId([FromRoute] int id)
         {
 
@@ -298,6 +343,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
         }
         [HttpGet]
+        /**
+         *   Alle diagnose grupper
+         */
         public async Task<IActionResult> getDiagnoseGrupper()
         {
             try
@@ -318,6 +366,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
         }
         [HttpGet]
+        /**
+         *  Alle symptomer
+         */
         public async Task<IActionResult> getSymptomer()
         {
             try
@@ -338,6 +389,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
         }
         [HttpGet]
+        /**
+         *  Alle diagnoser
+         */
         public async Task<IActionResult> getDiagnoser()
         {
             try
@@ -358,6 +412,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
         }
         [HttpGet("{id}")]
+        /**
+         *  Alle diagnoser gitt gruppe id
+         */
         public async Task<IActionResult> getDiagnoserGittGruppeId([FromRoute] int id)
         {
             if (id < 0)
@@ -383,6 +440,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             }
         }
         [HttpGet]
+        /**
+         *  Alle symptom grupper
+         */
         public async Task<IActionResult> getSymptomGrupper()
         {
             if (ModelState.IsValid)
