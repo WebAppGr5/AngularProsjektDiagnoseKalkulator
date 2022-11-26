@@ -18,6 +18,8 @@ export class HomeComponent {
 
   symptomGruppeMap: Map<Number, SymptomGruppeListModel> | undefined;
 
+  optionsVarigheter: String[] = ["--", "1-3 dager", "Flere dager", "1-3 måneder", "Flere måneder", "1-3 år", "Flere år"];
+
   constructor(private http: HttpClient, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
     this.symptomerMap = new Map<Number, SymptomListModel[]>();
     this.symptomGruppeMap = new Map<Number, SymptomGruppeListModel>();
@@ -45,6 +47,7 @@ export class HomeComponent {
       if (symptomer) {
         symptomer.forEach((symptom) => {
           symptom.doHave = false;
+          symptom.varighetsValg = 0;
         });
       }
       if (symptomGruppeListModel) {
@@ -56,12 +59,30 @@ export class HomeComponent {
     }
 
   }
+
+  doSetOption(symptomGruppeId: Number, symptomId: Number, event: any) {
+
+    if (event && event.target && event.target.options) {
+      if (this.symptomerMap) {
+        const symptomer = this.symptomerMap.get(Number(symptomGruppeId));
+        if (symptomer) {
+          const symptomListModel = symptomer.filter((x) => x.symptomId == symptomId)[0];
+          const varighetsValg = event.target.options.selectedIndex
+          symptomListModel.varighetsValg = varighetsValg;
+        }
+
+
+      }
+    }
+  }
+
   toggleSelectList(symptomGruppeId: Number, symptomId: Number) {
     if (this.symptomerMap) {
       const symptomer = this.symptomerMap.get(Number(symptomGruppeId));
       if (symptomer) {
         const symptomListModel = symptomer.filter((x) => x.symptomId == symptomId)[0];
         if (symptomListModel) {
+          symptomListModel.varighetsValg = 0;
           if (symptomListModel.doHave)
             symptomListModel.doHave = false;
           else
