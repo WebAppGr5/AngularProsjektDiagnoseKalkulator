@@ -30,9 +30,7 @@ export class ListDiagnoserComponent {
          this.diagnoser = res;
     });
   }
-  endre(diagnoseId: Number) {
 
-  }
   forgetDiagnose(diagnoseId: Number) {
     const url = "Diagnose/forgetDiagnose/" + String(diagnoseId);
     const headers = { 'content-type': 'application/json; charset=utf-8' };

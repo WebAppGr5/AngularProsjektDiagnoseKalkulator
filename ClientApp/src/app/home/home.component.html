@@ -444,6 +444,17 @@
         <h2>Kryss av dine symptomer:</h2>
       </div>
       <div id="symptomGrupper">
+        <div *ngFor="let symptomGruppe of symptomGrupper">
+          <div id="meny">
+            <button class='knapp' (click)="toggleKategori(symptomGruppe.symptomGruppeId)">
+              {{symptomGruppe.navn}}<img class='dropDownIkon' src='img/pilned.png' alt='dropdown ikon'>";
+            </button>
+            <div *ngIf="!symptomGruppe.hidden">
+              test
+            </div>
+
+          </div>
+        </div>
       </div>
 
     </div>
