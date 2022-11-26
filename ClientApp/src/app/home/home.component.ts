@@ -13,18 +13,59 @@ export class HomeComponent {
 
 
   symptomGrupper: SymptomGruppeListModel[] | undefined;
-  //Alternativ 1... motta symptomgrupper, og bruk map for å finne tilhørende symptomer
-  symptomer: Map<Number, SymptomListModel[]>
 
-  //Alternativ 2: hent alle symptomer, og plasser dem i riktig kategori før en printer ut.
-  symptomerAlt2: SymptomListModel[] | undefined;
+  symptomerMap: Map<Number, SymptomListModel[]>
+
+  symptomGruppeMap: Map<Number, SymptomGruppeListModel> | undefined;
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) {
-    this.symptomer = new Map<Number, SymptomListModel[]>();
-    //this.symptomer.set(1, ...)
-    //liste: SymptomListModel[] = this.symptomer.get(...);
+    this.symptomerMap = new Map<Number, SymptomListModel[]>();
+    this.symptomGruppeMap = new Map<Number, SymptomGruppeListModel>();
+
   }
 
+  ngOnInit() {
+    this.hentSymptomGrupper();
+  }
+  hentSymptomer(symptomGruppeId: Number) {
+    const headers = { 'content-type': 'application/json; charset=utf-8' };
 
+
+    const url = "Diagnose/getSymptomerGittGruppeId/" + String(symptomGruppeId);
+    this.http.get<SymptomListModel[]>(url, { 'headers': headers }).subscribe((res) => {
+      this.symptomerMap.set(Number(symptomGruppeId), res);
+    });
+  }
+  toggleKategori(symptomGruppeId: Number) {
+
+    if (this.symptomGruppeMap) {
+      const symptomGruppeListModel = this.symptomGruppeMap.get(Number(symptomGruppeId));
+      if (symptomGruppeListModel) {
+        if (symptomGruppeListModel.hidden)
+          symptomGruppeListModel.hidden = false;
+        else
+          symptomGruppeListModel.hidden = true;
+      }
+    }
+
+  }
+  hentSymptomGrupper() {
+    const headers = { 'content-type': 'application/json; charset=utf-8' };
+
+
+    const url = "Diagnose/getSymptomGrupper/";
+    this.http.get<SymptomGruppeListModel[]>(url, { 'headers': headers }).subscribe((res) => {
+      this.symptomGrupper = res;
+
+
+      this.symptomGrupper.forEach((symptomGruppe) => {
+        if (symptomGruppe && this.symptomGruppeMap) {
+          this.hentSymptomer(symptomGruppe.symptomGruppeId)
+          this.symptomGruppeMap.set(Number(symptomGruppe.symptomGruppeId), symptomGruppe);
+        }
+
+      });
+    });
+  }
    
 }
