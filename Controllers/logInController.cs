@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using ClientApp.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using obligDiagnoseVerktøyy.Repository.interfaces;
-using symptkalk.Model;
+using obligDiagnoseVerktÃ¸yy.Repository.interfaces;
+
+
 
 namespace symptkalk.controller
 {
@@ -25,23 +27,23 @@ namespace symptkalk.controller
         }
         public async Task<ActionResult> Lagre(Bruker innBruker)
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
             {
                 return Unauthorized("Ikke logget inn");
             }
             if (ModelState.IsValid)
             {
-                bool lagreB = await_db.Lagre(innBruker);
+                bool lagreB = await _db.Lagre(innBruker);
                 if (!lagreB)
                 {
                     _log.LogInformation("Klarte ikke lagre ny bruker.");
                     return BadRequest("Fikk ikke lagret bruker.")
 
                 }
-                return lagret("Ny bruker er lagret.")
+                return lagret("Ny bruker er lagret.");
             }
             _log.LogInformation("Noe gikk galt i inputvalideringen.");
-            return BadRequest("Inputvalidering feilet på server.")
+            return BadRequest("Inputvalidering feilet pï¿½ server.")
         } 
         public async Task<ActionResult> HentAlle()
         {
@@ -83,7 +85,7 @@ namespace symptkalk.controller
                 return returnOK(true);
             }
             _log.LogInformation("Feil i inputvalidering");
-            return BadRequest("Feil i inputvalidering på server");
+            return BadRequest("Feil i inputvalidering pï¿½ server");
         }
         public void LoggUt()
         {
