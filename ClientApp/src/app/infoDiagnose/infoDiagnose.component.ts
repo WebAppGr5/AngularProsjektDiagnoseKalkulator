@@ -10,7 +10,6 @@ import { DiagnoseDetailModel } from '../../models/DiagnoseDetailModel';
 export class InfoDiagnoseComponent {
   public id: Number | undefined;
   diagnose: DiagnoseDetailModel | undefined;
-  public fromPage: String = "listDiagnoser";
 
   getDiagnose(id: Number) {
     if (id == null)
@@ -27,7 +26,7 @@ export class InfoDiagnoseComponent {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params.id;
-      this.fromPage = params.fromPage;
+
       this.getDiagnose(Number(this.id));
     })
   }
