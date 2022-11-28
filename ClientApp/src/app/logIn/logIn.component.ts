@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 
 @Component({
   selector: 'logIn-home',
-  templateUrl: './logIn',
+  templateUrl: './logIn.component.html',
 })
 export class logInComponent{
   logInSkjema: FormGroup;

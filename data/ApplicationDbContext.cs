@@ -7,8 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 
 using obligDiagnoseVerktøyy.Model.entities;
-using symptkalk.model;
-using symptkalk.Model;
+
+using ClientApp.Model;
 
 namespace DiagnoseKalkulatorAngular.Data
 {
@@ -21,7 +21,6 @@ namespace DiagnoseKalkulatorAngular.Data
         public DbSet<DiagnoseGruppe> diagnoseGruppe { get; set; }
         public DbSet<Diagnose> diagnose { get; set; }
         public DbSet<BrukerInfo> brukerInfo { get; set; }
-        public DbSet<BrukerLogIn> brukerLogin { get; set; }
         public DbSet<SymptomGruppe> symptomGruppe { get; set; }
         public DbSet<SymptomSymptomBilde> symptomSymptomBilde { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -29,11 +28,10 @@ namespace DiagnoseKalkulatorAngular.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Symptom>().ToTable("symptom").HasKey(k => k.symptomId);
-            modelBuilder.Entity<BrukerLogIn>().ToTable("brukerLogin").HasKey(k => k.brukernavn);
+
             modelBuilder.Entity<Diagnose>().ToTable("diagnose").HasKey(k => k.diagnoseId);
             modelBuilder.Entity<BrukerInfo>().ToTable("brukerInfo").HasKey(k => k.ID);
-            modelBuilder.Entity<BrukerInfo>().HasOne(x => x.brukerLogin).WithOne(x => x.brukerInfo)
-                .HasForeignKey<BrukerLogIn>(x => x.ID);
+
 
             modelBuilder.Entity<DiagnoseGruppe>().ToTable("diagnoseGruppe").HasKey(k => k.diagnoseGruppeId);
             modelBuilder.Entity<SymptomGruppe>().ToTable("symptomGruppe").HasKey(k => k.symptomGruppeId);
