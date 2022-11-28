@@ -3,7 +3,7 @@ export class SymptomGruppeListModel {
   navn: String;
   beskrivelse: String;
 
-  hidden: boolean = true;
+  doShow: boolean = false;
 
   constructor(navn: String, beskrivelse: String, symptomGruppeId: Number) {
     this.navn = navn;

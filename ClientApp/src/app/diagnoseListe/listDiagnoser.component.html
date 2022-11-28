@@ -15,7 +15,7 @@
 <i class='fa fa-arrow-left fa-4x' [routerLink]="['/']"></i>
   <div class="header">
 
-    <img class="doktor-ikon" src="./favicon.icoimg/docImg.svg" alt="doktor-ikon" />
+    <img class="doktor-ikon" src="../../assets/images/docImg.svg" alt="doktor-ikon" /><br/>
     OVERSIKT OVER DIAGNOSER
 
   </div>
@@ -31,9 +31,12 @@
           <div>
             <h3>
               {{diagnose.navn}}
+
+
               <i class='fa-solid fa-xmark  fa-2xl' (click)="forgetDiagnose(diagnose.diagnoseId)"></i>
               <button class='knapp2' [routerLink]="['/endre',diagnose.diagnoseId]"> Endre</button>
-            </h3> {{diagnose.beskrivelse}}
+
+            </h3> {{diagnose.beskrivelse}}         <i class="fa-solid fa-circle-info fa-2xl" [routerLink]="['/infoDiagnose',diagnose.diagnoseId]">    </i>
 
           </div><br>
         </div>
