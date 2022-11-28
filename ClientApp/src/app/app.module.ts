@@ -16,6 +16,7 @@ import { ListDiagnoserComponent } from './diagnoseListe/listdiagnoser.component'
 import { logInComponent } from './logIn/logIn.component';
 
 import { Component } from '@angular/core';
+import { InfoAppComponent } from './informasjon om appen/infoApp.component';
 
 
 
@@ -31,6 +32,7 @@ import { Component } from '@angular/core';
     InfoSymptomGruppeComponent,
     InfoSymptomComponent,
     InfoDiagnoseComponent,
+    InfoAppComponent,
     ListDiagnoserComponent
   ],
   imports: [
@@ -48,8 +50,8 @@ import { Component } from '@angular/core';
       { path: 'infoSymptom/:id', component: InfoSymptomComponent, pathMatch: 'prefix' },
       { path: 'infoDiagnose/:id', component: InfoDiagnoseComponent, pathMatch: 'prefix' },
       { path: 'listDiagnoser', component: ListDiagnoserComponent, pathMatch: 'prefix' },
-      { path: 'home', component: HomeComponent, pathMatch: 'prefix' }
-
+      { path: 'home', component: HomeComponent, pathMatch: 'prefix' },
+      { path: 'infoApp', component: InfoAppComponent, pathMatch: 'prefix' }
 
       
     ])

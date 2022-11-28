@@ -5,7 +5,7 @@ import { BrukerLogin } from '../../models/BrukerLogin';
 
 @Component({
   selector: 'logIn-home',
-  templateUrl: 'logIn.component.html',
+  templateUrl: './logIn.component.html',
 })
 export class logInComponent{
   logInSkjema: FormGroup;
