@@ -4,6 +4,7 @@ using obligDiagnoseVerktøyy.Repository.interfaces;
 using DiagnoseKalkulatorAngular.data;
 using DiagnoseKalkulatorAngular.Data;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -27,6 +28,17 @@ builder.Services.AddTransient<ISymptomBildeRepository, SymptomBildeRepository>()
 builder.Services.AddTransient<ISymptomGruppeRepository, SymptomGruppeRepository>();
 builder.Services.AddTransient<ISymptomRepository, SymptomRepository>();
 builder.Services.AddTransient<IBrukerRepository, BrukerRepository>();
+builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
+
+builder.Services.AddEndpointsApiExplorer();
+
+
+
+builder.Services.AddSpaStaticFiles(configuration =>
+{
+    configuration.RootPath = "ClientApp/build";
+});
 builder.Services.AddSession(options =>
 {
     options.Cookie.Name = ".DiagnoseKalkulator.Session";
@@ -43,7 +55,11 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseHttpsRedirection();
 
+app.UseAuthorization();
+
+app.MapControllers();
 app.UseHttpsRedirection();
 app.UseDefaultFiles();
 app.UseStaticFiles();

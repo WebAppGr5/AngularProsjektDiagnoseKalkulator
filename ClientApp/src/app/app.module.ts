@@ -12,6 +12,8 @@ import { LagreComponent } from './lagre/lagre.component';
 import { InfoSymptomGruppeComponent } from './infoSymptomGruppe/infoSymptomGruppe.component';
 import { InfoSymptomComponent } from './infoSymptom/infoSymptom.component';
 import { InfoDiagnoseComponent } from './infoDiagnose/infoDiagnose.component';
+import { ListDiagnoserComponent } from './diagnoseListe/listdiagnoser.component';
+import { logInComponent } from './logIn/logIn.component';
 
 
 @NgModule({
@@ -19,11 +21,13 @@ import { InfoDiagnoseComponent } from './infoDiagnose/infoDiagnose.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
+    logInComponent,
     EndreComponent,
     LagreComponent,
     InfoSymptomGruppeComponent,
     InfoSymptomComponent,
-    InfoDiagnoseComponent
+    InfoDiagnoseComponent,
+    ListDiagnoserComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,12 +35,18 @@ import { InfoDiagnoseComponent } from './infoDiagnose/infoDiagnose.component';
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component: logInComponent, pathMatch: 'full' },
+      { path: 'login', component: logInComponent, pathMatch: 'full' },
       { path: 'endre/:id', component: EndreComponent, pathMatch: 'full' },
       { path: 'lagre', component: LagreComponent, pathMatch: 'full' },
       { path: 'infoSymptomGruppe/:id', component: InfoSymptomGruppeComponent, pathMatch: 'prefix' },
       { path: 'infoSymptom/:id', component: InfoSymptomComponent, pathMatch: 'prefix' },
-      { path: 'infoDiagnose/:id', component: InfoDiagnoseComponent, pathMatch: 'prefix' }
+      { path: 'infoDiagnose/:id', component: InfoDiagnoseComponent, pathMatch: 'prefix' },
+      { path: 'listDiagnoser', component: ListDiagnoserComponent, pathMatch: 'prefix' },
+      { path: 'home', component: HomeComponent, pathMatch: 'prefix' }
+
+
+      
     ])
   ],
   providers: [],

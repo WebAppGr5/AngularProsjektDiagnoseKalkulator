@@ -425,13 +425,14 @@
     }
 
   </script>
+  
 </head>
 
 <body>
 
   <div class="header">
 
-    <img class="doktor-ikon" src="img/docImg.svg" alt="doktor-ikon" />
+    <img class="doktor-ikon" src="../../assets/images/docImg.svg" alt="doktor-ikon" /><br />
     Symptomkalkulator
 
   </div>
@@ -444,21 +445,44 @@
         <h2>Kryss av dine symptomer:</h2>
       </div>
       <div id="symptomGrupper">
+        <div *ngFor="let symptomGruppe of symptomGrupper">
+          <div id="meny">
+            <button class='knapp' (click)="toggleKategori(symptomGruppe.symptomGruppeId)">
+              <i class="fa-solid fa-circle-info fa-2xl" [routerLink]="['/infoSymptomGruppe',symptomGruppe.symptomGruppeId]"></i>
+              {{symptomGruppe.navn}}
+
+              <img class='dropDownIkon' src='../../assets/images/pilned.png' alt='dropdown ikon'>
+            </button>
+
+
+            <div *ngIf="symptomGruppe.doShow">
+              <div *ngFor="let symptom of symptomerMap.get(symptomGruppe.symptomGruppeId)">
+                <input class="symptomene" type="checkbox" name="symptom" value="String(symptom.name)" (click)="toggleSelectList(symptomGruppe.symptomGruppeId,symptom.symptomId)">
+                <label>{{symptom.navn}} <i class="fa-solid fa-circle-info fa-2xl" [routerLink]="['/infoSymptom',symptom.symptomId]"></i></label>
+                <label class="symptomene" *ngIf="symptom.doHave"> Velg varighet:</label>
+                Har valgt varighet: {{symptom.varighetsValg}}
+                <select class="varighet" *ngIf="symptom.doHave" (change)="doSetOption(symptomGruppe.symptomGruppeId,symptom.symptomId,$event)">
+                  <option *ngFor="let optionsVarighet of optionsVarigheter">{{optionsVarighet}}</option>
+                </select>    <br />
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
       </div>
+
 
     </div>
 
-    <div class="boks boks2">
-      <div id="diagnoser">
 
-        <h2 class='underoverskrift'>Diagnoser:</h2>
-      </div>
-    </div>
   </div>
-  <div class="bokser">
+    <div class="bokser">
 
-    <div class="boks boks1">
-      <form [formGroup]="lageSchema">
+      <div class="boks boks1">
+        <form [formGroup]="lageSchema">
           Id er: {{id}}
           <h2 class='underoverskrift'>Lagre diagnose/Endre diagnose:</h2>
           <span>

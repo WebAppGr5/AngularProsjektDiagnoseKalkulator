@@ -11,7 +11,7 @@ namespace obligDiagnoseVerktøyy.Model.entities
 
         [Required]
 
-        [RegularExpression(@"^[a-zA-Z0-9\s-]{3,40}$")]
+        [RegularExpression(@"^[a-zA-ZÆØÅæøå0-9\s-]{3,40}$")]
         public String navn { get; set; }
 
         [Required]

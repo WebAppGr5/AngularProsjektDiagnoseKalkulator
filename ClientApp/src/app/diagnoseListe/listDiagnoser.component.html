@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <title>Title</title>
+</head>
+
+<body>
+<i class='fa fa-arrow-left fa-4x' [routerLink]="['/']"></i>
+  <div class="header">
+
+    <img class="doktor-ikon" src="../../assets/images/docImg.svg" alt="doktor-ikon" /><br/>
+    OVERSIKT OVER DIAGNOSER
+
+  </div>
+
+
+
+  <div class="bokser">
+
+    <div class="boks boks1">
+      <div id="diagnoser">
+        <h2 class='underoverskrift'>Diagnoser:</h2>
+        <div *ngFor="let diagnose of diagnoser">
+          <div>
+            <h3>
+              {{diagnose.navn}}
+
+
+              <i class='fa-solid fa-xmark  fa-2xl' (click)="forgetDiagnose(diagnose.diagnoseId)"></i>
+              <button class='knapp2' [routerLink]="['/endre',diagnose.diagnoseId]"> Endre</button>
+
+            </h3> {{diagnose.beskrivelse}}         <i class="fa-solid fa-circle-info fa-2xl" [routerLink]="['/infoDiagnose',diagnose.diagnoseId]">    </i>
+
+          </div><br>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</body>
+</html>
+

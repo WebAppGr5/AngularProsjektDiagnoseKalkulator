@@ -1,12 +1,14 @@
 export class SymptomGruppeListModel {
-  diagnoseId: Number;
+  symptomGruppeId: Number;
   navn: String;
   beskrivelse: String;
 
-  constructor(navn: String, beskrivelse: String,  diagnoseId: Number) {
+  doShow: boolean = false;
+
+  constructor(navn: String, beskrivelse: String, symptomGruppeId: Number) {
     this.navn = navn;
     this.beskrivelse = beskrivelse;
-    this.diagnoseId = diagnoseId;
+    this.symptomGruppeId = symptomGruppeId;
 
   }
 
