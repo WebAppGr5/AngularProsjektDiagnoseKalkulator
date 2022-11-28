@@ -15,6 +15,10 @@ import { InfoDiagnoseComponent } from './infoDiagnose/infoDiagnose.component';
 import { ListDiagnoserComponent } from './diagnoseListe/listdiagnoser.component';
 import { logInComponent } from './logIn/logIn.component';
 
+import { Component } from '@angular/core';
+
+
+
 
 @NgModule({
   declarations: [
@@ -34,6 +38,7 @@ import { logInComponent } from './logIn/logIn.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+
     RouterModule.forRoot([
       { path: '', component: logInComponent, pathMatch: 'full' },
       { path: 'login', component: logInComponent, pathMatch: 'full' },

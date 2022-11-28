@@ -48,6 +48,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Model\BrukerInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\models\SymptomGruppeDetailModel.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
