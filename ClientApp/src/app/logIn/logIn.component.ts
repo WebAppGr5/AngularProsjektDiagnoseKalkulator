@@ -3,10 +3,10 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-LogIn',
-  templateUrl: './logIn.component.html',
+  selector: 'logIn-home',
+  templateUrl: './logIn',
 })
-export class logInComponent {
+export class logInComponent{
   logInSkjema: FormGroup;
   constructor(private fb: FormBuilder) {
     this.logInSkjema = fb.group({
