@@ -41,7 +41,7 @@ import { logInComponent } from './logIn/logIn.component';
       { path: 'lagre', component: LagreComponent, pathMatch: 'full' },
       { path: 'infoSymptomGruppe/:id', component: InfoSymptomGruppeComponent, pathMatch: 'prefix' },
       { path: 'infoSymptom/:id', component: InfoSymptomComponent, pathMatch: 'prefix' },
-      { path: 'infoDiagnose/:id/', component: InfoDiagnoseComponent, pathMatch: 'prefix' },
+      { path: 'infoDiagnose/:id', component: InfoDiagnoseComponent, pathMatch: 'prefix' },
       { path: 'listDiagnoser', component: ListDiagnoserComponent, pathMatch: 'prefix' },
       { path: 'home', component: HomeComponent, pathMatch: 'prefix' }
 
