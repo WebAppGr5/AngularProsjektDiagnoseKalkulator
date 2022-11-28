@@ -15,21 +15,21 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 {
     [Route("[controller]/[action]")]
 
-    public class LogInController : ControllerBase
+    public class LoginController : ControllerBase
     {
         private IBrukerRepository _db;
 
-        private ILogger<LogInController> _log;
+        private ILogger<LoginController> _log;
 
         private const string _LoggetInn = "InnLogget";
         private const string _ikkeLoggetInn = "";
 
-        public LogInController(IBrukerRepository db, ILogger<LogInController> log)
+        public LoginController(IBrukerRepository db, ILogger<LoginController> log)
         {
             _db = db;
             _log = log;
         }
-
+        [HttpPost]
         public async Task<ActionResult> Lagre([FromBody] BrukerLogin innBruker)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))

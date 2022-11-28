@@ -23,7 +23,7 @@ export class logInComponent{
       const headers = { 'content-type': 'application/json; charset=utf-8' };
       const brukerLogin = new BrukerLogin(this.logInSkjema.value.brukernavn, this.logInSkjema.value.passord);
       
-      const url = "LogIn/loggInn/";
+      const url = "Login/loggInn/";
       this.http.post<any>(url, brukerLogin, { 'headers': headers }).subscribe((res) => {
 
         this.error = false;
