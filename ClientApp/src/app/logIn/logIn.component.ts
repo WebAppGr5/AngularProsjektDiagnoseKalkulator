@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { BrukerLogin } from '../../models/BrukerLogin';
 
 @Component({
   selector: 'logIn-home',
@@ -8,17 +9,25 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class logInComponent{
   logInSkjema: FormGroup;
-  constructor(private fb: FormBuilder) {
+  error: boolean = false;
+
+  constructor(private http: HttpClient, private fb: FormBuilder) {
     this.logInSkjema = fb.group({
-      bruker: ["", Validators.required],
+      brukernavn: ["", Validators.required],
       passord: ["", Validators.pattern("[0-9a-zA-Z]{8,20}")]
     });
   }
 
-  onSubmit() {
-    console.log("Bruker logget:");
-    console.log(this.logInSkjema);
-    console.log(this.logInSkjema.value.bruker);
-    console.log(this.logInSkjema.touched);
+  LoggInn() {
+    if (this.logInSkjema.valid) {
+      const headers = { 'content-type': 'application/json; charset=utf-8' };
+      const brukerLogin = new BrukerLogin(this.logInSkjema.value.brukernavn, this.logInSkjema.value.passord);
+      
+      const url = "LogIn/loggInn";
+      this.http.post<any>(url, brukerLogin, { 'headers': headers }).subscribe((res) => {
+
+        this.error = false;
+      }, (err) => { this.error = true; });
+    }
   }
 }

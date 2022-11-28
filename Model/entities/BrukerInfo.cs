@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace ClientApp.Model
+namespace obligDiagnoseVerktøyy.Model.entities
 {
     [ExcludeFromCodeCoverage]
     //Lager modell for personlig info om bruker

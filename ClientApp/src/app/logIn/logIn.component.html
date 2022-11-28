@@ -1,33 +1,66 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Logg inn</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.1.js"
-          integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-          crossorigin="anonymous"></script>
-</head>
-<body>
-  <div class="container">
-    <h1>Logg inn</h1>
-    <form class="form">
-      <div class="form-group">
-        <label>Brukernavn</label>
-        <input type="text" id="bruker" onchange="validerBruker(this.value)"/>
-        <span id="feilBruker" style="color:darkred"></span>
-      </div>
-      <div class="form-group">
-        <label>Passord:</label>
-        <input type="password" id="passord" onchange="validerPassord(this.value)"/>
-      </div>
-      <div class="form-group">
-        <input type="button" value="Logg inn" onclick="LoggInn()" class="btn btn-primary" />
-        <span id="feilPassord" style="color:darkred"></span>
-      </div>
-      
-    </form>
-  </div>
-</body>
 
+
+
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <title>Title</title>
+
+
+</head>
+
+<body>
+
+  <div class="header">
+
+    <img class="doktor-ikon" src="../../assets/images/docImg.svg" alt="doktor-ikon" /><br />
+    <h1 *ngIf="error" class="notificationError">Problemer med server tilkobling </h1>
+
+    Symptomkalkulator
+
+  </div>
+
+  <div class="bokser">
+
+   
+
+
+
+        <div class="boks boks2">
+          <h1>Logg inn</h1>
+
+          <div [formGroup]="logInSkjema" class="form">
+            <div class="form-group">
+              <label>Brukernavn</label>
+
+              <input type="text" id="bruker" formControlName="brukernavn" />
+              <span style="color:red" *ngIf="this.logInSkjema.controls['brukernavn'].status=='INVALID'"> Ugyldig input</span><br />
+            </div>
+            <div class="form-group">
+              <label>Passord:</label>
+              <input type="password" formControlName="passord" id="passord" />
+              <span style="color:red" *ngIf="this.logInSkjema.controls['passord'].status=='INVALID'"> Ugyldig input</span><br />
+            </div>
+            <div class="form-group">
+              <input type="button" value="Logg inn" (click)="LoggInn()" class="knapp" />
+
+            
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+</body>
 </html>
+
+
+
+
+
+
