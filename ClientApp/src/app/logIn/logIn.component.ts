@@ -5,7 +5,7 @@ import { BrukerLogin } from '../../models/BrukerLogin';
 
 @Component({
   selector: 'logIn-home',
-  templateUrl: './logIn.component.html',
+  templateUrl: 'logIn.component.html',
 })
 export class logInComponent{
   logInSkjema: FormGroup;
@@ -23,7 +23,7 @@ export class logInComponent{
       const headers = { 'content-type': 'application/json; charset=utf-8' };
       const brukerLogin = new BrukerLogin(this.logInSkjema.value.brukernavn, this.logInSkjema.value.passord);
       
-      const url = "LogIn/loggInn";
+      const url = "LogIn/loggInn/";
       this.http.post<any>(url, brukerLogin, { 'headers': headers }).subscribe((res) => {
 
         this.error = false;
