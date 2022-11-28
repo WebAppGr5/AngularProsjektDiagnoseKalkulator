@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DiagnoseCreateDTO } from '../../models/DiagnoseCreateDTO';
 import { DiagnoseDetailModel } from '../../models/DiagnoseDetailModel';
 import { SymptomDTO } from '../../models/SymptomDTO';
 import { SymptomGruppeListModel } from '../../models/SymptomGruppeListModel';
@@ -114,18 +115,48 @@ export class LagreComponent {
 
     }
   }
-  hentSymptomerEnHar(): SymptomDTO[] {
+  lagre() {
+    if (this.lageSchema.valid) {
+      const SymptomListModelListe: SymptomListModel[] = this.hentSymptomerEnHar();
+
+
+
+      if (SymptomListModelListe) {
+
+        const symptomIdListe: Number[] = new Array<Number>();
+        const varighetListe: Number[] = new Array<Number>();
+
+        SymptomListModelListe.forEach((symptom) => {
+          symptomIdListe.push(symptom.symptomId);
+          varighetListe.push(symptom.varighetsValg);
+        });
+
+        const headers = { 'content-type': 'application/json; charset=utf-8' };
+        const diagnoseCreateDTO: DiagnoseCreateDTO = new DiagnoseCreateDTO(this.lageSchema.value.navn, this.lageSchema.value.beskrivelse, this.lageSchema.value.dypForklaring, symptomIdListe, varighetListe);
+        const data = JSON.stringify(diagnoseCreateDTO);
+
+        const url = "Diagnose/nyDiagnose/";
+        this.http.post<any>(url, data, { 'headers': headers }).subscribe((res) => {
+          this.error = false;
+          this.harLagret = true;
+
+        }, (err) => { this.error = true; });
+      }
+    }
+    
+  }
+  hentSymptomerEnHar(): SymptomListModel[] {
 
     const symptomIdListe: Number[] = new Array<Number>();
 
-    const symptomDTOListe = new Array<SymptomDTO>();
+    const SymptomListModelListe = new Array<SymptomListModel>();
     this.symptomerMap.forEach((symptomListe: SymptomListModel[]) => {
       symptomListe.forEach((symptom: SymptomListModel) => {
         if (symptom.doHave) {
           //Kan hende samme symptom er i flere symptomgrupper
           if (!symptomIdListe.includes(symptom.symptomId)) {
             symptomIdListe.push(symptom.symptomId);
-            symptomDTOListe.push(new SymptomDTO(symptom.symptomId, symptom.varighetsValg));
+            SymptomListModelListe.push(symptom);
 
 
           }
@@ -133,7 +164,7 @@ export class LagreComponent {
       });
     });
 
-    return symptomDTOListe;
+    return SymptomListModelListe;
   }
   hentSymptomGrupper() {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
