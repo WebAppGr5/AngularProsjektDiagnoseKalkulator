@@ -50,10 +50,7 @@ export class EndreComponent {
         dypForklaring: String(res.dypForklaring)
 
       });
-      this.endreSchema.value.navn = res.navn;
-      this.endreSchema.value.beskrivelse = res.beskrivelse;
-      this.endreSchema.value.diagnoseId = res.diagnoseId;
-      this.endreSchema.value.dypForklaring = res.dypForklaring;
+
     });
   }
 

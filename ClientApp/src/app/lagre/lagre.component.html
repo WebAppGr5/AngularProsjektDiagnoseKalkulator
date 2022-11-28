@@ -483,12 +483,11 @@
 
       <div class="boks boks1">
         <form [formGroup]="lageSchema">
-          Id er: {{id}}
-          <h2 class='underoverskrift'>Lagre diagnose/Endre diagnose:</h2>
+
+          <h2 class='underoverskrift'>Lagre diagnose:</h2>
           <span>
             Ny diagnose vil ha symptomene du krysset av, og de varigheter du har valgt.
-            Når en endrer diagnose ved å trykke på endre knapp ved siden av diagnose, og trykker utfør endring, så
-            vil ikke diagnosen få nye symptomer/varigheter.
+
           </span>
           <input class="boks boks1" type="hidden" formControlName="diagnoseId" id="diagnoseIdEndre" />
           <div>
@@ -512,7 +511,7 @@
           </div>
 
           <button class="knapp" id="nyDiagnose" onclick="nyDiagnose()">Lagre diagnose</button>
-          <button class="knapp" id="endreDiagnose" onclick="utforEndring()">Utfør endring</button>
+
 
         </form>
       </div>
