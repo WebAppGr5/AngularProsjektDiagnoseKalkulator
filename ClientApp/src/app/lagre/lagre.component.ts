@@ -87,10 +87,10 @@ export class LagreComponent {
         });
       }
       if (symptomGruppeListModel) {
-        if (symptomGruppeListModel.hidden)
-          symptomGruppeListModel.hidden = false;
+        if (symptomGruppeListModel.doShow)
+          symptomGruppeListModel.doShow = false;
         else
-          symptomGruppeListModel.hidden = true;
+          symptomGruppeListModel.doShow = true;
       }
     }
 

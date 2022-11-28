@@ -455,7 +455,7 @@
             </button>
 
 
-            <div *ngIf="!symptomGruppe.hidden">
+            <div *ngIf="symptomGruppe.doShow">
               <div *ngFor="let symptom of symptomerMap.get(symptomGruppe.symptomGruppeId)">
                 <input class="symptomene" type="checkbox" name="symptom" value="String(symptom.name)" (click)="toggleSelectList(symptomGruppe.symptomGruppeId,symptom.symptomId)">
                 <label>{{symptom.navn}} <i class="fa-solid fa-circle-info fa-2xl" [routerLink]="['/infoSymptom',symptom.symptomId]"></i></label>
