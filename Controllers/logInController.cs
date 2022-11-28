@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Http;
 using ClientApp.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using obligDiagnoseVerktøyy.Repository.interfaces;
 
+using obligDiagnoseVerktøyy.Repository.interfaces;
 
 
 namespace symptkalk.controller
@@ -25,6 +25,7 @@ namespace symptkalk.controller
             _db = db;
             _log = log;
         }
+
         public async Task<ActionResult> Lagre(Bruker innBruker)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
@@ -43,7 +44,7 @@ namespace symptkalk.controller
                 return lagret("Ny bruker er lagret.");
             }
             _log.LogInformation("Noe gikk galt i inputvalideringen.");
-            return BadRequest("Inputvalidering feilet p� server.")
+            return BadRequest("Inputvalidering feilet på server.")
         } 
         public async Task<ActionResult> HentAlle()
         {
@@ -91,7 +92,17 @@ namespace symptkalk.controller
         {
             Http.Context.Session.SetString(_LoggetInn, _ikkeLoggetInn);
         }
+
     }
-}
+        bool returOK = await _db.Lagre(innBruker);
+        if (!returOK)
+        {
+            _log.LogInformation("Brukeren kunne ikke lagres!");
+            return BadRequest("Brukeren kunne ikke lagres");
+        }
+        return Ok("Bruker lagret");
+        }
+        _log.LogInformation("Feil i inputvalidering");
+        return BadRequest("Feil i inputvalidering");
 
 

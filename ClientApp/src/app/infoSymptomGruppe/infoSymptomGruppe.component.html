@@ -1,2 +1,43 @@
-info symptom gruppe
-Id er: {{id}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <title>Title</title>
+
+
+</head>
+
+<body>
+  <i class='fa fa-arrow-left fa-4x'  [routerLink]="['/home']"></i>
+  <div class="header">
+
+    <img class="doktor-ikon" src="../../assets/images/docImg.svg" alt="doktor-ikon" /><br />
+    Symptomkalkulator
+
+  </div>
+
+
+
+
+
+  <div class="bokser">
+
+    <div *ngIf="symptomGruppe" class="boks boks1">
+
+      <h3 class='underoverskrift'> Informasjon om symptomet {{symptomGruppe.navn}}</h3>
+      <span>
+
+        {{symptomGruppe.dypForklaring}}
+      </span>
+    </div>
+  </div>
+
+</body>
+</html>
+

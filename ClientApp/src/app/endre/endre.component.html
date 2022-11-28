@@ -9,7 +9,7 @@
 
 
   <title>Title</title>
-  <
+  
 </head>
 
 <body>
@@ -17,38 +17,21 @@
 <i class='fa fa-arrow-left fa-4x' [routerLink]="['/listDiagnoser']"></i>
   <div class="header">
 
-    <img class="doktor-ikon" src="img/docImg.svg" alt="doktor-ikon" />
+    <img class="doktor-ikon" src="../../assets/images/docImg.svg" alt="doktor-ikon" /><br/>
     Symptomkalkulator
 
   </div>
 
 
 
-  <div class="bokser">
-    <div class="boks boks1">
-      <div class="underoverskrift">
-        <h2>Kryss av dine symptomer:</h2>
-      </div>
-      <div id="symptomGrupper">
-      </div>
 
-    </div>
-
-    <div class="boks boks2">
-      <div id="diagnoser">
-
-        <h2 class='underoverskrift'>Diagnoser:</h2>
-      </div>
-    </div>
-  </div>
   <div class="bokser">
 
     <div class="boks boks1">
       <form [formGroup]="endreSchema">
-        Id er: {{id}}
-        <h2 class='underoverskrift'>Lagre diagnose/Endre diagnose:</h2>
+
+        <h2 class='underoverskrift'>Endre diagnose:</h2>
         <span>
-          Ny diagnose vil ha symptomene du krysset av, og de varigheter du har valgt.
           Når en endrer diagnose ved å trykke på endre knapp ved siden av diagnose, og trykker utfør endring, så
           vil ikke diagnosen få nye symptomer/varigheter.
         </span>
@@ -73,7 +56,7 @@
           <textarea class="boks boks1" formControlName="dypForklaring" id="dypForklaringDiagnose"></textarea>
         </div>
 
-        <button class="knapp" id="endreDiagnose" (click)="utforEndring()" [disabled]="!this.endreSchema.valid">>Utfør endring</button>
+        <button class="knapp" id="endreDiagnose" (click)="utforEndring()" [disabled]="!this.endreSchema.valid">Utfør endring</button>
 
       </form>
     </div>
