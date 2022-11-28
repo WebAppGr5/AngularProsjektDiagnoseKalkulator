@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using obligDiagnoseVerktøyy.Repository.interfaces;
+using obligDiagnoseVerktï¿½yy.Repository.interfaces;
 using symptkalk.Model;
 
 namespace symptkalk.controller
@@ -24,8 +24,19 @@ namespace symptkalk.controller
             _log = log;
         }
     
-
+        public async Task<ActionResult> Lagre (Bruker innBruker)
     }
-}
+    if (ModelState.IsValid)
+    }
+        bool returOK = await _db.Lagre(innBruker);
+        if (!returOK)
+        {
+            _log.LogInformation("Brukeren kunne ikke lagres!");
+            return BadRequest("Brukeren kunne ikke lagres");
+        }
+        return Ok("Bruker lagret");
+        }
+        _log.LogInformation("Feil i inputvalidering");
+        return BadRequest("Feil i inputvalidering");
 
 
