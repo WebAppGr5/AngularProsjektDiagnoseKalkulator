@@ -64,7 +64,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> hentEn(int ID)
+        public async Task<ActionResult> hentEn([FromRoute] int id)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
             {
