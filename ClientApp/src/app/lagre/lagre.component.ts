@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DiagnoseDetailModel } from '../../models/DiagnoseDetailModel';
+import { SymptomDTO } from '../../models/SymptomDTO';
 import { SymptomGruppeListModel } from '../../models/SymptomGruppeListModel';
 import { SymptomListModel } from '../../models/SymptomListModel';
 
@@ -113,7 +114,27 @@ export class LagreComponent {
 
     }
   }
+  hentSymptomerEnHar(): SymptomDTO[] {
 
+    const symptomIdListe: Number[] = new Array<Number>();
+
+    const symptomDTOListe = new Array<SymptomDTO>();
+    this.symptomerMap.forEach((symptomListe: SymptomListModel[]) => {
+      symptomListe.forEach((symptom: SymptomListModel) => {
+        if (symptom.doHave) {
+          //Kan hende samme symptom er i flere symptomgrupper
+          if (!symptomIdListe.includes(symptom.symptomId)) {
+            symptomIdListe.push(symptom.symptomId);
+            symptomDTOListe.push(new SymptomDTO(symptom.symptomId, symptom.varighetsValg));
+
+
+          }
+        };
+      });
+    });
+
+    return symptomDTOListe;
+  }
   hentSymptomGrupper() {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
 
