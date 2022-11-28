@@ -1,4 +1,5 @@
-using System.Collections.Generic;
+/**;
+using System.Collections.Generic
 using System.Net;
 using System.Threading.Tasks;
 using symptkalk.controller;
@@ -168,4 +169,4 @@ namespace symptkalk.test{
            Assert.Equal(_ikkeLoggetInn,mockSession[_loggetInn]);
         }
     }
-}
+}*/
