@@ -14,6 +14,9 @@ export class ListDiagnoserComponent {
 
   diagnoser: DiagnoseListModel[] | undefined;
 
+  error: boolean = false;
+  harSlettet: boolean = false;
+
   constructor(private http: HttpClient, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
 
   }
@@ -27,15 +30,18 @@ export class ListDiagnoserComponent {
 
     const url = "Diagnose/getDiagnoser/";
     this.http.get<DiagnoseListModel[]>(url, { 'headers': headers }).subscribe((res) => {
-         this.diagnoser = res;
-    });
+      this.diagnoser = res;
+      this.error = false;
+    }, (err) => { this.error = true; });
   }
 
   forgetDiagnose(diagnoseId: Number) {
     const url = "Diagnose/forgetDiagnose/" + String(diagnoseId);
     const headers = { 'content-type': 'application/json; charset=utf-8' };
     this.http.get<any>(url, { 'headers': headers }).subscribe((res) => {
+      this.error = false;
+      this.harSlettet = true;
        this.hentDiagnoser();
-    });
+    }, (err) => { this.error = true; });
   }
 }

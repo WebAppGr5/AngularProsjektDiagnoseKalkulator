@@ -10,16 +10,17 @@ import { DiagnoseDetailModel } from '../../models/DiagnoseDetailModel';
 export class InfoDiagnoseComponent {
   public id: Number | undefined;
   diagnose: DiagnoseDetailModel | undefined;
-
+  error: boolean = false;
   getDiagnose(id: Number) {
     if (id == null)
       return;
     const headers = { 'content-type': 'application/json; charset=utf-8' };
     const url = "Diagnose/hentDiagnoseGittDiagnoseId/" + String(id);
     this.http.get<DiagnoseDetailModel>(url, { 'headers': headers }).subscribe((res) => {
+  
       this.diagnose = res;
-
-    });
+      this.error = false;
+    }, (err) => { this.error = true; });
   }
   constructor(private http: HttpClient,  private route: ActivatedRoute, private router: Router) { }
 

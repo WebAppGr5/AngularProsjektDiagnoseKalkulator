@@ -10,7 +10,7 @@ import { SymptomGruppeDetailModel } from '../../models/SymptomGruppeDetailModel'
 export class InfoSymptomGruppeComponent {
   public id: Number | undefined;
   public symptomGruppe: SymptomGruppeDetailModel | undefined;
-
+  error: boolean = false;
   getSymptomGruppe(id: Number) {
     if (id == null)
       return;
@@ -18,8 +18,9 @@ export class InfoSymptomGruppeComponent {
     const url = "Diagnose/hentSymptomGruppeGittSymptomGruppeId/" + String(id);
     this.http.get<SymptomGruppeDetailModel>(url, { 'headers': headers }).subscribe((res) => {
       this.symptomGruppe = res;
+      this.error = false;
 
-    });
+    }, (err) => { this.error = true; });
   }
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
