@@ -43,6 +43,7 @@ export class LagreComponent {
     });
   }
 
+ 
 
   doSetOption(symptomGruppeId: Number, symptomId: Number, event: any) {
 
