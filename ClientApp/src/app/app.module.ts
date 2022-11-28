@@ -14,6 +14,10 @@ import { InfoSymptomComponent } from './infoSymptom/infoSymptom.component';
 import { InfoDiagnoseComponent } from './infoDiagnose/infoDiagnose.component';
 import { ListDiagnoserComponent } from './diagnoseListe/listdiagnoser.component';
 import { logInComponent } from './logIn/logIn.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Component } from '@angular/core';
+
+
 
 
 @NgModule({
@@ -34,6 +38,7 @@ import { logInComponent } from './logIn/logIn.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    NgbModule,
     RouterModule.forRoot([
       { path: '', component: logInComponent, pathMatch: 'full' },
       { path: 'login', component: logInComponent, pathMatch: 'full' },
