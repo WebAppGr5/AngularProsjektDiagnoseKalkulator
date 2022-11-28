@@ -10,7 +10,16 @@ body {
 .varighet {
 
 }
-
+.notificationOk {
+  color: seagreen;
+  background-color: white;
+  text-align: center
+}
+.notificationError {
+  color: firebrick;
+  background-color: white;
+  text-align: center
+}
 .header {
   font-size: 60px;
   padding: 40px;

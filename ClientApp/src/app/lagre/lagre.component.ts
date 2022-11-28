@@ -15,7 +15,8 @@ export class LagreComponent {
   lageSchema: FormGroup;
   diagnose: DiagnoseDetailModel | undefined;
   symptomGrupper: SymptomGruppeListModel[] | undefined;
-
+  harLagret: boolean = false;
+  error: boolean = false;
   symptomerMap: Map<Number, SymptomListModel[]>
 
   symptomGruppeMap: Map<Number, SymptomGruppeListModel> | undefined;
@@ -72,7 +73,8 @@ export class LagreComponent {
     const url = "Diagnose/getSymptomerGittGruppeId/" + String(symptomGruppeId);
     this.http.get<SymptomListModel[]>(url, { 'headers': headers }).subscribe((res) => {
       this.symptomerMap.set(symptomGruppeId, res);
-    });
+      this.error = false;
+    }, (err) => { this.error = true; });
   }
   toggleKategori(symptomGruppeId: Number) {
 
@@ -119,7 +121,7 @@ export class LagreComponent {
     const url = "Diagnose/getSymptomGrupper/";
     this.http.get<SymptomGruppeListModel[]>(url, { 'headers': headers }).subscribe((res) => {
       this.symptomGrupper = res;
-
+      this.error = false;
 
       this.symptomGrupper.forEach((symptomGruppe) => {
         if (symptomGruppe && this.symptomGruppeMap) {
@@ -128,6 +130,6 @@ export class LagreComponent {
         }
 
       });
-    });
+    }, (err) => { this.error = true; });
   }
 }

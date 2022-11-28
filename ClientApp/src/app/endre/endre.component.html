@@ -14,10 +14,11 @@
 
 <body>
 
-<i class='fa fa-arrow-left fa-4x' [routerLink]="['/listDiagnoser']"></i>
-  <div class="header">
+  <i class='fa fa-arrow-left fa-4x' [routerLink]="['/listDiagnoser']"></i>
 
-    <img class="doktor-ikon" src="../../assets/images/docImg.svg" alt="doktor-ikon" /><br/>
+  <div class="header">
+    <img class="doktor-ikon" src="../../assets/images/docImg.svg" alt="doktor-ikon" /><br/>  <h1 *ngIf="harEndret" class="notificationOk">Diagnosen ble endret </h1>
+    <h1 *ngIf="error" class="notificationError">Problemer med server tilkobling </h1>
     Symptomkalkulator
 
   </div>

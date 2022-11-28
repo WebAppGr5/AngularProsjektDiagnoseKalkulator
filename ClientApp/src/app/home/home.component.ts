@@ -13,7 +13,8 @@ export class HomeComponent {
 
 
   symptomGrupper: SymptomGruppeListModel[] | undefined;
-
+  error: boolean = false;
+  harKalkulert: boolean = false;
   symptomerMap: Map<Number, SymptomListModel[]>
 
   symptomGruppeMap: Map<Number, SymptomGruppeListModel> | undefined;
@@ -31,12 +32,13 @@ export class HomeComponent {
   }
   hentSymptomer(symptomGruppeId: Number) {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
-
+    
 
     const url = "Diagnose/getSymptomerGittGruppeId/" + String(symptomGruppeId);
     this.http.get<SymptomListModel[]>(url, { 'headers': headers }).subscribe((res) => {
       this.symptomerMap.set(Number(symptomGruppeId), res);
-    });
+      this.error = false;
+    }, (err) => { this.error = true; });
   }
   toggleKategori(symptomGruppeId: Number) {
 
@@ -92,9 +94,7 @@ export class HomeComponent {
 
     }
   }
-  sendIdAndSelectListToServer() {
 
-  }
   hentSymptomGrupper() {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
 
@@ -102,7 +102,7 @@ export class HomeComponent {
     const url = "Diagnose/getSymptomGrupper/";
     this.http.get<SymptomGruppeListModel[]>(url, { 'headers': headers }).subscribe((res) => {
       this.symptomGrupper = res;
-
+      this.error = false;
 
       this.symptomGrupper.forEach((symptomGruppe) => {
         if (symptomGruppe && this.symptomGruppeMap) {
@@ -111,7 +111,7 @@ export class HomeComponent {
         }
 
       });
-    });
+    }, (err) => { this.error = true; });
   }
    
 }
