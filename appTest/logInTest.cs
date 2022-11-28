@@ -61,7 +61,7 @@ namespace symptkalk.test{
 
     [Fact]
     public async Task EndreLoggetInnOK(){
-        mockRep.Setup(k => k.Endre(It.IsAny<bruker>())).ReturnsAsync(true);
+        mockRep.Setup(b => b.Endre(It.IsAny<bruker>())).ReturnsAsync(true);
 
             var brukercontroller = new brukercontroller(mockRep.Object, mockLog.Object);
 
@@ -82,7 +82,7 @@ namespace symptkalk.test{
         {
             // Arrange
 
-            mockRep.Setup(k => k.Lagre(It.IsAny<bruker>())).ReturnsAsync(false);
+            mockRep.Setup(b => b.Lagre(It.IsAny<bruker>())).ReturnsAsync(false);
 
             var brukercontroller = new brukercontroller(mockRep.Object, mockLog.Object);
 
@@ -103,7 +103,7 @@ namespace symptkalk.test{
      [Fact]
         public async Task LoggInnOK()
         {
-            mockRep.Setup(i => i.LoggInn(It.IsAny<Bruker>())).ReturnsAsync(true);
+            mockRep.Setup(b => b.LoggInn(It.IsAny<Bruker>())).ReturnsAsync(true);
 
             var brukercontroller = new brukercontroller(mockRep.Object, mockLog.Object);
 
