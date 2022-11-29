@@ -16,11 +16,20 @@ export class ListDiagnoserComponent {
 
   error: boolean = false;
   harSlettet: boolean = false;
-
+  erInnlogget: boolean = false;
   constructor(private http: HttpClient, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
 
   }
+  sjekkErInnlogget() {
 
+    const url = "Login/erInnlogget/";
+    const headers = { 'content-type': 'application/json; charset=utf-8' };
+    this.http.get<boolean>(url, { 'headers': headers }).subscribe((res) => {
+      this.error = false;
+      this.erInnlogget = res;
+
+    }, (err) => { this.error = true; this.erInnlogget = false; });
+  }
   ngOnInit() {
     this.hentDiagnoser();
   }

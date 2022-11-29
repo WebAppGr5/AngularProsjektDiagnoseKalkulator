@@ -20,7 +20,7 @@ export class LagreComponent {
   harLagret: boolean = false;
   error: boolean = false;
   symptomerMap: Map<Number, SymptomListModel[]>
-
+  erInnlogget: boolean = false;
   symptomGruppeMap: Map<Number, SymptomGruppeListModel> | undefined;
 
   optionsVarigheter: String[] = ["--", "1-3 dager", "Flere dager", "1-3 måneder", "Flere måneder", "1-3 år", "Flere år"];
@@ -63,8 +63,18 @@ export class LagreComponent {
       }
     }
   }
+  sjekkErInnlogget() {
 
+    const url = "Login/erInnlogget/";
+    const headers = { 'content-type': 'application/json; charset=utf-8' };
+    this.http.get<boolean>(url, { 'headers': headers }).subscribe((res) => {
+      this.error = false;
+      this.erInnlogget = res;
+
+    }, (err) => { this.error = true; this.erInnlogget = false; });
+  }
   ngOnInit() {
+    this.sjekkErInnlogget();
     this.hentSymptomGrupper();
   }
 
