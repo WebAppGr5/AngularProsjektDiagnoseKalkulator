@@ -102,7 +102,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                     HttpContext.Session.SetString(_LoggetInn, _ikkeLoggetInn);
                     return Ok(false);
                 }
-                HttpContext.Session.SetString(_LoggetInn, _ikkeLoggetInn);
+                HttpContext.Session.SetString(_LoggetInn, _LoggetInn);
                 return Ok(true);
             }
             _log.LogInformation("Feil i inputvalidering");
