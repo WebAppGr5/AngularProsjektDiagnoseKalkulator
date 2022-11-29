@@ -5,8 +5,11 @@ namespace obligDiagnoseVerktøyy.Model.DTO
 {
     public class BrukerLogin
     {
+        [MaxLength(50)]
+        [MinLength(4)]
         public string brukernavn { get; set; }
-        [RegularExpression(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,30}$")]
+        [MaxLength(50)]
+        [MinLength(8)]
         public string passord { get; set; }
     }
 }

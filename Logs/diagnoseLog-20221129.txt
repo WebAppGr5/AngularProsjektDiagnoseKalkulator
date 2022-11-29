@@ -11390,3 +11390,1025 @@ WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
 2022-11-29T12:22:49.9087131+01:00 0HMMHVFUIG9T1:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/1 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 187.1644ms (791a596a)
 2022-11-29T12:22:49.9087222+01:00 0HMMHVFUIG9T4:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/4 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 132.3989ms (791a596a)
 2022-11-29T12:22:49.9087372+01:00 0HMMHVFUIG9T2:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/2 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 186.9303ms (791a596a)
+2022-11-29T12:25:40.1871867+01:00  [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:25:40.3391575+01:00  [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:25:40.5901778+01:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"" (0723d8ff)
+2022-11-29T12:25:40.6631905+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"d\".\"diagnoseId\", \"d\".\"beskrivelse\", \"d\".\"diagnoseGruppeId\", \"d\".\"dypForklaring\", \"d\".\"navn\"
+FROM \"diagnose\" AS \"d\"" (0723d8ff)
+2022-11-29T12:25:40.6746587+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"d\".\"diagnoseGruppeId\", \"d\".\"beskrivelse\", \"d\".\"dypForklaring\", \"d\".\"navn\"
+FROM \"diagnoseGruppe\" AS \"d\"" (0723d8ff)
+2022-11-29T12:25:40.7087902+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"symptomBildeId\", \"s\".\"varighet\"
+FROM \"symptomSymptomBilde\" AS \"s\"" (0723d8ff)
+2022-11-29T12:25:40.7283637+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomGruppeId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\"
+FROM \"symptomGruppe\" AS \"s\"" (0723d8ff)
+2022-11-29T12:25:40.7380643+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomBildeId\", \"s\".\"beskrivelse\", \"s\".\"diagnoseId\", \"s\".\"dypForklaring\", \"s\".\"navn\"
+FROM \"symptomBilde\" AS \"s\"" (0723d8ff)
+2022-11-29T12:25:40.7494335+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"b\".\"ID\", \"b\".\"brukernavn\", \"b\".\"etternavn\", \"b\".\"fornavn\", \"b\".\"passord\"
+FROM \"brukerInfo\" AS \"b\"" (0723d8ff)
+2022-11-29T12:25:40.8362782+01:00  [INF] Executed DbCommand ("4"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"brukerInfo\"
+WHERE \"ID\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8375943+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"brukerInfo\"
+WHERE \"ID\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8377444+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8378280+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnoseGruppe\"
+WHERE \"diagnoseGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8379021+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8379671+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8380347+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8380983+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8381644+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8382269+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8382874+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8383671+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8384645+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8385223+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8387531+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p2;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8388617+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8389937+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8390750+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8392205+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8393159+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8393927+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8394490+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8395049+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8395654+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8396212+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8396860+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomGruppe\"
+WHERE \"symptomGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8397749+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8398398+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8399017+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8399661+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomGruppe\"
+WHERE \"symptomGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8400329+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomGruppe\"
+WHERE \"symptomGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8400962+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomGruppe\"
+WHERE \"symptomGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8401756+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnoseGruppe\"
+WHERE \"diagnoseGruppeId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8402461+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnoseGruppe\"
+WHERE \"diagnoseGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8403099+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnoseGruppe\"
+WHERE \"diagnoseGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:25:40.8927802+01:00  [INF] Executed DbCommand ("1"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 4), @p2='?' (Size = 3), @p3='?' (Size = 4), @p4='?' (Size = 6)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"brukerInfo\" (\"ID\", \"brukernavn\", \"etternavn\", \"fornavn\", \"passord\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:40.8928916+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 5), @p2='?' (Size = 3), @p3='?' (Size = 4), @p4='?' (Size = 8)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"brukerInfo\" (\"ID\", \"brukernavn\", \"etternavn\", \"fornavn\", \"passord\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:40.9169075+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 14), @p2='?' (Size = 1392), @p3='?' (Size = 6)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnoseGruppe\" (\"diagnoseGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:25:40.9170051+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (Size = 2041), @p3='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnoseGruppe\" (\"diagnoseGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:25:40.9170710+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 12), @p2='?' (Size = 1596), @p3='?' (Size = 4)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnoseGruppe\" (\"diagnoseGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:25:40.9171303+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 11), @p2='?' (Size = 868), @p3='?' (Size = 3)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnoseGruppe\" (\"diagnoseGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:25:40.9472826+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 14), @p2='?' (Size = 1119), @p3='?' (Size = 6)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomGruppe\" (\"symptomGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:25:40.9473616+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (Size = 986), @p3='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomGruppe\" (\"symptomGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:25:40.9474174+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 12), @p2='?' (Size = 906), @p3='?' (Size = 4)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomGruppe\" (\"symptomGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:25:40.9474719+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (Size = 1059), @p3='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomGruppe\" (\"symptomGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:25:40.9754067+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 29), @p2='?' (DbType = Int32), @p3='?' (Size = 710), @p4='?' (Size = 28)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:40.9755342+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 27), @p2='?' (DbType = Int32), @p3='?' (Size = 656), @p4='?' (Size = 26)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:40.9756190+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 21), @p2='?' (DbType = Int32), @p3='?' (Size = 1473), @p4='?' (Size = 20)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:40.9757365+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 19), @p2='?' (DbType = Int32), @p3='?' (Size = 803), @p4='?' (Size = 18)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:40.9758149+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 12), @p2='?' (DbType = Int32), @p3='?' (Size = 965), @p4='?' (Size = 14)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:40.9758879+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 16), @p2='?' (DbType = Int32), @p3='?' (Size = 842), @p4='?' (Size = 18)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0083919+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 18), @p2='?' (Size = 48), @p3='?' (Size = 23), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0084778+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (Size = 56), @p3='?' (Size = 13), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0085404+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 12), @p2='?' (Size = 55), @p3='?' (Size = 12), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0086023+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 14), @p2='?' (Size = 57), @p3='?' (Size = 14), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0086609+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 12), @p2='?' (Size = 51), @p3='?' (Size = 8), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0087268+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 8), @p2='?' (Size = 49), @p3='?' (Size = 15), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0345517+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 14)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0346328+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 13)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0346988+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 19), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 14)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0347582+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 14), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 14)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0348220+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 13)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0349002+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 18), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 12)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0349652+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 16), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 10)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:25:41.0601881+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:25:41.0603332+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:25:41.0604410+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:25:41.0605599+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:25:41.0606695+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:25:41.0607813+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:25:41.1378342+01:00  [INF] User profile is available. Using '"C:\Users\rober\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2022-11-29T12:25:41.3246744+01:00  [INF] Now listening on: "https://localhost:7264" (d826f4b8)
+2022-11-29T12:25:41.3247352+01:00  [INF] Now listening on: "http://localhost:5264" (d826f4b8)
+2022-11-29T12:25:41.3272313+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-11-29T12:25:41.3272972+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-11-29T12:25:41.3273135+01:00  [INF] Content root path: "C:\Users\rober\Source\Repos\WebAppGr5\AngularProsjektDiagnoseKalkulator\" (b5d60022)
+2022-11-29T12:25:42.3191181+01:00 0HMMHVHPFPSV6:00000001 [INF] Request starting HTTP/2 GET https://localhost:7264/ - - (ca22a1cb)
+2022-11-29T12:25:46.5636290+01:00 0HMMHVHPFPSV6:00000001 [INF] No SPA development server running at https://localhost:44487 found. (942dbac9)
+2022-11-29T12:25:52.3542192+01:00 0HMMHVHPFPSV6:00000001 [INF] SPA proxy is not ready. Returning temporary landing page. (72ef90a5)
+2022-11-29T12:25:52.3637915+01:00 0HMMHVHPFPSV6:00000001 [INF] Request finished HTTP/2 GET https://localhost:7264/ - - - 200 - text/html 10049.4474ms (791a596a)
+2022-11-29T12:25:55.8393572+01:00 0HMMHVHPFPSV6:00000003 [INF] Request starting HTTP/2 GET https://localhost:7264/ - - (ca22a1cb)
+2022-11-29T12:26:00.6866872+01:00 0HMMHVHPFPSV6:00000003 [INF] SPA proxy is ready. Redirecting to https://localhost:44487. (54ab60d3)
+2022-11-29T12:26:00.6873224+01:00 0HMMHVHPFPSV6:00000003 [INF] Request finished HTTP/2 GET https://localhost:7264/ - - - 302 0 - 4847.9487ms (791a596a)
+2022-11-29T12:26:00.6883331+01:00 0HMMHVHPFPSV6:00000001 [INF] SPA development server running at 'https://localhost:44487' (4b1a19d6)
+2022-11-29T12:26:01.3300677+01:00 0HMMHVHPFPSV7:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:01.3903403+01:00 0HMMHVHPFPSV7:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:01.4102142+01:00 0HMMHVHPFPSV7:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:01.4141873+01:00 0HMMHVHPFPSV7:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:01.4569560+01:00 0HMMHVHPFPSV7:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:01.4758130+01:00 0HMMHVHPFPSV7:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:01.4842262+01:00 0HMMHVHPFPSV7:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:26:01.5037957+01:00 0HMMHVHPFPSV7:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 87.6863ms (afa2e885)
+2022-11-29T12:26:01.5039338+01:00 0HMMHVHPFPSV7:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:01.5129005+01:00 0HMMHVHPFPSV7:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 182.8176ms (791a596a)
+2022-11-29T12:26:04.0756199+01:00 0HMMHVHPFPSV8:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomGrupper/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:04.0775622+01:00 0HMMHVHPFPSV8:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomGrupper (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:04.0798583+01:00 0HMMHVHPFPSV8:00000002 [INF] Route matched with "{action = \"getSymptomGrupper\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomGrupper()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:04.1184740+01:00 0HMMHVHPFPSV8:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:04.1235277+01:00 0HMMHVHPFPSV8:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:04.1513623+01:00 0HMMHVHPFPSV8:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomGruppeId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\"
+FROM \"symptomGruppe\" AS \"s\"" (0723d8ff)
+2022-11-29T12:26:04.1585537+01:00 0HMMHVHPFPSV8:00000002 [INF] Returned list of symptomGrupper with size 4 (6068fd4c)
+2022-11-29T12:26:04.1587775+01:00 0HMMHVHPFPSV8:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomGruppeListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:26:04.1616268+01:00 0HMMHVHPFPSV8:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomGrupper (diagnoseKalkulatorAngular)" in 81.6999ms (afa2e885)
+2022-11-29T12:26:04.1616573+01:00 0HMMHVHPFPSV8:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomGrupper (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:04.1617060+01:00 0HMMHVHPFPSV8:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:04.1618457+01:00 0HMMHVHPFPSV8:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomGrupper/ application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 86.3000ms (791a596a)
+2022-11-29T12:26:04.1846842+01:00 0HMMHVHPFPSV9:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/1 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:04.1847507+01:00 0HMMHVHPFPSVA:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/2 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:04.1848778+01:00 0HMMHVHPFPSVB:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/3 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:04.1853019+01:00 0HMMHVHPFPSVC:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/4 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:04.1888424+01:00 0HMMHVHPFPSVA:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:04.1888413+01:00 0HMMHVHPFPSVC:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:04.1888417+01:00 0HMMHVHPFPSVB:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:04.1888418+01:00 0HMMHVHPFPSV9:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:04.2029929+01:00 0HMMHVHPFPSVC:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:04.2033186+01:00 0HMMHVHPFPSV9:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:04.2033196+01:00 0HMMHVHPFPSVA:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:04.2033196+01:00 0HMMHVHPFPSVB:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:04.2038998+01:00 0HMMHVHPFPSVA:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:04.2039000+01:00 0HMMHVHPFPSVC:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:04.2039018+01:00 0HMMHVHPFPSV9:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:04.2038996+01:00 0HMMHVHPFPSVB:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:04.2053024+01:00 0HMMHVHPFPSV9:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:04.2111870+01:00 0HMMHVHPFPSVB:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:04.2112009+01:00 0HMMHVHPFPSVC:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:04.2198226+01:00 0HMMHVHPFPSVA:00000002 [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:04.3620011+01:00 0HMMHVHPFPSVA:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:26:04.3620011+01:00 0HMMHVHPFPSVB:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:26:04.3620188+01:00 0HMMHVHPFPSV9:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:26:04.3620011+01:00 0HMMHVHPFPSVC:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:26:04.3628963+01:00 0HMMHVHPFPSV9:00000002 [INF] Returned list of SymptomListModel with id 1 size 1 (e60bd6e1)
+2022-11-29T12:26:04.3628965+01:00 0HMMHVHPFPSVB:00000002 [INF] Returned list of SymptomListModel with id 3 size 2 (33098999)
+2022-11-29T12:26:04.3629435+01:00 0HMMHVHPFPSVC:00000002 [INF] Returned list of SymptomListModel with id 4 size 2 (5a9a3a80)
+2022-11-29T12:26:04.3629545+01:00 0HMMHVHPFPSVA:00000002 [INF] Returned list of SymptomListModel with id 2 size 1 (cf55dc9b)
+2022-11-29T12:26:04.3630572+01:00 0HMMHVHPFPSVC:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:26:04.3630572+01:00 0HMMHVHPFPSVA:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:26:04.3630571+01:00 0HMMHVHPFPSVB:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:26:04.3630572+01:00 0HMMHVHPFPSV9:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:26:04.3641792+01:00 0HMMHVHPFPSVB:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 160.7763ms (afa2e885)
+2022-11-29T12:26:04.3641826+01:00 0HMMHVHPFPSVC:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 161.0765ms (afa2e885)
+2022-11-29T12:26:04.3641832+01:00 0HMMHVHPFPSV9:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 160.7905ms (afa2e885)
+2022-11-29T12:26:04.3641829+01:00 0HMMHVHPFPSVA:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 160.7856ms (afa2e885)
+2022-11-29T12:26:04.3642152+01:00 0HMMHVHPFPSVA:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:04.3642153+01:00 0HMMHVHPFPSV9:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:04.3642152+01:00 0HMMHVHPFPSVB:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:04.3642154+01:00 0HMMHVHPFPSVC:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:04.3642364+01:00 0HMMHVHPFPSVA:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:04.3642470+01:00 0HMMHVHPFPSVC:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:04.3642429+01:00 0HMMHVHPFPSVB:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:04.3642424+01:00 0HMMHVHPFPSV9:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:04.3643339+01:00 0HMMHVHPFPSVC:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/4 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 179.0160ms (791a596a)
+2022-11-29T12:26:04.3643306+01:00 0HMMHVHPFPSVA:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/2 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 179.5777ms (791a596a)
+2022-11-29T12:26:04.3643454+01:00 0HMMHVHPFPSVB:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/3 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 179.4749ms (791a596a)
+2022-11-29T12:26:04.3643608+01:00 0HMMHVHPFPSV9:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/1 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 179.6875ms (791a596a)
+2022-11-29T12:26:09.8562715+01:00 0HMMHVHPFPSVD:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:09.8573992+01:00 0HMMHVHPFPSVD:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:09.8576843+01:00 0HMMHVHPFPSVD:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:09.8583596+01:00 0HMMHVHPFPSVD:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:09.8596331+01:00 0HMMHVHPFPSVD:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:09.8599773+01:00 0HMMHVHPFPSVD:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:09.8600985+01:00 0HMMHVHPFPSVD:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:26:09.8603544+01:00 0HMMHVHPFPSVD:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 2.6197ms (afa2e885)
+2022-11-29T12:26:09.8603813+01:00 0HMMHVHPFPSVD:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:09.8604888+01:00 0HMMHVHPFPSVD:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 4.2130ms (791a596a)
+2022-11-29T12:26:09.9030862+01:00 0HMMHVHPFPSVE:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:09.9033825+01:00 0HMMHVHPFPSVE:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:09.9034683+01:00 0HMMHVHPFPSVE:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:09.9045287+01:00 0HMMHVHPFPSVE:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:09.9052646+01:00 0HMMHVHPFPSVE:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:09.9053491+01:00 0HMMHVHPFPSVE:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:09.9054237+01:00 0HMMHVHPFPSVE:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:26:09.9055342+01:00 0HMMHVHPFPSVE:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 2.0242ms (afa2e885)
+2022-11-29T12:26:09.9055706+01:00 0HMMHVHPFPSVE:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:09.9056672+01:00 0HMMHVHPFPSVE:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 2.5870ms (791a596a)
+2022-11-29T12:26:09.9226768+01:00 0HMMHVHPFPSVF:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomGrupper/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:09.9233534+01:00 0HMMHVHPFPSVF:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomGrupper (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:09.9234500+01:00 0HMMHVHPFPSVF:00000002 [INF] Route matched with "{action = \"getSymptomGrupper\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomGrupper()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:09.9245083+01:00 0HMMHVHPFPSVF:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:09.9260781+01:00 0HMMHVHPFPSVF:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:09.9268059+01:00 0HMMHVHPFPSVF:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomGruppeId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\"
+FROM \"symptomGruppe\" AS \"s\"" (0723d8ff)
+2022-11-29T12:26:09.9270950+01:00 0HMMHVHPFPSVF:00000002 [INF] Returned list of symptomGrupper with size 4 (6068fd4c)
+2022-11-29T12:26:09.9272606+01:00 0HMMHVHPFPSVF:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomGruppeListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:26:09.9274681+01:00 0HMMHVHPFPSVF:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomGrupper (diagnoseKalkulatorAngular)" in 3.7131ms (afa2e885)
+2022-11-29T12:26:09.9275229+01:00 0HMMHVHPFPSVF:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomGrupper (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:09.9275650+01:00 0HMMHVHPFPSVF:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:09.9277087+01:00 0HMMHVHPFPSVF:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomGrupper/ application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 5.1108ms (791a596a)
+2022-11-29T12:26:09.9947696+01:00 0HMMHVHPFPSVG:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/1 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:09.9951670+01:00 0HMMHVHPFPSVH:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/2 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:09.9952078+01:00 0HMMHVHPFPSVG:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:09.9952913+01:00 0HMMHVHPFPSVG:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:09.9954260+01:00 0HMMHVHPFPSVH:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:09.9954791+01:00 0HMMHVHPFPSVH:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:09.9956702+01:00 0HMMHVHPFPSVG:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:09.9957151+01:00 0HMMHVHPFPSVH:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:09.9964671+01:00 0HMMHVHPFPSVH:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:09.9964773+01:00 0HMMHVHPFPSVG:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:09.9968941+01:00 0HMMHVHPFPSVH:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:26:09.9969214+01:00 0HMMHVHPFPSVG:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:26:09.9970351+01:00 0HMMHVHPFPSVG:00000002 [INF] Returned list of SymptomListModel with id 1 size 1 (e60bd6e1)
+2022-11-29T12:26:09.9970412+01:00 0HMMHVHPFPSVH:00000002 [INF] Returned list of SymptomListModel with id 2 size 1 (cf55dc9b)
+2022-11-29T12:26:09.9971076+01:00 0HMMHVHPFPSVG:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:26:09.9971145+01:00 0HMMHVHPFPSVH:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:26:09.9972387+01:00 0HMMHVHPFPSVH:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 1.7219ms (afa2e885)
+2022-11-29T12:26:09.9972386+01:00 0HMMHVHPFPSVG:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 1.886ms (afa2e885)
+2022-11-29T12:26:09.9972825+01:00 0HMMHVHPFPSVG:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:09.9972825+01:00 0HMMHVHPFPSVH:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:09.9973133+01:00 0HMMHVHPFPSVH:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:09.9973133+01:00 0HMMHVHPFPSVG:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:09.9974398+01:00 0HMMHVHPFPSVH:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/2 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 2.2793ms (791a596a)
+2022-11-29T12:26:09.9974496+01:00 0HMMHVHPFPSVG:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/1 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 2.6766ms (791a596a)
+2022-11-29T12:26:10.0308461+01:00 0HMMHVHPFPSVI:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/3 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:10.0310346+01:00 0HMMHVHPFPSVJ:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/4 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:10.0310989+01:00 0HMMHVHPFPSVI:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:10.0311573+01:00 0HMMHVHPFPSVI:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:10.0312483+01:00 0HMMHVHPFPSVJ:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:10.0312952+01:00 0HMMHVHPFPSVJ:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:10.0315217+01:00 0HMMHVHPFPSVI:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:10.0315595+01:00 0HMMHVHPFPSVJ:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:10.0322836+01:00 0HMMHVHPFPSVI:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:10.0323120+01:00 0HMMHVHPFPSVJ:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:10.0326784+01:00 0HMMHVHPFPSVI:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:26:10.0326841+01:00 0HMMHVHPFPSVJ:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:26:10.0327811+01:00 0HMMHVHPFPSVJ:00000002 [INF] Returned list of SymptomListModel with id 4 size 2 (5a9a3a80)
+2022-11-29T12:26:10.0327837+01:00 0HMMHVHPFPSVI:00000002 [INF] Returned list of SymptomListModel with id 3 size 2 (33098999)
+2022-11-29T12:26:10.0328404+01:00 0HMMHVHPFPSVI:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:26:10.0328405+01:00 0HMMHVHPFPSVJ:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:26:10.0329281+01:00 0HMMHVHPFPSVI:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 1.7357ms (afa2e885)
+2022-11-29T12:26:10.0329292+01:00 0HMMHVHPFPSVJ:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 1.6013ms (afa2e885)
+2022-11-29T12:26:10.0329512+01:00 0HMMHVHPFPSVJ:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:10.0329515+01:00 0HMMHVHPFPSVI:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:10.0329758+01:00 0HMMHVHPFPSVJ:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:10.0329762+01:00 0HMMHVHPFPSVI:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:10.0330564+01:00 0HMMHVHPFPSVI:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/3 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 2.2015ms (791a596a)
+2022-11-29T12:26:10.0330581+01:00 0HMMHVHPFPSVJ:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/4 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 2.0221ms (791a596a)
+2022-11-29T12:26:16.3685096+01:00 0HMMHVHPFPSVK:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:16.3696048+01:00 0HMMHVHPFPSVK:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:16.3699510+01:00 0HMMHVHPFPSVK:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:16.3712195+01:00 0HMMHVHPFPSVK:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:16.3726866+01:00 0HMMHVHPFPSVK:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:16.3728260+01:00 0HMMHVHPFPSVK:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:16.3729375+01:00 0HMMHVHPFPSVK:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:26:16.3730762+01:00 0HMMHVHPFPSVK:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 3.0598ms (afa2e885)
+2022-11-29T12:26:16.3731162+01:00 0HMMHVHPFPSVK:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:16.3732946+01:00 0HMMHVHPFPSVK:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 4.7598ms (791a596a)
+2022-11-29T12:26:16.4117490+01:00 0HMMHVHPFPSVL:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getDiagnoser/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:26:16.4120736+01:00 0HMMHVHPFPSVL:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getDiagnoser (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:26:16.4146189+01:00 0HMMHVHPFPSVL:00000002 [INF] Route matched with "{action = \"getDiagnoser\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getDiagnoser()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:26:16.4149562+01:00 0HMMHVHPFPSVL:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:26:16.4156040+01:00 0HMMHVHPFPSVL:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:26:16.4188643+01:00 0HMMHVHPFPSVL:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"d\".\"diagnoseId\", \"d\".\"beskrivelse\", \"d\".\"diagnoseGruppeId\", \"d\".\"dypForklaring\", \"d\".\"navn\"
+FROM \"diagnose\" AS \"d\"" (0723d8ff)
+2022-11-29T12:26:16.4195462+01:00 0HMMHVHPFPSVL:00000002 [INF] Returned list of diagnoser with size 6 (1b73e7c0)
+2022-11-29T12:26:16.4196389+01:00 0HMMHVHPFPSVL:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.DiagnoseListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:26:16.4203910+01:00 0HMMHVHPFPSVL:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getDiagnoser (diagnoseKalkulatorAngular)" in 5.7245ms (afa2e885)
+2022-11-29T12:26:16.4204275+01:00 0HMMHVHPFPSVL:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getDiagnoser (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:26:16.4204465+01:00 0HMMHVHPFPSVL:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:26:16.4205171+01:00 0HMMHVHPFPSVL:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getDiagnoser/ application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 8.7823ms (791a596a)
+2022-11-29T12:27:41.3789375+01:00 0HMMHVHPFPSVM:00000002 [INF] Request starting HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 (ca22a1cb)
+2022-11-29T12:27:41.3791506+01:00 0HMMHVHPFPSVM:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:27:41.3812316+01:00 0HMMHVHPFPSVM:00000002 [INF] Route matched with "{action = \"loggInn\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] loggInn(obligDiagnoseVerktøyy.Model.DTO.BrukerLogin)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:27:41.3816884+01:00 0HMMHVHPFPSVM:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:27:41.3823203+01:00 0HMMHVHPFPSVM:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:27:41.3957569+01:00 0HMMHVHPFPSVM:00000002 [INF] Feil i inputvalidering (06f553d7)
+2022-11-29T12:27:41.3958677+01:00 0HMMHVHPFPSVM:00000002 [INF] Executing "BadRequestObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:27:41.3959566+01:00 0HMMHVHPFPSVM:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)" in 14.6878ms (afa2e885)
+2022-11-29T12:27:41.3960007+01:00 0HMMHVHPFPSVM:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:27:41.3960546+01:00 0HMMHVHPFPSVM:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:27:41.3961932+01:00 0HMMHVHPFPSVM:00000002 [INF] Request finished HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 - 400 - text/plain;+charset=utf-8 17.2666ms (791a596a)
+2022-11-29T12:29:41.5602921+01:00  [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:29:41.7020468+01:00  [INF] Executed DbCommand ("15"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:29:41.9146805+01:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"" (0723d8ff)
+2022-11-29T12:29:41.9795066+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"d\".\"diagnoseId\", \"d\".\"beskrivelse\", \"d\".\"diagnoseGruppeId\", \"d\".\"dypForklaring\", \"d\".\"navn\"
+FROM \"diagnose\" AS \"d\"" (0723d8ff)
+2022-11-29T12:29:41.9911860+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"d\".\"diagnoseGruppeId\", \"d\".\"beskrivelse\", \"d\".\"dypForklaring\", \"d\".\"navn\"
+FROM \"diagnoseGruppe\" AS \"d\"" (0723d8ff)
+2022-11-29T12:29:42.0262667+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"symptomBildeId\", \"s\".\"varighet\"
+FROM \"symptomSymptomBilde\" AS \"s\"" (0723d8ff)
+2022-11-29T12:29:42.0388245+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomGruppeId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\"
+FROM \"symptomGruppe\" AS \"s\"" (0723d8ff)
+2022-11-29T12:29:42.0475692+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomBildeId\", \"s\".\"beskrivelse\", \"s\".\"diagnoseId\", \"s\".\"dypForklaring\", \"s\".\"navn\"
+FROM \"symptomBilde\" AS \"s\"" (0723d8ff)
+2022-11-29T12:29:42.0625523+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"b\".\"ID\", \"b\".\"brukernavn\", \"b\".\"etternavn\", \"b\".\"fornavn\", \"b\".\"passord\"
+FROM \"brukerInfo\" AS \"b\"" (0723d8ff)
+2022-11-29T12:29:42.1433542+01:00  [INF] Executed DbCommand ("4"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"brukerInfo\"
+WHERE \"ID\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1450765+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"brukerInfo\"
+WHERE \"ID\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1452890+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1453989+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnoseGruppe\"
+WHERE \"diagnoseGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1454846+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1455581+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1456389+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1457107+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1458528+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1460956+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1462341+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1463640+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1464487+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1465523+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomSymptomBilde\"
+WHERE \"symptomBildeId\" = @p0 AND \"symptomId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1467443+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p2;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1468817+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1469541+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1470533+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1471341+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1471932+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptom\"
+WHERE \"symptomId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1472565+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1473192+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1473821+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1474447+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1475115+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomBilde\"
+WHERE \"symptomBildeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1475841+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomGruppe\"
+WHERE \"symptomGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1476772+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1477726+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1478527+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnose\"
+WHERE \"diagnoseId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1479184+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomGruppe\"
+WHERE \"symptomGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1479866+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomGruppe\"
+WHERE \"symptomGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1480511+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"symptomGruppe\"
+WHERE \"symptomGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1481319+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnoseGruppe\"
+WHERE \"diagnoseGruppeId\" = @p1;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1482039+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnoseGruppe\"
+WHERE \"diagnoseGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1482731+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"diagnoseGruppe\"
+WHERE \"diagnoseGruppeId\" = @p0;
+SELECT changes();" (0723d8ff)
+2022-11-29T12:29:42.1994800+01:00  [INF] Executed DbCommand ("1"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 4), @p2='?' (Size = 3), @p3='?' (Size = 4), @p4='?' (Size = 6)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"brukerInfo\" (\"ID\", \"brukernavn\", \"etternavn\", \"fornavn\", \"passord\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.1995712+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 5), @p2='?' (Size = 3), @p3='?' (Size = 4), @p4='?' (Size = 8)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"brukerInfo\" (\"ID\", \"brukernavn\", \"etternavn\", \"fornavn\", \"passord\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2174673+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 14), @p2='?' (Size = 1392), @p3='?' (Size = 6)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnoseGruppe\" (\"diagnoseGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:29:42.2175657+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (Size = 2041), @p3='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnoseGruppe\" (\"diagnoseGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:29:42.2176310+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 12), @p2='?' (Size = 1596), @p3='?' (Size = 4)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnoseGruppe\" (\"diagnoseGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:29:42.2176965+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 11), @p2='?' (Size = 868), @p3='?' (Size = 3)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnoseGruppe\" (\"diagnoseGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:29:42.2473118+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 14), @p2='?' (Size = 1119), @p3='?' (Size = 6)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomGruppe\" (\"symptomGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:29:42.2473882+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (Size = 986), @p3='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomGruppe\" (\"symptomGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:29:42.2474444+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 12), @p2='?' (Size = 906), @p3='?' (Size = 4)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomGruppe\" (\"symptomGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:29:42.2475010+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (Size = 1059), @p3='?' (Size = 5)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomGruppe\" (\"symptomGruppeId\", \"beskrivelse\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2022-11-29T12:29:42.2730311+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 29), @p2='?' (DbType = Int32), @p3='?' (Size = 710), @p4='?' (Size = 28)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2731609+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 27), @p2='?' (DbType = Int32), @p3='?' (Size = 656), @p4='?' (Size = 26)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2732687+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 21), @p2='?' (DbType = Int32), @p3='?' (Size = 1473), @p4='?' (Size = 20)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2733572+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 19), @p2='?' (DbType = Int32), @p3='?' (Size = 803), @p4='?' (Size = 18)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2734381+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 12), @p2='?' (DbType = Int32), @p3='?' (Size = 965), @p4='?' (Size = 14)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2735239+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 16), @p2='?' (DbType = Int32), @p3='?' (Size = 842), @p4='?' (Size = 18)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"diagnose\" (\"diagnoseId\", \"beskrivelse\", \"diagnoseGruppeId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2957963+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 18), @p2='?' (Size = 48), @p3='?' (Size = 23), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2958795+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (Size = 56), @p3='?' (Size = 13), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2959444+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 12), @p2='?' (Size = 55), @p3='?' (Size = 12), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2960068+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 14), @p2='?' (Size = 57), @p3='?' (Size = 14), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2960704+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 12), @p2='?' (Size = 51), @p3='?' (Size = 8), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.2961308+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 8), @p2='?' (Size = 49), @p3='?' (Size = 15), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptom\" (\"symptomId\", \"beskrivelse\", \"dypForklaring\", \"navn\", \"symptomGruppeId\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.3188863+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 14)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.3189648+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 13)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.3190277+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 19), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 14)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.3190837+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 14), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 14)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.3191446+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 13), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 13)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.3192054+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 18), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 12)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.3192664+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 16), @p2='?' (DbType = Int32), @p3='?' (Size = 3), @p4='?' (Size = 10)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomBilde\" (\"symptomBildeId\", \"beskrivelse\", \"diagnoseId\", \"dypForklaring\", \"navn\")
+VALUES (@p0, @p1, @p2, @p3, @p4);" (0723d8ff)
+2022-11-29T12:29:42.3494243+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:29:42.3494965+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:29:42.3495501+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:29:42.3496019+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:29:42.3496520+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:29:42.3497107+01:00  [INF] Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"symptomSymptomBilde\" (\"symptomBildeId\", \"symptomId\", \"varighet\")
+VALUES (@p0, @p1, @p2);" (0723d8ff)
+2022-11-29T12:29:42.4390571+01:00  [INF] User profile is available. Using '"C:\Users\rober\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2022-11-29T12:29:42.6220396+01:00  [INF] Now listening on: "https://localhost:7264" (d826f4b8)
+2022-11-29T12:29:42.6220655+01:00  [INF] Now listening on: "http://localhost:5264" (d826f4b8)
+2022-11-29T12:29:42.6242432+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-11-29T12:29:42.6243021+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-11-29T12:29:42.6243174+01:00  [INF] Content root path: "C:\Users\rober\Source\Repos\WebAppGr5\AngularProsjektDiagnoseKalkulator\" (b5d60022)
+2022-11-29T12:29:43.1245917+01:00 0HMMHVK199IG9:00000001 [INF] Request starting HTTP/2 GET https://localhost:7264/ - - (ca22a1cb)
+2022-11-29T12:29:47.3228781+01:00 0HMMHVK199IG9:00000001 [INF] No SPA development server running at https://localhost:44487 found. (942dbac9)
+2022-11-29T12:29:52.8553503+01:00 0HMMHVK199IG9:00000001 [INF] SPA proxy is not ready. Returning temporary landing page. (72ef90a5)
+2022-11-29T12:29:52.8637598+01:00 0HMMHVK199IG9:00000001 [INF] Request finished HTTP/2 GET https://localhost:7264/ - - - 200 - text/html 9742.4461ms (791a596a)
+2022-11-29T12:29:56.3148689+01:00 0HMMHVK199IG9:00000003 [INF] Request starting HTTP/2 GET https://localhost:7264/ - - (ca22a1cb)
+2022-11-29T12:30:00.3960250+01:00 0HMMHVK199IG9:00000003 [INF] SPA proxy is ready. Redirecting to https://localhost:44487. (54ab60d3)
+2022-11-29T12:30:00.3965954+01:00 0HMMHVK199IG9:00000003 [INF] Request finished HTTP/2 GET https://localhost:7264/ - - - 302 0 - 4081.7314ms (791a596a)
+2022-11-29T12:30:00.3976728+01:00 0HMMHVK199IG9:00000001 [INF] SPA development server running at 'https://localhost:44487' (4b1a19d6)
+2022-11-29T12:30:00.9960569+01:00 0HMMHVK199IGA:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:30:01.0541627+01:00 0HMMHVK199IGA:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:30:01.0737558+01:00 0HMMHVK199IGA:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:30:01.0786535+01:00 0HMMHVK199IGA:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:30:01.1170177+01:00 0HMMHVK199IGA:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:30:01.1211540+01:00 0HMMHVK199IGA:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:30:01.1297277+01:00 0HMMHVK199IGA:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:30:01.1494164+01:00 0HMMHVK199IGA:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 68.7342ms (afa2e885)
+2022-11-29T12:30:01.1495334+01:00 0HMMHVK199IGA:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:30:01.1565916+01:00 0HMMHVK199IGA:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 160.4960ms (791a596a)
+2022-11-29T12:30:04.9396740+01:00 0HMMHVK199IGB:00000002 [INF] Request starting HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 (ca22a1cb)
+2022-11-29T12:30:04.9412366+01:00 0HMMHVK199IGB:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:30:04.9504999+01:00 0HMMHVK199IGB:00000002 [INF] Route matched with "{action = \"loggInn\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] loggInn(obligDiagnoseVerktøyy.Model.DTO.BrukerLogin)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:30:04.9860729+01:00 0HMMHVK199IGB:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:30:04.9910063+01:00 0HMMHVK199IGB:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:30:05.0087471+01:00 0HMMHVK199IGB:00000002 [INF] Accessing expired session, Key:"c9bec0b2-9e16-e181-9c83-32623bc26599" (08c5a9e7)
+2022-11-29T12:30:05.0090032+01:00 0HMMHVK199IGB:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Boolean"'. (605b4265)
+2022-11-29T12:30:05.0106042+01:00 0HMMHVK199IGB:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)" in 60.0479ms (afa2e885)
+2022-11-29T12:30:05.0106341+01:00 0HMMHVK199IGB:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:30:05.0109875+01:00 0HMMHVK199IGB:00000002 [INF] Session started; Key:"c9bec0b2-9e16-e181-9c83-32623bc26599", Id:"7f3312d0-aa8a-98a1-44f2-fa5911cc08c7" (1d7cf8c0)
+2022-11-29T12:30:05.0115019+01:00 0HMMHVK199IGB:00000002 [INF] Request finished HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 - 200 - application/json;+charset=utf-8 71.8134ms (791a596a)
+2022-11-29T12:30:11.3002510+01:00 0HMMHVK199IGC:00000002 [INF] Request starting HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 (ca22a1cb)
+2022-11-29T12:30:11.3004010+01:00 0HMMHVK199IGC:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:30:11.3005148+01:00 0HMMHVK199IGC:00000002 [INF] Route matched with "{action = \"loggInn\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] loggInn(obligDiagnoseVerktøyy.Model.DTO.BrukerLogin)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:30:11.3017645+01:00 0HMMHVK199IGC:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:30:11.3023584+01:00 0HMMHVK199IGC:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:30:11.3030566+01:00 0HMMHVK199IGC:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Boolean"'. (605b4265)
+2022-11-29T12:30:11.3031863+01:00 0HMMHVK199IGC:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)" in 2.6299ms (afa2e885)
+2022-11-29T12:30:11.3032112+01:00 0HMMHVK199IGC:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:30:11.3034781+01:00 0HMMHVK199IGC:00000002 [INF] Request finished HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 - 200 - application/json;+charset=utf-8 3.2431ms (791a596a)
+2022-11-29T12:30:14.9714400+01:00 0HMMHVK199IGD:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomGrupper/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:30:14.9720400+01:00 0HMMHVK199IGD:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomGrupper (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:30:14.9775930+01:00 0HMMHVK199IGD:00000002 [INF] Route matched with "{action = \"getSymptomGrupper\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomGrupper()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:30:14.9786335+01:00 0HMMHVK199IGD:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:30:14.9801272+01:00 0HMMHVK199IGD:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:30:15.0116008+01:00 0HMMHVK199IGD:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomGruppeId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\"
+FROM \"symptomGruppe\" AS \"s\"" (0723d8ff)
+2022-11-29T12:30:15.0184659+01:00 0HMMHVK199IGD:00000002 [INF] Returned list of symptomGrupper with size 4 (6068fd4c)
+2022-11-29T12:30:15.0185812+01:00 0HMMHVK199IGD:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomGruppeListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:30:15.0198840+01:00 0HMMHVK199IGD:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomGrupper (diagnoseKalkulatorAngular)" in 42.1494ms (afa2e885)
+2022-11-29T12:30:15.0199117+01:00 0HMMHVK199IGD:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomGrupper (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:30:15.0200009+01:00 0HMMHVK199IGD:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomGrupper/ application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 48.5799ms (791a596a)
+2022-11-29T12:30:15.0432126+01:00 0HMMHVK199IGE:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/1 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:30:15.0435240+01:00 0HMMHVK199IGF:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/2 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:30:15.0441157+01:00 0HMMHVK199IGG:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/3 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:30:15.0467030+01:00 0HMMHVK199IGE:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:30:15.0467029+01:00 0HMMHVK199IGF:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:30:15.0467054+01:00 0HMMHVK199IGG:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:30:15.0514829+01:00 0HMMHVK199IGG:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:30:15.0518150+01:00 0HMMHVK199IGE:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:30:15.0518151+01:00 0HMMHVK199IGF:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:30:15.0521006+01:00 0HMMHVK199IGG:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:30:15.0525215+01:00 0HMMHVK199IGF:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:30:15.0529409+01:00 0HMMHVK199IGE:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:30:15.0544578+01:00 0HMMHVK199IGG:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:30:15.0651555+01:00 0HMMHVK199IGE:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:30:15.0651862+01:00 0HMMHVK199IGF:00000002 [INF] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:30:15.2451016+01:00 0HMMHVK199IGE:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:30:15.2451448+01:00 0HMMHVK199IGG:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:30:15.2451827+01:00 0HMMHVK199IGF:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:30:15.2460438+01:00 0HMMHVK199IGE:00000002 [INF] Returned list of SymptomListModel with id 1 size 1 (e60bd6e1)
+2022-11-29T12:30:15.2460438+01:00 0HMMHVK199IGF:00000002 [INF] Returned list of SymptomListModel with id 2 size 1 (cf55dc9b)
+2022-11-29T12:30:15.2460821+01:00 0HMMHVK199IGG:00000002 [INF] Returned list of SymptomListModel with id 3 size 2 (33098999)
+2022-11-29T12:30:15.2461790+01:00 0HMMHVK199IGF:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:30:15.2461843+01:00 0HMMHVK199IGE:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:30:15.2461790+01:00 0HMMHVK199IGG:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:30:15.2474679+01:00 0HMMHVK199IGG:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 195.8798ms (afa2e885)
+2022-11-29T12:30:15.2474718+01:00 0HMMHVK199IGE:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 195.5737ms (afa2e885)
+2022-11-29T12:30:15.2474784+01:00 0HMMHVK199IGF:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 195.5709ms (afa2e885)
+2022-11-29T12:30:15.2475058+01:00 0HMMHVK199IGE:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:30:15.2475048+01:00 0HMMHVK199IGG:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:30:15.2475120+01:00 0HMMHVK199IGF:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:30:15.2476182+01:00 0HMMHVK199IGG:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/3 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 203.4951ms (791a596a)
+2022-11-29T12:30:15.2476197+01:00 0HMMHVK199IGF:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/2 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 204.0832ms (791a596a)
+2022-11-29T12:30:15.2476346+01:00 0HMMHVK199IGE:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/1 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 204.4084ms (791a596a)
+2022-11-29T12:30:15.2894287+01:00 0HMMHVK199IGH:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/4 application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:30:15.2899653+01:00 0HMMHVK199IGH:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:30:15.2901174+01:00 0HMMHVK199IGH:00000002 [INF] Route matched with "{action = \"getSymptomerGittGruppeId\", controller = \"Diagnose\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] getSymptomerGittGruppeId(Int32)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:30:15.2913176+01:00 0HMMHVK199IGH:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:30:15.2924231+01:00 0HMMHVK199IGH:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:30:15.2931825+01:00 0HMMHVK199IGH:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=["@__symptomGruppeId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT \"s\".\"symptomId\", \"s\".\"beskrivelse\", \"s\".\"dypForklaring\", \"s\".\"navn\", \"s\".\"symptomGruppeId\"
+FROM \"symptom\" AS \"s\"
+WHERE \"s\".\"symptomGruppeId\" = @__symptomGruppeId_0" (0723d8ff)
+2022-11-29T12:30:15.2933988+01:00 0HMMHVK199IGH:00000002 [INF] Returned list of SymptomListModel with id 4 size 2 (5a9a3a80)
+2022-11-29T12:30:15.2935083+01:00 0HMMHVK199IGH:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[obligDiagnoseVerktøyy.Model.entities.SymptomListModel, diagnoseKalkulatorAngular, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'. (605b4265)
+2022-11-29T12:30:15.2937044+01:00 0HMMHVK199IGH:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)" in 3.489ms (afa2e885)
+2022-11-29T12:30:15.2937504+01:00 0HMMHVK199IGH:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.DiagnoseController.getSymptomerGittGruppeId (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:30:15.2938981+01:00 0HMMHVK199IGH:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Diagnose/getSymptomerGittGruppeId/4 application/json;+charset=utf-8 - - 200 - application/json;+charset=utf-8 4.5544ms (791a596a)
+2022-11-29T12:30:49.1620712+01:00 0HMMHVK199IGI:00000002 [INF] Request starting HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 (ca22a1cb)
+2022-11-29T12:30:49.1627043+01:00 0HMMHVK199IGI:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:30:49.1630055+01:00 0HMMHVK199IGI:00000002 [INF] Route matched with "{action = \"loggInn\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] loggInn(obligDiagnoseVerktøyy.Model.DTO.BrukerLogin)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:30:49.1648764+01:00 0HMMHVK199IGI:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:30:49.1678889+01:00 0HMMHVK199IGI:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:30:49.1688043+01:00 0HMMHVK199IGI:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Boolean"'. (605b4265)
+2022-11-29T12:30:49.1692903+01:00 0HMMHVK199IGI:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)" in 6.1039ms (afa2e885)
+2022-11-29T12:30:49.1694495+01:00 0HMMHVK199IGI:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:30:49.1698871+01:00 0HMMHVK199IGI:00000002 [INF] Request finished HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 - 200 - application/json;+charset=utf-8 7.9099ms (791a596a)
+2022-11-29T12:32:30.8945514+01:00 0HMMHVK199IGJ:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:32:30.8971527+01:00 0HMMHVK199IGJ:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:32:30.8972342+01:00 0HMMHVK199IGJ:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:32:30.8976674+01:00 0HMMHVK199IGJ:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:32:30.8983848+01:00 0HMMHVK199IGJ:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:32:30.8986326+01:00 0HMMHVK199IGJ:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:32:30.8988577+01:00 0HMMHVK199IGJ:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 1.5827ms (afa2e885)
+2022-11-29T12:32:30.8988870+01:00 0HMMHVK199IGJ:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:32:30.8989993+01:00 0HMMHVK199IGJ:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 7.4509ms (791a596a)
+2022-11-29T12:32:35.0041200+01:00 0HMMHVK199IGK:00000002 [INF] Request starting HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 45 (ca22a1cb)
+2022-11-29T12:32:35.0042573+01:00 0HMMHVK199IGK:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:32:35.0043257+01:00 0HMMHVK199IGK:00000002 [INF] Route matched with "{action = \"loggInn\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] loggInn(obligDiagnoseVerktøyy.Model.DTO.BrukerLogin)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:32:35.0047019+01:00 0HMMHVK199IGK:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:32:35.0053592+01:00 0HMMHVK199IGK:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:32:35.0055822+01:00 0HMMHVK199IGK:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Boolean"'. (605b4265)
+2022-11-29T12:32:35.0056675+01:00 0HMMHVK199IGK:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)" in 1.3075ms (afa2e885)
+2022-11-29T12:32:35.0056956+01:00 0HMMHVK199IGK:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:32:35.0057735+01:00 0HMMHVK199IGK:00000002 [INF] Request finished HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 45 - 200 - application/json;+charset=utf-8 1.6731ms (791a596a)
+2022-11-29T12:33:15.7898406+01:00 0HMMHVK199IGL:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:33:15.7901729+01:00 0HMMHVK199IGL:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:33:15.7902395+01:00 0HMMHVK199IGL:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:33:15.7906795+01:00 0HMMHVK199IGL:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:33:15.7915059+01:00 0HMMHVK199IGL:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:33:15.7916203+01:00 0HMMHVK199IGL:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:33:15.7917128+01:00 0HMMHVK199IGL:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 1.4328ms (afa2e885)
+2022-11-29T12:33:15.7917385+01:00 0HMMHVK199IGL:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:33:15.7918272+01:00 0HMMHVK199IGL:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 1.9972ms (791a596a)
+2022-11-29T12:33:21.8583680+01:00 0HMMHVK199IGM:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:33:21.8586220+01:00 0HMMHVK199IGM:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:33:21.8586859+01:00 0HMMHVK199IGM:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:33:21.8590389+01:00 0HMMHVK199IGM:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:33:21.8598128+01:00 0HMMHVK199IGM:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:33:21.8599369+01:00 0HMMHVK199IGM:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:33:21.8600199+01:00 0HMMHVK199IGM:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 1.3006ms (afa2e885)
+2022-11-29T12:33:21.8600435+01:00 0HMMHVK199IGM:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:33:21.8601476+01:00 0HMMHVK199IGM:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 1.7662ms (791a596a)
+2022-11-29T12:33:50.5961155+01:00 0HMMHVK199IGN:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:33:50.5964081+01:00 0HMMHVK199IGN:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:33:50.5965635+01:00 0HMMHVK199IGN:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:33:50.5969876+01:00 0HMMHVK199IGN:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:33:50.5976594+01:00 0HMMHVK199IGN:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:33:50.5977833+01:00 0HMMHVK199IGN:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:33:50.5978713+01:00 0HMMHVK199IGN:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 1.2545ms (afa2e885)
+2022-11-29T12:33:50.5979002+01:00 0HMMHVK199IGN:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:33:50.5979953+01:00 0HMMHVK199IGN:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 1.8800ms (791a596a)
+2022-11-29T12:33:56.5235794+01:00 0HMMHVK199IGO:00000002 [INF] Request starting HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 (ca22a1cb)
+2022-11-29T12:33:56.5237246+01:00 0HMMHVK199IGO:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:33:56.5237853+01:00 0HMMHVK199IGO:00000002 [INF] Route matched with "{action = \"loggInn\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] loggInn(obligDiagnoseVerktøyy.Model.DTO.BrukerLogin)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:33:56.5241200+01:00 0HMMHVK199IGO:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:33:56.5247735+01:00 0HMMHVK199IGO:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:33:56.5249639+01:00 0HMMHVK199IGO:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Boolean"'. (605b4265)
+2022-11-29T12:33:56.5250470+01:00 0HMMHVK199IGO:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)" in 1.2227ms (afa2e885)
+2022-11-29T12:33:56.5250740+01:00 0HMMHVK199IGO:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:33:56.5251724+01:00 0HMMHVK199IGO:00000002 [INF] Request finished HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 - 200 - application/json;+charset=utf-8 1.6076ms (791a596a)
+2022-11-29T12:34:00.0119193+01:00 0HMMHVK199IGP:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:34:00.0126652+01:00 0HMMHVK199IGP:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:34:00.0127945+01:00 0HMMHVK199IGP:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:34:00.0134611+01:00 0HMMHVK199IGP:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:34:00.0146147+01:00 0HMMHVK199IGP:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:34:00.0147877+01:00 0HMMHVK199IGP:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:34:00.0149660+01:00 0HMMHVK199IGP:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 2.1035ms (afa2e885)
+2022-11-29T12:34:00.0150132+01:00 0HMMHVK199IGP:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:34:00.0152068+01:00 0HMMHVK199IGP:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 3.3060ms (791a596a)
+2022-11-29T12:34:04.5201230+01:00 0HMMHVK199IGQ:00000002 [INF] Request starting HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 47 (ca22a1cb)
+2022-11-29T12:34:04.5202954+01:00 0HMMHVK199IGQ:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:34:04.5203779+01:00 0HMMHVK199IGQ:00000002 [INF] Route matched with "{action = \"loggInn\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] loggInn(obligDiagnoseVerktøyy.Model.DTO.BrukerLogin)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:34:04.5207893+01:00 0HMMHVK199IGQ:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:34:04.5214513+01:00 0HMMHVK199IGQ:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:34:04.5216544+01:00 0HMMHVK199IGQ:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Boolean"'. (605b4265)
+2022-11-29T12:34:04.5217413+01:00 0HMMHVK199IGQ:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)" in 1.325ms (afa2e885)
+2022-11-29T12:34:04.5217680+01:00 0HMMHVK199IGQ:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:34:04.5218689+01:00 0HMMHVK199IGQ:00000002 [INF] Request finished HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 47 - 200 - application/json;+charset=utf-8 1.7939ms (791a596a)
+2022-11-29T12:35:44.9059473+01:00 0HMMHVK199IGR:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:35:44.9353489+01:00 0HMMHVK199IGR:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:35:44.9355294+01:00 0HMMHVK199IGR:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:35:44.9372256+01:00 0HMMHVK199IGR:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:35:44.9382965+01:00 0HMMHVK199IGR:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:35:44.9385476+01:00 0HMMHVK199IGR:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:35:44.9387238+01:00 0HMMHVK199IGR:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 3.1137ms (afa2e885)
+2022-11-29T12:35:44.9387724+01:00 0HMMHVK199IGR:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:35:44.9389384+01:00 0HMMHVK199IGR:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 32.9926ms (791a596a)
+2022-11-29T12:35:52.8456711+01:00 0HMMHVK199IGS:00000002 [INF] Request starting HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 (ca22a1cb)
+2022-11-29T12:35:52.8458060+01:00 0HMMHVK199IGS:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:35:52.8458727+01:00 0HMMHVK199IGS:00000002 [INF] Route matched with "{action = \"loggInn\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] loggInn(obligDiagnoseVerktøyy.Model.DTO.BrukerLogin)" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:35:52.8462273+01:00 0HMMHVK199IGS:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:35:52.8468580+01:00 0HMMHVK199IGS:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:35:52.8470533+01:00 0HMMHVK199IGS:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.Boolean"'. (605b4265)
+2022-11-29T12:35:52.8471374+01:00 0HMMHVK199IGS:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)" in 1.2253ms (afa2e885)
+2022-11-29T12:35:52.8471606+01:00 0HMMHVK199IGS:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.loggInn (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:35:52.8472578+01:00 0HMMHVK199IGS:00000002 [INF] Request finished HTTP/1.1 POST https://localhost:44487/Login/loggInn/ application/json;+charset=UTF-8 48 - 200 - application/json;+charset=utf-8 1.6048ms (791a596a)
+2022-11-29T12:35:53.0720578+01:00 0HMMHVK199IGT:00000002 [INF] Request starting HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - (ca22a1cb)
+2022-11-29T12:35:53.0729989+01:00 0HMMHVK199IGT:00000002 [INF] Executing endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (500cc934)
+2022-11-29T12:35:53.0732164+01:00 0HMMHVK199IGT:00000002 [INF] Route matched with "{action = \"erInnlogget\", controller = \"Login\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] erInnlogget()" on controller "obligDiagnoseVerktøyy.Controllers.implementations.LoginController" ("diagnoseKalkulatorAngular"). (122b2fdf)
+2022-11-29T12:35:53.0748831+01:00 0HMMHVK199IGT:00000002 [INF] Entity Framework Core "6.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.Sqlite":"6.0.10"' with options: "None" (d2805559)
+2022-11-29T12:35:53.0767811+01:00 0HMMHVK199IGT:00000002 [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*) FROM \"sqlite_master\" WHERE \"type\" = 'table' AND \"rootpage\" IS NOT NULL;" (0723d8ff)
+2022-11-29T12:35:53.0770084+01:00 0HMMHVK199IGT:00000002 [INF] Executing "OkObjectResult", writing value of type '"System.String"'. (605b4265)
+2022-11-29T12:35:53.0771339+01:00 0HMMHVK199IGT:00000002 [INF] Executed action "obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)" in 3.8576ms (afa2e885)
+2022-11-29T12:35:53.0771695+01:00 0HMMHVK199IGT:00000002 [INF] Executed endpoint '"obligDiagnoseVerktøyy.Controllers.implementations.LoginController.erInnlogget (diagnoseKalkulatorAngular)"' (99874f2b)
+2022-11-29T12:35:53.0773024+01:00 0HMMHVK199IGT:00000002 [INF] Request finished HTTP/1.1 GET https://localhost:44487/Login/erInnlogget/ application/json;+charset=utf-8 - - 200 - text/plain;+charset=utf-8 5.3142ms (791a596a)
