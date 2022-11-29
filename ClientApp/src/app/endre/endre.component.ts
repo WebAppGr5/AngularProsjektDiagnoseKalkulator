@@ -39,6 +39,11 @@ export class EndreComponent {
     });
   }
 
+  /**
+   *
+   * Henter en diagnose
+   * @param id Diagnosen en skal hente
+   */
   getDiagnose(id: Number) {
     if (id == null)
       return;
@@ -56,6 +61,9 @@ export class EndreComponent {
 
     });
   }
+  /**
+   * Sjekker om en er logget inn
+   * */
   sjekkErInnlogget() {
 
     const url = "Login/erInnlogget/";
@@ -66,6 +74,9 @@ export class EndreComponent {
 
     }, (err) => { this.error = true; this.erInnlogget = false; });
   }
+  /**
+   * Endrer en diagnose
+   * */
   utforEndring() {
     if (this.endreSchema.valid) {
       const diagnoseChangeDTO = new DiagnoseChangeDTO(this.endreSchema.value.navn, this.endreSchema.value.beskrivelse, this.endreSchema.value.dypForklaring, this.endreSchema.value.diagnoseId);

@@ -20,6 +20,9 @@ export class ListDiagnoserComponent {
   constructor(private http: HttpClient, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
 
   }
+  /**
+   * Sjekker om en er innlogget
+   * */
   sjekkErInnlogget() {
 
     const url = "Login/erInnlogget/";
@@ -34,6 +37,9 @@ export class ListDiagnoserComponent {
     this.sjekkErInnlogget();
     this.hentDiagnoser();
   }
+  /**
+   * Henter alle diagnoser
+   * */
   hentDiagnoser() {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
 
@@ -44,7 +50,11 @@ export class ListDiagnoserComponent {
       this.error = false;
     }, (err) => { this.error = true; });
   }
-
+  /**
+   * Sletter diagnose
+   * 
+   * @param diagnoseId Diagnosen en skal slette
+   */
   forgetDiagnose(diagnoseId: Number) {
     const url = "Diagnose/forgetDiagnose/" + String(diagnoseId);
     const headers = { 'content-type': 'application/json; charset=utf-8' };

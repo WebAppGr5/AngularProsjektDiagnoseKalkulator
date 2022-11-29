@@ -25,7 +25,9 @@ export class logInComponent{
       ])]
     });
   }
-
+  /**
+   * Logger inn bruker
+   * */
   LoggInn() {
     if (this.logInSkjema.valid) {
       const headers = { 'content-type': 'application/json; charset=utf-8' };
