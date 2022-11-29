@@ -33,7 +33,8 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         private ISymptomRepository _symptomRepository;
 
         private ILogger<DiagnoseController> _logger;
-
+        private const string _LoggetInn = "InnLogget";
+        private const string _ikkeLoggetInn = "";
 
         public DiagnoseController(IDiagnoseRepository diagnoseRepository, IDiagnoseGruppeRepository diagnoseGruppeRepository, ISymptomBildeRepository symptomBildeRepository, ISymptomGruppeRepository symptomGruppeRepository, ISymptomRepository symptomRepository, ILogger<DiagnoseController> logger)
         {
@@ -49,15 +50,16 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
 
 
-        [HttpGet("{id}")]
+        [HttpDelete("{id}")]
         /**
          *  Sletter diagnose med gitt id
          */
         public async Task<IActionResult> forgetDiagnose([FromRoute] int id)
         {
-            bool erLoggetInn = true;
-            if (!erLoggetInn)
-                return Unauthorized("Need to be loged in to do this");
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
+            {
+                return Unauthorized("Ikke logget inn");
+            }
 
             if (id < 0)
             {
@@ -89,9 +91,10 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> update([FromBody] DiagnoseChangeDTO diagnose)
         {
-            bool erLoggetInn = true;
-            if (!erLoggetInn)
-                return Unauthorized("Need to be loged in to do this");
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
+            {
+                return Unauthorized("Ikke logget inn");
+            }
 
             if (ModelState.IsValid)
             {
@@ -228,9 +231,10 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> nyDiagnose([FromBody] DiagnoseCreateDTO diagnose)
         {
-            bool erLoggetInn = true;
-            if (!erLoggetInn)
-                return Unauthorized("Need to be loged in to do this");
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
+            {
+                return Unauthorized("Ikke logget inn");
+            }
 
             if (ModelState.IsValid)
             {
