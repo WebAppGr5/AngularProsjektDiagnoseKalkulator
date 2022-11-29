@@ -56,10 +56,16 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> forgetDiagnose([FromRoute] int id)
         {
+
+            bool erLoggetInn = true;
+            if (!erLoggetInn)
+                return Unauthorized("Need to be logged in to do this");
+
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
             {
                 return Unauthorized("Ikke logget inn");
             }
+
 
             if (id < 0)
             {
