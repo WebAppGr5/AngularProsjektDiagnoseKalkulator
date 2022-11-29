@@ -33,19 +33,22 @@
         <div class="boks boks2">
           <h1>Logg inn</h1>
 
-          <div [formGroup]="logInSkjema" class="form">
-            <div class="form-group">
-              <label>Brukernavn</label>
+          <div [formGroup]="logInSkjema" >
+            <div >
+              <label for="brukernavn"  class="inputTextLabel"><strong>Brukernavn:</strong></label>
 
-              <input type="text" id="bruker" formControlName="brukernavn" />
+              <input type="text" id="brukernavn" formControlName="brukernavn" />
               <span style="color:red" *ngIf="this.logInSkjema.controls['brukernavn'].status=='INVALID'"> Ugyldig input</span><br />
             </div>
-            <div class="form-group">
-              <label>Passord:</label>
+            <div>
+
+            </div>
+            <div >
+              <label for="passord"  class="inputTextLabel"><strong>Passord:</strong></label>
               <input type="password" formControlName="passord" id="passord" />
               <span style="color:red" *ngIf="this.logInSkjema.controls['passord'].status=='INVALID'"> Ugyldig input</span><br />
             </div>
-            <div class="form-group">
+            <div >
               <input type="button" value="Logg inn" (click)="LoggInn()" class="knapp" />
 
             
