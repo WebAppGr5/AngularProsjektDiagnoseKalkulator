@@ -80,7 +80,16 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             return Ok(brukeren);
         }
 
-        [HttpPost]
+        public async Task<ActionResult> erInnlogget()
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
+            {
+                return Ok("false");
+            }
+            return Ok("true");
+            
+        }     
+       [HttpPost]
         public async Task<ActionResult> loggInn([FromBody] BrukerLogin brukerLogin)
         {
             if (ModelState.IsValid)
