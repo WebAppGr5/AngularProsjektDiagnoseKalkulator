@@ -21,47 +21,7 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
             _log = log;
         }
 
-        public async Task<bool> Lagre(Brukerpersonalia innBruker)
-        {
-            try
-            {
-                var nyBrukerRad = new Brukerpersonalia();
-                nyBrukerRad.fornavn = innBruker.fornavn;
-                nyBrukerRad.etternavn = innBruker.etternavn;
-               _db.Brukerpersonalia.Add(nyBrukerRad);
-            await _db.SaveChangesAsync();
-            return true;
-            }
-            catch (Exception e)
-            {
-                _log.LogInformation(e.Message);
-                return false;
-            }
-   
 
-
-
-
-        }
-
-        public async Task<List<Bruker>> hentAlle()
-        {
-            try
-            {
-                 //   List<Brukerpersonalia> alleBrukere = await _db.Brukerpersonalia.Select(b => new BrukerPersonalia
-                  //{
-                 //      ID = b.ID,
-                  //   fornavn = b.fornavn,
-                 //     etternavn = b.etternavn,
-               //     }).ToListAsync();
-                return null;
-            }
-            catch (Exception e)
-            {
-                _log.LogInformation(e.Message);
-                return null;
-            }
-        }
 
       public  byte[] lagHash(string passord, byte[] salt)
         {
