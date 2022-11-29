@@ -11,6 +11,12 @@ export class InfoDiagnoseComponent {
   public id: Number | undefined;
   diagnose: DiagnoseDetailModel | undefined;
   error: boolean = false;
+
+  /**
+   *
+   * Henter en diagnose
+   * @param id Diagnosen en henter
+   */
   getDiagnose(id: Number) {
     if (id == null)
       return;

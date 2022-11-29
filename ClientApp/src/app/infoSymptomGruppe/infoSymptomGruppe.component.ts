@@ -11,6 +11,12 @@ export class InfoSymptomGruppeComponent {
   public id: Number | undefined;
   public symptomGruppe: SymptomGruppeDetailModel | undefined;
   error: boolean = false;
+
+  /**
+   *
+   * Henter en symptom gruppe
+   * @param id Symptom gruppen en henter
+   */
   getSymptomGruppe(id: Number) {
     if (id == null)
       return;

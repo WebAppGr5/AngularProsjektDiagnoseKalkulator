@@ -63,6 +63,9 @@ export class home-component{
     this.sjekkErInnlogget();
   }
 
+  /**
+   * Ser om en er innlogget
+   * */
   sjekkErInnlogget() {
 
     const url = "Login/erInnlogget/";

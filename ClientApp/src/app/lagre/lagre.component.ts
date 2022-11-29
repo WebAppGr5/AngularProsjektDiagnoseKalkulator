@@ -47,7 +47,13 @@ export class LagreComponent {
   }
 
  
-
+  /**
+ * Endrer hvorvidt en har dette symptomet
+ * 
+ * @param symptomGruppeId Hvilke symptomgruppe symptomet ligger i - for å søke etter symptomet 
+ * @param symptomId Hvilke symptom en snakker om, og skal påvirke
+ * @param event Referanse til all dataene assosiert med det en trykket på
+ */
   doSetOption(symptomGruppeId: Number, symptomId: Number, event: any) {
 
     if (event && event.target && event.target.options) {
@@ -63,6 +69,9 @@ export class LagreComponent {
       }
     }
   }
+  /**
+   * Ser om en er logget inn
+   * */
   sjekkErInnlogget() {
 
     const url = "Login/erInnlogget/";
@@ -77,7 +86,11 @@ export class LagreComponent {
     this.sjekkErInnlogget();
     this.hentSymptomGrupper();
   }
-
+  /**
+   *
+   * Henter symptomergrupper
+   * @param symptomGruppeId Symptomgruppen en henter 
+   */
   hentSymptomer(symptomGruppeId: Number) {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
 
@@ -88,6 +101,12 @@ export class LagreComponent {
       this.error = false;
     }, (err) => { this.error = true; });
   }
+
+  /**
+   * Gjør listen over symptomer synlig/usynlig
+   * 
+   * @param symptomGruppeId Hvilke liste over symptomer en snakker om
+   */
   toggleKategori(symptomGruppeId: Number) {
 
     if (this.symptomGruppeMap) {
@@ -109,6 +128,11 @@ export class LagreComponent {
     }
 
   }
+  /**
+ * Hvor vidt en skal vise selectlisten assosiert med et symptom
+ * @param symptomGruppeId Hvilke symptom gruppe symptomet en letter etter er 
+ * @param symptomId Symptomet en leter etter
+ */ 
   toggleSelectList(symptomGruppeId: Number, symptomId: Number) {
     if (this.symptomerMap) {
       const symptomer = this.symptomerMap.get(Number(symptomGruppeId));
@@ -125,6 +149,10 @@ export class LagreComponent {
 
     }
   }
+
+  /**
+   * Lagre denne diagnosen
+   * */
   lagre() {
     if (this.lageSchema.valid) {
       const SymptomListModelListe: SymptomListModel[] = this.hentSymptomerEnHar();
@@ -155,6 +183,10 @@ export class LagreComponent {
     }
     
   }
+  /**
+   * Henter symptomene en har, basert på checkboxene og varighetene en har valgt
+   *
+   * */
   hentSymptomerEnHar(): SymptomListModel[] {
 
     const symptomIdListe: Number[] = new Array<Number>();
@@ -176,6 +208,9 @@ export class LagreComponent {
 
     return SymptomListModelListe;
   }
+  /**
+   * Henter symptom grupper
+   * */
   hentSymptomGrupper() {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
 

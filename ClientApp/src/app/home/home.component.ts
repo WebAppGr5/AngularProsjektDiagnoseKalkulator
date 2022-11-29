@@ -32,6 +32,10 @@ export class HomeComponent {
   ngOnInit() {
     this.hentSymptomGrupper();
   }
+  /**
+   * Henter symptomer
+   * @param symptomGruppeId Symptomgruppen til disse symptomene 
+   */
   hentSymptomer(symptomGruppeId: Number) {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
     
@@ -42,12 +46,17 @@ export class HomeComponent {
       this.error = false;
     }, (err) => { this.error = true; });
   }
+  /**
+   * Gjør listen over symptomer synlig/usynlig
+   * 
+   * @param symptomGruppeId Hvilke liste over symptomer en snakker om
+   */
   toggleKategori(symptomGruppeId: Number) {
 
     if (this.symptomGruppeMap) {
       const symptomGruppeListModel = this.symptomGruppeMap.get(Number(symptomGruppeId));
       const symptomer = this.symptomerMap.get(Number(symptomGruppeId));
-      //Når en legger closer, så har en ikke valgt noen av disse symtomene
+
       if (symptomer) {
         symptomer.forEach((symptom) => {
           symptom.doHave = false;
@@ -55,7 +64,7 @@ export class HomeComponent {
         });
       }
       if (symptomGruppeListModel) {
-        const symptomDTOListe: SymptomDTO[] = this.hentSymptomerEnHar();
+
 
         if (symptomGruppeListModel.doShow)
           symptomGruppeListModel.doShow = false;
@@ -67,7 +76,13 @@ export class HomeComponent {
     }
 
   }
-
+  /**
+   * Endrer hvorvidt en har dette symptomet
+   * 
+   * @param symptomGruppeId Hvilke symptomgruppe symptomet ligger i - for å søke etter symptomet 
+   * @param symptomId Hvilke symptom en snakker om, og skal påvirke
+   * @param event Referanse til all dataene assosiert med det en trykket på
+   */
   doSetOption(symptomGruppeId: Number, symptomId: Number, event: any) {
 
     if (event && event.target && event.target.options) {
@@ -85,6 +100,10 @@ export class HomeComponent {
       }
     }
   }
+  /**
+   * Finn hvilke diagnoser en har gitt symptomer og tilhørende varigheter
+   * @param symptomDTOListe Liste over symptomer en har, og tilhørende varigheter. SymptomDto består av et varighetsvalg og en symptomId
+   */
   utforKalkulering(symptomDTOListe: SymptomDTO[]) {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
     const url = "Diagnose/getDiagnoserGittSymptomer/";
@@ -93,6 +112,11 @@ export class HomeComponent {
       this.error = false;
     }, (err) => { this.error = true; });
   }
+  /**
+   * Hvor vidt en skal vise selectlisten assosiert med et symptom
+   * @param symptomGruppeId Hvilke symptom gruppe symptomet en letter etter er 
+   * @param symptomId Symptomet en leter etter
+   */ 
   toggleSelectList(symptomGruppeId: Number, symptomId: Number) {
     if (this.symptomerMap) {
       const symptomer = this.symptomerMap.get(Number(symptomGruppeId));
@@ -112,6 +136,9 @@ export class HomeComponent {
 
     }
   }
+  /**
+   * Liste over symptomer en har, med tilhørende varigheter
+   * */
   hentSymptomerEnHar(): SymptomDTO[] {
 
     const symptomIdListe: Number[] = new Array<Number>();
@@ -133,6 +160,9 @@ export class HomeComponent {
 
     return symptomDTOListe;
   }
+  /**
+   * Henter liste over symtpom grupper
+   * */
   hentSymptomGrupper() {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
 

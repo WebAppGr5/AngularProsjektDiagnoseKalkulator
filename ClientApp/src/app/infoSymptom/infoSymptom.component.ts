@@ -11,6 +11,12 @@ export class InfoSymptomComponent {
   public id: Number | undefined;
   symptom: SymptomDetailModel | undefined;
   error: boolean = false;
+
+  /**
+   *
+   * Henter et symptom
+   * @param id Symptomet en henter
+   */
   getSymptom(id: Number) {
     if (id == null)
       return;
