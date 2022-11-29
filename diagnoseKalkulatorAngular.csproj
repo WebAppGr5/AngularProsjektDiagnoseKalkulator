@@ -53,8 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Model\entities\BrukerInfo.cs" />
-    <None Include="Model\DTO\BrukerPesonalia.cs" />
+    <None Include="Model\entities\BrukerPersonalia.cs" />
     <None Include="Model\DTO\BrukerLogin.cs" />
   </ItemGroup>
 
@@ -87,6 +86,10 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\models\DiagnoseListModel.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\DAL\" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

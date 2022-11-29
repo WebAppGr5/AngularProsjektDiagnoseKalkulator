@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using diagnoseKalkulatorAngular.Repository.interfaces;
 using Microsoft.AspNetCore.Http;
 
 using Microsoft.AspNetCore.Mvc;
@@ -71,7 +71,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                 return Unauthorized("Ikke innlogget");
             }
             //BrukerInfo Brukeren = await _db.HentEn(id);
-            BrukerInfo brukeren = null;
+            Brukerpersonalia brukeren = null;
             if (brukeren == null)
             {
                 _log.LogInformation("Fant ikke kunden");
@@ -94,8 +94,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         {
             if (ModelState.IsValid)
             {
-                //     bool returnOK = await _db.LoggInn(bruker);
-                bool returnOK = true;
+                Bruker bruker = new Bruker { brukernavn = brukerLogin.brukernavn, passord = brukerLogin.passord };
+                bool returnOK = await _db.LoggInn(bruker);
+
                 if (!returnOK)
                 {
                     _log.LogInformation("Innloggingen feilet for bruker");
