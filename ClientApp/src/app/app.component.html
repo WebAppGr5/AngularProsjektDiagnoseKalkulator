@@ -8,9 +8,21 @@
   </style>
 </head>
 <body>
-  <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
+  <span *ngIf="erInnlogget">   <app-nav-menu-user></app-nav-menu-user></span>
+  <div class="container" *ngIf="erInnlogget;else notErInnlogget">
+ 
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
   </div>
+  <ng-template #notErInnlogget>
+    <app-nav-menu></app-nav-menu>
+    <div class="container">
+
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </ng-template>
 </body>
 

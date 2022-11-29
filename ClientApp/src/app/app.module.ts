@@ -17,6 +17,7 @@ import { logInComponent } from './logIn/logIn.component';
 
 import { Component } from '@angular/core';
 import { InfoAppComponent } from './informasjon om appen/infoApp.component';
+import { NavMenuUserComponent } from './nav-menu-user/nav-menu-user.component';
 
 
 
@@ -31,6 +32,7 @@ import { InfoAppComponent } from './informasjon om appen/infoApp.component';
     LagreComponent,
     InfoSymptomGruppeComponent,
     InfoSymptomComponent,
+    NavMenuUserComponent,
     InfoDiagnoseComponent,
     InfoAppComponent,
     ListDiagnoserComponent
