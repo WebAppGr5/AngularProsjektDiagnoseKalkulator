@@ -57,7 +57,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         {
             bool erLoggetInn = true;
             if (!erLoggetInn)
-                return Unauthorized("Need to be loged in to do this");
+                return Unauthorized("Need to be logged in to do this");
 
             if (id < 0)
             {
