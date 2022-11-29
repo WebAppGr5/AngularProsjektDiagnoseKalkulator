@@ -8,7 +8,9 @@ body {
 }
 
 .varighet {
-
+  display: flex;
+  margin-left: 14vw !important;
+  flex-wrap: wrap;
 }
 .notificationOk {
   color: seagreen;

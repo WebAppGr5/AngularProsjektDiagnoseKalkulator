@@ -45,7 +45,7 @@
               <div *ngFor="let symptom of symptomerMap.get(symptomGruppe.symptomGruppeId)">
                 <input class="symptomene" type="checkbox" name="symptom" value="String(symptom.name)" (click)="toggleSelectList(symptomGruppe.symptomGruppeId,symptom.symptomId)">
                 <label>{{symptom.navn}} <i class="fa-solid fa-circle-info fa-2xl" [routerLink]="['/infoSymptom',symptom.symptomId]"></i></label>
-                <label class="symptomene" *ngIf="symptom.doHave"> Velg varighet:</label>
+                <label class="varighet" *ngIf="symptom.doHave"> Velg varighet:</label>
         
                 <select class="varighet" *ngIf="symptom.doHave" (change)="doSetOption(symptomGruppe.symptomGruppeId,symptom.symptomId,$event)">
                   <option *ngFor="let optionsVarighet of optionsVarigheter">{{optionsVarighet}}</option>
