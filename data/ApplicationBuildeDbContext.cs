@@ -48,14 +48,14 @@ namespace DiagnoseKalkulatorAngular.data
             dbBrukerContext.Brukerpersonalia.ToList().ForEach((x) => dbBrukerContext.Remove(x));
             List<Brukerpersonalia> brukerpersonalia;
             List<Bruker> brukerLogin;
-            var bruker1 = new Brukerpersonalia { fornavn = "Mike", etternavn = "Clawthorn" };
-            var bruker2 = new Brukerpersonalia { fornavn = "Nina", etternavn = "George" };
-
+            var bruker1 = new Brukerpersonalia { ID=1,fornavn = "Mike", etternavn = "Clawthorn" };
+       
             dbBrukerContext.Brukerpersonalia.Add(bruker1);
-            dbBrukerContext.Brukerpersonalia.Add(bruker2);
+   
 
             // lag en påoggingsbruker
             var bruker = new Bruker();
+            bruker.ID = 1;
             bruker.brukernavn = "Admin";
             var passord = "Sjokolade123";
             byte[] salt = lagSalt();
