@@ -13,8 +13,16 @@ export class logInComponent{
 
   constructor(private http: HttpClient, private fb: FormBuilder) {
     this.logInSkjema = fb.group({
-      brukernavn: ["", Validators.required],
-      passord: ["", Validators.pattern("[0-9a-zA-Z]{8,20}")]
+      brukernavn: ["", Validators.compose([
+        Validators.required,
+        Validators.maxLength(50),
+        Validators.minLength(4)
+      ])],
+      passord: ["", Validators.compose([
+        Validators.required,
+        Validators.maxLength(50),
+        Validators.minLength(8)
+      ])]
     });
   }
 
