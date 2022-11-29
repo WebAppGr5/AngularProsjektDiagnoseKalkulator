@@ -1,4 +1,5 @@
-/*using System;
+/*
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -54,7 +55,8 @@ namespace lagreTest {
         public async Task hentSymptomer(){
             var sympt1 = new Symptom{
             ID = 010,
-            Symptom = "Hodepine"
+            Symptom = "Hodepine",
+            varighet = "1-3 måneder",
             };
             mockRep.Setup(s => s.HentEn(It.IsAny<int>())).ReturnsAsync(sympt1);
             var DiagnoseController = new DiagnoseController(mockRep.Object, mockLog.Object);
@@ -78,7 +80,7 @@ namespace lagreTest {
         public async Task hentSymptomGrupper(){
             var sg1 = new SymptomGruppe{
                         ID = 04
-                        Symptomer[] = "Hodepine, vondt i mage, hoven hals",
+                        Symptomer[] = "028, 046, 047",
                         };
             mockRep.Setup(s => s.HentAlle(It.IsAny<int>())).ReturnsAsync(sg1);
             var DiagnoseController = new DiagnoseController(mockRep.Object, mockLog.Object);
