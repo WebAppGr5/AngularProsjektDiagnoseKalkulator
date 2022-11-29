@@ -1,18 +1,18 @@
-
+<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {LagreComponent} from 'lagre.component';
-
+=======
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-
+>>>>>>> master
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-
+<<<<<<< HEAD
   title = 'App';
 }
 
@@ -51,10 +51,10 @@ export class home-component{
   console.log(this.symptSkjema.symptomListe);
   console.log(this.skjema.value.touched);
   }
-
+=======
   title = 'app';
   constructor(private http: HttpClient) {
- 
+
   }
   erInnlogget: boolean = false;
   error: boolean = false;
@@ -73,6 +73,6 @@ export class home-component{
 
     }, (err) => { this.error = true; this.erInnlogget = false; });
   }
-  
 
+>>>>>>> master
 }
