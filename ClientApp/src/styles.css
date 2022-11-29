@@ -1,6 +1,6 @@
 * {
   margin: 0;
-
+  max-width: 100vw;
 }
 
 body {
@@ -8,12 +8,29 @@ body {
 }
 
 .varighet {
-
+  display: flex;
+  margin-left: 14vw !important;
+  flex-wrap: wrap;
 }
 .notificationOk {
   color: seagreen;
   background-color: white;
   text-align: center
+}
+.inputTextLabel {
+    width: 120px;
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+}
+.inputText {
+
+  background-color: white !important;
+
+  color: black;
+}
+.scalableTitle{
+    font-size:4vw;
 }
 .notificationError {
   color: firebrick;
@@ -41,6 +58,7 @@ body {
   flex-direction: row;
   align-items: stretch;
   height: fit-content;
+  flex-wrap:wrap;
   opacity: 80%;
   margin-bottom: 40px;
 }
@@ -113,5 +131,5 @@ body {
 }
 
 .symptomene {
-  margin-left: 14em !important;
+  margin-left: 14vw!important;
 }
