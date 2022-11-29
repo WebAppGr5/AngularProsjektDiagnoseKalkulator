@@ -1,12 +1,18 @@
+
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {LagreComponent} from 'lagre.component';
+
+import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent {
+
   title = 'App';
 }
 
@@ -45,4 +51,28 @@ export class home-component{
   console.log(this.symptSkjema.symptomListe);
   console.log(this.skjema.value.touched);
   }
+
+  title = 'app';
+  constructor(private http: HttpClient) {
+ 
+  }
+  erInnlogget: boolean = false;
+  error: boolean = false;
+
+  ngOnInit() {
+    this.sjekkErInnlogget();
+  }
+
+  sjekkErInnlogget() {
+
+    const url = "Login/erInnlogget/";
+    const headers = { 'content-type': 'application/json; charset=utf-8' };
+    this.http.get<boolean>(url, { 'headers': headers }).subscribe((res) => {
+      this.error = false;
+      this.erInnlogget = res;
+
+    }, (err) => { this.error = true; this.erInnlogget = false; });
+  }
+  
+
 }

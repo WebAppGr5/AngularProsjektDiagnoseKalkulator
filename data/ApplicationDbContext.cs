@@ -8,7 +8,7 @@ using System;
 
 using obligDiagnoseVerktøyy.Model.entities;
 
-using ClientApp.Model;
+
 
 namespace DiagnoseKalkulatorAngular.Data
 {

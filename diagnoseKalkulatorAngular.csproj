@@ -36,6 +36,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Model\DTO\BrukerPesonalia.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\models\BrukerLogin.ts" />
     <None Remove="ClientApp\src\models\DiagnoseChangeDTO.ts" />
     <None Remove="ClientApp\src\models\DiagnoseCreateDTO.ts" />
     <None Remove="ClientApp\src\models\DiagnoseDetailModel.ts" />
@@ -48,10 +53,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Model\BrukerInfo.cs" />
+    <None Include="Model\entities\BrukerInfo.cs" />
+    <None Include="Model\DTO\BrukerPesonalia.cs" />
+    <None Include="Model\DTO\BrukerLogin.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\models\BrukerLogin.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\models\SymptomGruppeDetailModel.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

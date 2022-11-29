@@ -1,32 +1,36 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Http;
-using ClientApp.Model;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using obligDiagnoseVerktøyy.Model.DTO;
+using obligDiagnoseVerktøyy.Model.entities;
 
 using obligDiagnoseVerktøyy.Repository.interfaces;
 
 
-namespace symptkalk.controller
+namespace obligDiagnoseVerktøyy.Controllers.implementations
 {
     [Route("[controller]/[action]")]
-    public class logInController : ControllerBase
+
+    public class LoginController : ControllerBase
     {
         private IBrukerRepository _db;
 
-        private ILogger<logInController> _log;
+        private ILogger<LoginController> _log;
 
         private const string _LoggetInn = "InnLogget";
         private const string _ikkeLoggetInn = "";
 
-        public logInController(IBrukerRepository db, ILogger<logInController> log)
+        public LoginController(IBrukerRepository db, ILogger<LoginController> log)
         {
             _db = db;
             _log = log;
         }
-
-        public async Task<ActionResult> Lagre(BrukerInfo innBruker)
+        [HttpPost]
+        public async Task<ActionResult> Lagre([FromBody] BrukerLogin innBruker)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
             {
@@ -47,7 +51,7 @@ namespace symptkalk.controller
             _log.LogInformation("Noe gikk galt i inputvalideringen.");
             return BadRequest("Inputvalidering feilet på server.");
         }
-
+        [HttpGet]
         public async Task<ActionResult> HentAlle()
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
@@ -59,7 +63,8 @@ namespace symptkalk.controller
             return Ok();
         }
 
-        public async Task<ActionResult> hentEn(int ID)
+        [HttpGet("{id}")]
+        public async Task<ActionResult> hentEn([FromRoute] int id)
         {
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
             {
@@ -75,7 +80,17 @@ namespace symptkalk.controller
             return Ok(brukeren);
         }
 
-        public async Task<ActionResult> LoggInn(BrukerInfo bruker)
+        public async Task<ActionResult> erInnlogget()
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
+            {
+                return Ok("false");
+            }
+            return Ok("true");
+            
+        }     
+       [HttpPost]
+        public async Task<ActionResult> loggInn([FromBody] BrukerLogin brukerLogin)
         {
             if (ModelState.IsValid)
             {
@@ -87,15 +102,16 @@ namespace symptkalk.controller
                     HttpContext.Session.SetString(_LoggetInn, _ikkeLoggetInn);
                     return Ok(false);
                 }
-                HttpContext.Session.SetString(_LoggetInn, _ikkeLoggetInn);
+                HttpContext.Session.SetString(_LoggetInn, _LoggetInn);
                 return Ok(true);
             }
             _log.LogInformation("Feil i inputvalidering");
             return BadRequest("Feil i inputvalidering p� server");
         }
-        public void LoggUt()
+        [HttpGet]
+        public void loggUt()
         {
-            // Http.Context.Session.SetString(_LoggetInn, _ikkeLoggetInn);
+            HttpContext.Session.SetString(_LoggetInn, _ikkeLoggetInn);
         }
 
     }

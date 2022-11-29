@@ -5,7 +5,7 @@ using System.Xml;
 using DiagnoseKalkulatorAngular.Data;
 
 using static System.Reflection.Metadata.BlobBuilder;
-using ClientApp.Model;
+
 
 namespace DiagnoseKalkulatorAngular.data
 {

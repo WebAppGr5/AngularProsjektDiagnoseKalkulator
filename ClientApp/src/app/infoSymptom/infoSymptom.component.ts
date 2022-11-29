@@ -10,7 +10,7 @@ import { SymptomDetailModel } from '../../models/SymptomDetailModel';
 export class InfoSymptomComponent {
   public id: Number | undefined;
   symptom: SymptomDetailModel | undefined;
-
+  error: boolean = false;
   getSymptom(id: Number) {
     if (id == null)
       return;
@@ -18,8 +18,8 @@ export class InfoSymptomComponent {
     const url = "Diagnose/hentSymptomGittSymptomId/" + String(id);
     this.http.get<SymptomDetailModel>(url, { 'headers': headers }).subscribe((res) => {
       this.symptom = res;
-
-    });
+      this.error = false;
+    }, (err) => { this.error = true; });
   }
   constructor(private http: HttpClient,  private route: ActivatedRoute, private router: Router) { }
 

@@ -14,8 +14,10 @@ import { DiagnoseDetailModel } from '../../models/DiagnoseDetailModel';
 export class EndreComponent {
 
   public id: Number | undefined;
+  harEndret: boolean = false;
+  error: boolean = false;
   endreSchema: FormGroup;
-
+  erInnlogget: boolean = false;
   constructor(private http: HttpClient, private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
     this.endreSchema = fb.group({
 
@@ -43,6 +45,7 @@ export class EndreComponent {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
     const url = "Diagnose/hentDiagnoseGittDiagnoseId/" + String(id);
     this.http.get<DiagnoseDetailModel>(url, { 'headers': headers }).subscribe((res) => {
+
       this.endreSchema.setValue({
         navn: String(res.navn),
         beskrivelse: String(res.beskrivelse),
@@ -53,7 +56,16 @@ export class EndreComponent {
 
     });
   }
+  sjekkErInnlogget() {
 
+    const url = "Login/erInnlogget/";
+    const headers = { 'content-type': 'application/json; charset=utf-8' };
+    this.http.get<boolean>(url, { 'headers': headers }).subscribe((res) => {
+      this.error = false;
+      this.erInnlogget = res;
+
+    }, (err) => { this.error = true; this.erInnlogget = false; });
+  }
   utforEndring() {
     if (this.endreSchema.valid) {
       const diagnoseChangeDTO = new DiagnoseChangeDTO(this.endreSchema.value.navn, this.endreSchema.value.beskrivelse, this.endreSchema.value.dypForklaring, this.endreSchema.value.diagnoseId);
@@ -61,13 +73,16 @@ export class EndreComponent {
       const data = JSON.stringify(diagnoseChangeDTO);
 
       const url = "Diagnose/Update/";
-      this.http.put(url, data, {'headers':headers}).subscribe((res) => {
-   
-      });
+      this.http.put<any>(url, data, { 'headers': headers }).subscribe((res) => {
+        this.error = false;
+        this.harEndret = true;
+
+      }, (err) => { this.error = true; });
 
     }
   }
   ngOnInit() {
+    this.sjekkErInnlogget();
     this.route.params.subscribe(params => {
       
       if (params.id != null) {

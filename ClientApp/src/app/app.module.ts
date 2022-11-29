@@ -16,6 +16,8 @@ import { ListDiagnoserComponent } from './diagnoseListe/listdiagnoser.component'
 import { logInComponent } from './logIn/logIn.component';
 
 import { Component } from '@angular/core';
+import { InfoAppComponent } from './informasjon om appen/infoApp.component';
+import { NavMenuUserComponent } from './nav-menu-user/nav-menu-user.component';
 
 
 
@@ -30,7 +32,9 @@ import { Component } from '@angular/core';
     LagreComponent,
     InfoSymptomGruppeComponent,
     InfoSymptomComponent,
+    NavMenuUserComponent,
     InfoDiagnoseComponent,
+    InfoAppComponent,
     ListDiagnoserComponent
   ],
   imports: [
@@ -48,8 +52,8 @@ import { Component } from '@angular/core';
       { path: 'infoSymptom/:id', component: InfoSymptomComponent, pathMatch: 'prefix' },
       { path: 'infoDiagnose/:id', component: InfoDiagnoseComponent, pathMatch: 'prefix' },
       { path: 'listDiagnoser', component: ListDiagnoserComponent, pathMatch: 'prefix' },
-      { path: 'home', component: HomeComponent, pathMatch: 'prefix' }
-
+      { path: 'home', component: HomeComponent, pathMatch: 'prefix' },
+      { path: 'infoApp', component: InfoAppComponent, pathMatch: 'prefix' }
 
       
     ])

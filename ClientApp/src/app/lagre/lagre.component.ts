@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DiagnoseCreateDTO } from '../../models/DiagnoseCreateDTO';
 import { DiagnoseDetailModel } from '../../models/DiagnoseDetailModel';
+import { SymptomDTO } from '../../models/SymptomDTO';
 import { SymptomGruppeListModel } from '../../models/SymptomGruppeListModel';
 import { SymptomListModel } from '../../models/SymptomListModel';
 
@@ -15,9 +17,10 @@ export class LagreComponent {
   lageSchema: FormGroup;
   diagnose: DiagnoseDetailModel | undefined;
   symptomGrupper: SymptomGruppeListModel[] | undefined;
-
+  harLagret: boolean = false;
+  error: boolean = false;
   symptomerMap: Map<Number, SymptomListModel[]>
-
+  erInnlogget: boolean = false;
   symptomGruppeMap: Map<Number, SymptomGruppeListModel> | undefined;
 
   optionsVarigheter: String[] = ["--", "1-3 dager", "Flere dager", "1-3 måneder", "Flere måneder", "1-3 år", "Flere år"];
@@ -60,8 +63,18 @@ export class LagreComponent {
       }
     }
   }
+  sjekkErInnlogget() {
 
+    const url = "Login/erInnlogget/";
+    const headers = { 'content-type': 'application/json; charset=utf-8' };
+    this.http.get<boolean>(url, { 'headers': headers }).subscribe((res) => {
+      this.error = false;
+      this.erInnlogget = res;
+
+    }, (err) => { this.error = true; this.erInnlogget = false; });
+  }
   ngOnInit() {
+    this.sjekkErInnlogget();
     this.hentSymptomGrupper();
   }
 
@@ -72,7 +85,8 @@ export class LagreComponent {
     const url = "Diagnose/getSymptomerGittGruppeId/" + String(symptomGruppeId);
     this.http.get<SymptomListModel[]>(url, { 'headers': headers }).subscribe((res) => {
       this.symptomerMap.set(symptomGruppeId, res);
-    });
+      this.error = false;
+    }, (err) => { this.error = true; });
   }
   toggleKategori(symptomGruppeId: Number) {
 
@@ -111,7 +125,57 @@ export class LagreComponent {
 
     }
   }
+  lagre() {
+    if (this.lageSchema.valid) {
+      const SymptomListModelListe: SymptomListModel[] = this.hentSymptomerEnHar();
 
+
+
+      if (SymptomListModelListe) {
+
+        const symptomIdListe: Number[] = new Array<Number>();
+        const varighetListe: Number[] = new Array<Number>();
+
+        SymptomListModelListe.forEach((symptom) => {
+          symptomIdListe.push(symptom.symptomId);
+          varighetListe.push(symptom.varighetsValg);
+        });
+
+        const headers = { 'content-type': 'application/json; charset=utf-8' };
+        const diagnoseCreateDTO: DiagnoseCreateDTO = new DiagnoseCreateDTO(this.lageSchema.value.navn, this.lageSchema.value.beskrivelse, this.lageSchema.value.dypForklaring, symptomIdListe, varighetListe);
+        const data = JSON.stringify(diagnoseCreateDTO);
+
+        const url = "Diagnose/nyDiagnose/";
+        this.http.post<any>(url, data, { 'headers': headers }).subscribe((res) => {
+          this.error = false;
+          this.harLagret = true;
+
+        }, (err) => { this.error = true; });
+      }
+    }
+    
+  }
+  hentSymptomerEnHar(): SymptomListModel[] {
+
+    const symptomIdListe: Number[] = new Array<Number>();
+
+    const SymptomListModelListe = new Array<SymptomListModel>();
+    this.symptomerMap.forEach((symptomListe: SymptomListModel[]) => {
+      symptomListe.forEach((symptom: SymptomListModel) => {
+        if (symptom.doHave) {
+          //Kan hende samme symptom er i flere symptomgrupper
+          if (!symptomIdListe.includes(symptom.symptomId)) {
+            symptomIdListe.push(symptom.symptomId);
+            SymptomListModelListe.push(symptom);
+
+
+          }
+        };
+      });
+    });
+
+    return SymptomListModelListe;
+  }
   hentSymptomGrupper() {
     const headers = { 'content-type': 'application/json; charset=utf-8' };
 
@@ -119,7 +183,7 @@ export class LagreComponent {
     const url = "Diagnose/getSymptomGrupper/";
     this.http.get<SymptomGruppeListModel[]>(url, { 'headers': headers }).subscribe((res) => {
       this.symptomGrupper = res;
-
+      this.error = false;
 
       this.symptomGrupper.forEach((symptomGruppe) => {
         if (symptomGruppe && this.symptomGruppeMap) {
@@ -128,6 +192,6 @@ export class LagreComponent {
         }
 
       });
-    });
+    }, (err) => { this.error = true; });
   }
 }

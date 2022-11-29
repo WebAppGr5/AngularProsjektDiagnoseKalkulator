@@ -11,14 +11,16 @@
   <title>Title</title>
 </head>
 
-<body>
+<body *ngIf="erInnlogget">
 <i class='fa fa-arrow-left fa-4x' [routerLink]="['/']"></i>
-  <div class="header">
+<div class="header">
 
-    <img class="doktor-ikon" src="../../assets/images/docImg.svg" alt="doktor-ikon" /><br/>
-    OVERSIKT OVER DIAGNOSER
+  <img class="doktor-ikon" src="../../assets/images/docImg.svg" alt="doktor-ikon" /><br />
+  <h1 *ngIf="harSlettet" class="notificationOk">Diagnosen er slettet </h1>
+  <h1 *ngIf="error" class="notificationError">Problemer med server tilkobling </h1>
+  OVERSIKT OVER DIAGNOSER
 
-  </div>
+</div>
 
 
 
