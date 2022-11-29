@@ -20,7 +20,7 @@ namespace DiagnoseKalkulatorAngular.Data
         public DbSet<SymptomBilde> symptomBilde { get; set; }
         public DbSet<DiagnoseGruppe> diagnoseGruppe { get; set; }
         public DbSet<Diagnose> diagnose { get; set; }
-        public DbSet<BrukerInfo> brukerInfo { get; set; }
+
         public DbSet<SymptomGruppe> symptomGruppe { get; set; }
         public DbSet<SymptomSymptomBilde> symptomSymptomBilde { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -30,7 +30,7 @@ namespace DiagnoseKalkulatorAngular.Data
             modelBuilder.Entity<Symptom>().ToTable("symptom").HasKey(k => k.symptomId);
 
             modelBuilder.Entity<Diagnose>().ToTable("diagnose").HasKey(k => k.diagnoseId);
-            modelBuilder.Entity<BrukerInfo>().ToTable("brukerInfo").HasKey(k => k.ID);
+
 
 
             modelBuilder.Entity<DiagnoseGruppe>().ToTable("diagnoseGruppe").HasKey(k => k.diagnoseGruppeId);
