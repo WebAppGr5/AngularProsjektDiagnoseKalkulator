@@ -19,8 +19,8 @@
 
     <img class="doktor-ikon" src="../../assets/images/docImg.svg" alt="doktor-ikon" /><br />
     <h1 *ngIf="error" class="notificationError">Problemer med server tilkobling </h1>
+    <span class="scalableTitle">    Symptomkalkulator</span>
 
-    Symptomkalkulator
 
   </div>
 
@@ -37,7 +37,7 @@
             <div >
               <label for="brukernavn"  class="inputTextLabel"><strong>Brukernavn:</strong></label>
 
-              <input type="text" id="brukernavn" formControlName="brukernavn" />
+              <input type="text" id="brukernavn" class="inputText" formControlName="brukernavn" />
               <span style="color:red" *ngIf="this.logInSkjema.controls['brukernavn'].status=='INVALID'"> Ugyldig input</span><br />
             </div>
             <div>
