@@ -31,6 +31,7 @@ export class ListDiagnoserComponent {
     }, (err) => { this.error = true; this.erInnlogget = false; });
   }
   ngOnInit() {
+    this.sjekkErInnlogget();
     this.hentDiagnoser();
   }
   hentDiagnoser() {
