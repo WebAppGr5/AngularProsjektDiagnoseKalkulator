@@ -16,7 +16,7 @@ export class HomeComponent {
 
   symptomGrupper: SymptomGruppeListModel[] | undefined;
   error: boolean = false;
-
+  harKalkulert: boolean = false;
   symptomerMap: Map<Number, SymptomListModel[]>
   diagnoser: DiagnoseListModel[] | undefined;
   symptomGruppeMap: Map<Number, SymptomGruppeListModel> | undefined;
