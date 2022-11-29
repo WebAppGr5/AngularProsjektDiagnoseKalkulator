@@ -41,7 +41,9 @@
               [routerLinkActiveOptions]="{ exact: true }">
             <a class="nav-link text-dark" [routerLink]="['/infoApp']">Info om appen</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link text-dark"  (click)="logout()">Logout</a>
+          </li>
 
         </ul>
       </div>
