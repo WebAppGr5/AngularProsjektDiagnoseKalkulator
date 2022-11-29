@@ -25,7 +25,7 @@ export class logInComponent{
       
       const url = "Login/loggInn/";
       this.http.post<any>(url, brukerLogin, { 'headers': headers }).subscribe((res) => {
-
+        window.location.reload();
         this.error = false;
       }, (err) => { this.error = true; });
     }
