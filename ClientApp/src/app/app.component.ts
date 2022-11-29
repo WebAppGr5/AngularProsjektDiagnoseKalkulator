@@ -17,6 +17,9 @@ export class AppComponent {
     this.sjekkErInnlogget();
   }
 
+  /**
+   * Ser om en er innlogget
+   * */
   sjekkErInnlogget() {
 
     const url = "Login/erInnlogget/";

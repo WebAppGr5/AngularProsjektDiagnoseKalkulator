@@ -17,6 +17,9 @@ export class NavMenuUserComponent {
     this.isExpanded = !this.isExpanded;
   }
 
+  /**
+   * Logger av brukeren
+   * */
   logout() {
 
     const url = "Login/loggUt/";
