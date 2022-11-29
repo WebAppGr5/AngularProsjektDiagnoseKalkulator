@@ -29,56 +29,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             _db = db;
             _log = log;
         }
-        [HttpPost]
-        public async Task<ActionResult> Lagre([FromBody] BrukerLogin innBruker)
-        {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
-            {
-                return Unauthorized("Ikke logget inn");
-            }
-            if (ModelState.IsValid)
-            {
-                //bool lagreB = await _db.Lagre(innBruker);
-                bool lagreB = true;
-                if (!lagreB)
-                {
-                    _log.LogInformation("Klarte ikke lagre ny bruker.");
-                    return BadRequest("Fikk ikke lagret bruker.");
-
-                };
-                return Ok("Ny bruker er lagret.");
-            }
-            _log.LogInformation("Noe gikk galt i inputvalideringen.");
-            return BadRequest("Inputvalidering feilet på server.");
-        }
-        [HttpGet]
-        public async Task<ActionResult> HentAlle()
-        {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
-            {
-                return Unauthorized("Ikke innlogget");
-            }
-            //List<BrukerInfo> alleBrukere = await _db.HentAlle();
-            //   return Ok(alleBrukere);
-            return Ok();
-        }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult> hentEn([FromRoute] int id)
-        {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
-            {
-                return Unauthorized("Ikke innlogget");
-            }
-            //BrukerInfo Brukeren = await _db.HentEn(id);
-            Brukerpersonalia brukeren = null;
-            if (brukeren == null)
-            {
-                _log.LogInformation("Fant ikke kunden");
-                return NotFound("Fant ikke kunden");
-            }
-            return Ok(brukeren);
-        }
+    
 
         public async Task<ActionResult> erInnlogget()
         {
