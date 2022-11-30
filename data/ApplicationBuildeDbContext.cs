@@ -65,7 +65,7 @@ namespace DiagnoseKalkulatorAngular.data
             dbBrukerContext.brukere.Add(bruker);
 
 
-            //   brukerpersonalia.ForEach((x) => db.Brukerpersonalia.Add(x));
+  
             dbBrukerContext.SaveChanges();
       
             var db = serviceProvider.GetRequiredService<ApplicationDbContext>();

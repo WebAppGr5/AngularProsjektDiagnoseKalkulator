@@ -11,6 +11,8 @@ export class logInComponent{
   logInSkjema: FormGroup;
   error: boolean = false;
 
+  innloggingFeil: boolean = false;
+
   constructor(private http: HttpClient, private fb: FormBuilder) {
     this.logInSkjema = fb.group({
       brukernavn: ["", Validators.compose([
@@ -34,10 +36,19 @@ export class logInComponent{
       const brukerLogin = new BrukerLogin(this.logInSkjema.value.brukernavn, this.logInSkjema.value.passord);
       
       const url = "Login/loggInn/";
-      this.http.post<any>(url, brukerLogin, { 'headers': headers }).subscribe((res) => {
-        window.location.reload();
+      this.http.post<boolean>(url, brukerLogin, { 'headers': headers }).subscribe((res) => {
+        if (res == true) {
+          this.innloggingFeil = false;
+
+          window.location.reload();
+        }
+        else {
+          this.innloggingFeil = true;
+
+        }
+
         this.error = false;
-      }, (err) => { this.error = true; });
+      }, (err) => { this.error = true; this.innloggingFeil = false;  });
     }
   }
 }
