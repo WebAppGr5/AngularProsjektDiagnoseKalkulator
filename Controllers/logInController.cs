@@ -21,7 +21,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
         private ILogger<LoginController> _log;
 
-        private const string _LoggetInn = "InnLogget";
+        private const string _loggetInn = "InnLogget";
         private const string _ikkeLoggetInn = "";
 
         public LoginController(IBrukerRepository db, ILogger<LoginController> log)
@@ -29,18 +29,18 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             _db = db;
             _log = log;
         }
-    
+
 
         public async Task<ActionResult> erInnlogget()
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
                 return Ok("false");
             }
             return Ok("true");
-            
-        }     
-       [HttpPost]
+
+        }
+        [HttpPost]
         public async Task<ActionResult> loggInn([FromBody] BrukerLogin brukerLogin)
         {
             if (ModelState.IsValid)
@@ -51,10 +51,10 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                 if (!returnOK)
                 {
                     _log.LogInformation("Innloggingen feilet for bruker");
-                    HttpContext.Session.SetString(_LoggetInn, _ikkeLoggetInn);
+                    HttpContext.Session.SetString(_loggetInn, _ikkeLoggetInn);
                     return Ok(false);
                 }
-                HttpContext.Session.SetString(_LoggetInn, _LoggetInn);
+                HttpContext.Session.SetString(_loggetInn, _loggetInn);
                 return Ok(true);
             }
             _log.LogInformation("Feil i inputvalidering");
@@ -63,7 +63,8 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         [HttpGet]
         public void loggUt()
         {
-            HttpContext.Session.SetString(_LoggetInn, _ikkeLoggetInn);
+            HttpContext.Session.SetString(_loggetInn, _ikkeLoggetInn);
+    
         }
 
     }

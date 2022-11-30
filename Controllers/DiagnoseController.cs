@@ -33,7 +33,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         private ISymptomRepository _symptomRepository;
 
         private ILogger<DiagnoseController> _logger;
-        private const string _LoggetInn = "InnLogget";
+        private const string _loggetInn = "InnLogget";
         private const string _ikkeLoggetInn = "";
 
         public DiagnoseController(IDiagnoseRepository diagnoseRepository, IDiagnoseGruppeRepository diagnoseGruppeRepository, ISymptomBildeRepository symptomBildeRepository, ISymptomGruppeRepository symptomGruppeRepository, ISymptomRepository symptomRepository, ILogger<DiagnoseController> logger)
@@ -57,14 +57,12 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         public async Task<IActionResult> forgetDiagnose([FromRoute] int id)
         {
 
-            bool erLoggetInn = true;
-            if (!erLoggetInn)
-                return Unauthorized("Need to be logged in to do this");
 
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
+
+           if (string.IsNullOrEmpty((HttpContext.Session.GetString(_loggetInn))))
             {
                 return Unauthorized("Ikke logget inn");
-            }
+           }
 
 
             if (id < 0)
@@ -77,7 +75,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
                 _diagnoseRepository.deleteDiagnose(id);
                 _logger.LogInformation("Diagnose med id " + id + " er slettet");
-                return Ok();
+                return Ok("ok");
             }
             catch (EntityNotFoundException ex)
             {
@@ -97,10 +95,10 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> update([FromBody] DiagnoseChangeDTO diagnose)
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
                 return Unauthorized("Ikke logget inn");
-            }
+           }
 
             if (ModelState.IsValid)
             {
@@ -119,7 +117,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                     };
                     _diagnoseRepository.update(diagnosen);
                     _logger.LogInformation("Diagnose med id " + diagnose.diagnoseId + " er oppdatert til " + diagnose.ToString());
-                    return Ok(diagnose);
+                    return Ok("ok");
                 }
                 catch (EntityNotFoundException ex)
                 {
@@ -237,7 +235,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> nyDiagnose([FromBody] DiagnoseCreateDTO diagnose)
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInn)))
             {
                 return Unauthorized("Ikke logget inn");
             }
@@ -253,7 +251,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                     }
                     _diagnoseRepository.addDiagnose(diagnose);
                     _logger.LogInformation("Created new diagnose equal to " + diagnose.ToString());
-                    return Ok(diagnose);
+                    return Ok("ok");
                 }
                 catch (EntityNotFoundException ex)
                 {
@@ -364,11 +362,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                 _logger.LogInformation("Returned list of DiagnoseGruppe with size " + diagnoseGruppe.Count);
                 return Ok(diagnoseGruppe);
             }
-            catch (EntityNotFoundException ex)
-            {
-                _logger.LogError("bad id");
-                return NotFound("bad id");
-            }
+
             catch (Exception ex)
             {
                 _logger.LogError("Kunne ikke hente diagnose grupper");
@@ -387,11 +381,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                 _logger.LogInformation("Returned list of symptomer with size " + symptomer.Count);
                 return Ok(symptomer);
             }
-            catch (EntityNotFoundException ex)
-            {
-                _logger.LogError("bad id");
-                return NotFound("bad id");
-            }
+
             catch (Exception ex)
             {
                 _logger.LogError("Kunne ikke hente symptomer");
@@ -410,11 +400,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                 _logger.LogInformation("Returned list of diagnoser with size " + diagnoser.Count);
                 return Ok(diagnoser);
             }
-            catch (EntityNotFoundException ex)
-            {
-                _logger.LogError("bad id");
-                return NotFound("bad id");
-            }
+
             catch (Exception ex)
             {
                 _logger.LogError("Kunne ikke hente diagnoser");
@@ -463,11 +449,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                     _logger.LogInformation("Returned list of symptomGrupper with size " + symptomGrupper.Count);
                     return Ok(symptomGrupper);
                 }
-                catch (EntityNotFoundException ex)
-                {
-                    _logger.LogError("bad id");
-                    return NotFound("bad id");
-                }
+
                 catch (Exception ex)
                 {
                     _logger.LogError("Kunne ikke hente symptom grupper");
