@@ -75,7 +75,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
                 _diagnoseRepository.deleteDiagnose(id);
                 _logger.LogInformation("Diagnose med id " + id + " er slettet");
-                return Ok("ok");
+                return Ok(1);
             }
             catch (EntityNotFoundException ex)
             {
@@ -117,7 +117,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                     };
                     _diagnoseRepository.update(diagnosen);
                     _logger.LogInformation("Diagnose med id " + diagnose.diagnoseId + " er oppdatert til " + diagnose.ToString());
-                    return Ok("ok");
+                    return Ok(1);
                 }
                 catch (EntityNotFoundException ex)
                 {
@@ -251,7 +251,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
                     }
                     _diagnoseRepository.addDiagnose(diagnose);
                     _logger.LogInformation("Created new diagnose equal to " + diagnose.ToString());
-                    return Ok("ok");
+                    return  Ok(1);
                 }
                 catch (EntityNotFoundException ex)
                 {

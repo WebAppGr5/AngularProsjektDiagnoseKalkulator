@@ -174,7 +174,10 @@ export class LagreComponent {
         const data = JSON.stringify(diagnoseCreateDTO);
 
         const url = "Diagnose/nyDiagnose/";
-        this.http.post<any>(url, data, { 'headers': headers }).subscribe((res) => {
+        this.http.post<string>(url, data, { 'headers': headers }).subscribe((res) => {
+          if (res == "ok") {
+          
+}
           this.error = false;
           this.harLagret = true;
 
