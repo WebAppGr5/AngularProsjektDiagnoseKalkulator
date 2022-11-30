@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using diagnoseKalkulatorAngular.Repository.interfaces;
 using Microsoft.AspNetCore.Http;
 
 using Microsoft.AspNetCore.Mvc;
@@ -29,56 +29,7 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
             _db = db;
             _log = log;
         }
-        [HttpPost]
-        public async Task<ActionResult> Lagre([FromBody] BrukerLogin innBruker)
-        {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
-            {
-                return Unauthorized("Ikke logget inn");
-            }
-            if (ModelState.IsValid)
-            {
-                //bool lagreB = await _db.Lagre(innBruker);
-                bool lagreB = true;
-                if (!lagreB)
-                {
-                    _log.LogInformation("Klarte ikke lagre ny bruker.");
-                    return BadRequest("Fikk ikke lagret bruker.");
-
-                };
-                return Ok("Ny bruker er lagret.");
-            }
-            _log.LogInformation("Noe gikk galt i inputvalideringen.");
-            return BadRequest("Inputvalidering feilet på server.");
-        }
-        [HttpGet]
-        public async Task<ActionResult> HentAlle()
-        {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
-            {
-                return Unauthorized("Ikke innlogget");
-            }
-            //List<BrukerInfo> alleBrukere = await _db.HentAlle();
-            //   return Ok(alleBrukere);
-            return Ok();
-        }
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult> hentEn([FromRoute] int id)
-        {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
-            {
-                return Unauthorized("Ikke innlogget");
-            }
-            //BrukerInfo Brukeren = await _db.HentEn(id);
-            BrukerInfo brukeren = null;
-            if (brukeren == null)
-            {
-                _log.LogInformation("Fant ikke kunden");
-                return NotFound("Fant ikke kunden");
-            }
-            return Ok(brukeren);
-        }
+    
 
         public async Task<ActionResult> erInnlogget()
         {
@@ -94,8 +45,9 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
         {
             if (ModelState.IsValid)
             {
-                //     bool returnOK = await _db.LoggInn(bruker);
-                bool returnOK = true;
+                Bruker bruker = new Bruker { brukernavn = brukerLogin.brukernavn, passord = brukerLogin.passord };
+                bool returnOK = await _db.LoggInn(bruker);
+
                 if (!returnOK)
                 {
                     _log.LogInformation("Innloggingen feilet for bruker");

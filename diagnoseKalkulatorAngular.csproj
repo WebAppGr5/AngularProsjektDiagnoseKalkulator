@@ -53,8 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Model\entities\BrukerInfo.cs" />
-    <None Include="Model\DTO\BrukerPesonalia.cs" />
+    <None Include="Model\entities\BrukerPersonalia.cs" />
     <None Include="Model\DTO\BrukerLogin.cs" />
   </ItemGroup>
 

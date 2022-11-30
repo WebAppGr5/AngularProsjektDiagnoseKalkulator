@@ -3,7 +3,8 @@ using obligDiagnoseVerktøyy.Repository.implementation;
 using obligDiagnoseVerktøyy.Repository.interfaces;
 using DiagnoseKalkulatorAngular.data;
 using DiagnoseKalkulatorAngular.Data;
-
+using ClientApp.Model;
+using diagnoseKalkulatorAngular.Repository.interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite("Data source=diagnoseVerktoy.db"));
+builder.Services.AddDbContext<BrukerDbContext>(options =>
+    options.UseSqlite("Data source=bruker.db"));
 
 builder.Services.AddLogging(logging =>
 {

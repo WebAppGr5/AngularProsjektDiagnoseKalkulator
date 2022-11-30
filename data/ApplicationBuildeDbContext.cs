@@ -5,18 +5,69 @@ using System.Xml;
 using DiagnoseKalkulatorAngular.Data;
 
 using static System.Reflection.Metadata.BlobBuilder;
-
+using ClientApp.Model;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using System.Security.Cryptography;
 
 namespace DiagnoseKalkulatorAngular.data
 {
 
     public static class ApplicationBuilderExtensions
     {
+        public static byte[] lagHash(string passord, byte[] salt)
+        {
+            return KeyDerivation.Pbkdf2(
+                                password: passord,
+                                salt: salt,
+                                prf: KeyDerivationPrf.HMACSHA512,
+                                iterationCount: 1000,
+                                numBytesRequested: 32);
+        }
+
+        public static byte[] lagSalt()
+        {
+            var csp = new RNGCryptoServiceProvider();
+            var salt = new byte[24];
+            csp.GetBytes(salt);
+            return salt;
+        }
+
         public static async Task<IApplicationBuilder> PrepareDatabase(this IApplicationBuilder app)
         {
             using var scopedServices = app.ApplicationServices.CreateScope();
-
             var serviceProvider = scopedServices.ServiceProvider;
+            var dbBrukerContext = serviceProvider.GetRequiredService<BrukerDbContext>();
+
+
+
+            dbBrukerContext.SaveChanges();
+
+            dbBrukerContext.Database.OpenConnection();
+
+            dbBrukerContext.brukere.ToList().ForEach((x) => dbBrukerContext.Remove(x));
+            dbBrukerContext.Brukerpersonalia.ToList().ForEach((x) => dbBrukerContext.Remove(x));
+            List<Brukerpersonalia> brukerpersonalia;
+            List<Bruker> brukerLogin;
+            var bruker1 = new Brukerpersonalia { ID=1,fornavn = "Mike", etternavn = "Clawthorn" };
+       
+            dbBrukerContext.Brukerpersonalia.Add(bruker1);
+   
+
+            // lag en påoggingsbruker
+            var bruker = new Bruker();
+            bruker.ID = 1;
+            bruker.brukernavn = "Admin";
+            var passord = "Sjokolade123";
+            byte[] salt = lagSalt();
+            byte[] hash = lagHash(passord, salt);
+            bruker.passord = Convert.ToBase64String(hash);
+            bruker.salt = Convert.ToBase64String(salt);
+            dbBrukerContext.brukere.Add(bruker);
+
+
+            //   brukerpersonalia.ForEach((x) => db.Brukerpersonalia.Add(x));
+            dbBrukerContext.SaveChanges();
+      
             var db = serviceProvider.GetRequiredService<ApplicationDbContext>();
 
             db.symptom.ToList().ForEach((x) => db.Remove(x));
@@ -25,7 +76,7 @@ namespace DiagnoseKalkulatorAngular.data
             db.symptomSymptomBilde.ToList().ForEach((x) => db.Remove(x));
             db.symptomGruppe.ToList().ForEach((x) => db.Remove(x));
             db.symptomBilde.ToList().ForEach((x) => db.Remove(x));
-            db.brukerInfo.ToList().ForEach((x) => db.Remove(x));
+
 
             db.SaveChanges();
 
@@ -37,32 +88,7 @@ namespace DiagnoseKalkulatorAngular.data
             List<SymptomGruppe> symptomGrupper;
             List<SymptomBilde> symptomBilder;
             List<SymptomSymptomBilde> symptomSymptomBilder;
-            List<BrukerInfo> brukerInfo;
-
-
-            
-
-            brukerInfo = new List<BrukerInfo>
-            {
-                new BrukerInfo
-                {
-                    etternavn = "per",
-                    fornavn = "jola",
-                          passord="123456",
-                                 brukernavn = "tora",
-                    ID = 1
-                },
-                new BrukerInfo
-                {
-                    etternavn = "ter",
-                    fornavn = "saga",
-                             passord="test1234",
-                    brukernavn = "tarfo",
-                    ID = 2
-                }
-            };
-            brukerInfo.ForEach((x) => db.brukerInfo.Add(x));
-            db.SaveChanges();
+     
 
 
 
