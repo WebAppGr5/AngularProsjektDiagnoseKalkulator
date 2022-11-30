@@ -20,6 +20,18 @@ using Microsoft.Extensions.Logging;
 using obligDiagnoseVerktøyy.Model.DTO;
 using System.Data.SqlTypes;
 using obligDiagnoseVerktøyy.Model.viewModels;
+private Mock<IDiagnoseGruppeRepository> _diagnoseGruppeRepository;
+private Mock<IDiagnoseRepository> _diagnoseRepository;
+private Mock<ISymptomGruppeRepository> _symptomGruppeRepository;
+private Mock<ISymptomBildeRepository> _symptomBildeRepository;
+private Mock<ISymptomRepository> _symptomRepository;
+private const string _loggetInn = "loggetInn";
+private const string _ikkeLoggetInn = "";
+
+private  Mock<ILogger<DiagnoseController>> _mockLog;
+
+private  Mock<HttpContext> mockHttpContext;
+private  MockHttpSession mockSession = new MockHttpSession();
 
 namespace obligDiagnoseVerktøyy.Controllers.implementations
 {
@@ -38,7 +50,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
 
         public DiagnoseController(IDiagnoseRepository diagnoseRepository, IDiagnoseGruppeRepository diagnoseGruppeRepository, ISymptomBildeRepository symptomBildeRepository, ISymptomGruppeRepository symptomGruppeRepository, ISymptomRepository symptomRepository, ILogger<DiagnoseController> logger)
         {
+            _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                        _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                        _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                        _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                        _symptomRepository = new Mock<ISymptomRepository>();
+                        _mockLog = new Mock<ILogger<DiagnoseController>>();
+                        mockHttpContext = new Mock<HttpContext>();
+                        mockSession = new MockHttpSession();
 
+
+                        var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             this._logger = logger;
             this._diagnoseRepository = diagnoseRepository;
             this._diagnoseGruppeRepository = diagnoseGruppeRepository;
@@ -56,6 +78,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> forgetDiagnose([FromRoute] int id)
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
+
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
 
             bool erLoggetInn = true;
             if (!erLoggetInn)
@@ -97,6 +130,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> update([FromBody] DiagnoseChangeDTO diagnose)
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
+
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
             {
                 return Unauthorized("Ikke logget inn");
@@ -146,6 +190,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> hentDiagnoseGittDiagnoseId([FromRoute] int id)
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
+
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             if (id < 0)
             {
                 _logger.LogError("Bad id input");
@@ -176,6 +231,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> hentSymptomGittSymptomId([FromRoute] int id)
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
+
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             if (id < 0)
             {
                 _logger.LogError("Bad id input");
@@ -206,6 +272,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> hentSymptomGruppeGittSymptomGruppeId([FromRoute] int id)
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
+
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             if (id < 0)
             {
                 _logger.LogInformation("Bad id input");
@@ -237,6 +314,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> nyDiagnose([FromBody] DiagnoseCreateDTO diagnose)
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
+
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             if (string.IsNullOrEmpty(HttpContext.Session.GetString(_LoggetInn)))
             {
                 return Unauthorized("Ikke logget inn");
@@ -292,7 +380,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
        */
         public async Task<IActionResult> getDiagnoserGittSymptomer([FromBody] List<SymptomDTO> symptomliste)
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
 
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
 
             try
             {
@@ -329,7 +427,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> getSymptomerGittGruppeId([FromRoute] int id)
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
 
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             if (id < 0)
             {
                 _logger.LogError("Bad id input");
@@ -358,6 +466,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> getDiagnoseGrupper()
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
+
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             try
             {
                 List<DiagnoseGruppeListModel> diagnoseGruppe = await _diagnoseGruppeRepository.hentDiagnoseGrupper();
@@ -381,6 +500,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> getSymptomer()
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
+
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             try
             {
                 List<SymptomListModel> symptomer = await _symptomRepository.hentSymptomer();
@@ -404,6 +534,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> getDiagnoser()
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
+
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             try
             {
                 List<DiagnoseListModel> diagnoser = await _diagnoseRepository.hentDiagnoser();
@@ -427,6 +568,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> getDiagnoserGittGruppeId([FromRoute] int id)
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
+
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             if (id < 0)
             {
                 _logger.LogError("Bad id input");
@@ -455,6 +607,17 @@ namespace obligDiagnoseVerktøyy.Controllers.implementations
          */
         public async Task<IActionResult> getSymptomGrupper()
         {
+        _diagnoseGruppeRepository = new Mock<IDiagnoseGruppeRepository>();
+                    _diagnoseRepository = new Mock<IDiagnoseRepository>();
+                    _symptomGruppeRepository = new Mock<ISymptomGruppeRepository>();
+                    _symptomBildeRepository = new Mock<ISymptomBildeRepository>();
+                    _symptomRepository = new Mock<ISymptomRepository>();
+                    _mockLog = new Mock<ILogger<DiagnoseController>>();
+                    mockHttpContext = new Mock<HttpContext>();
+                    mockSession = new MockHttpSession();
+
+
+                    var DiagnoseController = new DiagnoseController(_diagnoseRepository.Object, _diagnoseGruppeRepository.Object, _symptomBildeRepository.Object, _symptomGruppeRepository.Object, _symptomRepository.Object, _mockLog.Object);
             if (ModelState.IsValid)
             {
                 try
