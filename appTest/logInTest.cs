@@ -32,46 +32,46 @@ namespace symptkalk.test{
 
     mockRep.Setup(i => i.HentAlle()).ReturnAsync(brukerListe);
 
-    var brukercontroller = new brukerController(mockRep.Object, mockLog.Object);
+    var logInController = new logInController(mockRep.Object, mockLog.Object);
 
     MockHttpSession[_LoggetInn] = _LoggetInn;
     mockHttpContext.Setup(sbyte => sbyte.Session).Returns(MockSession);
     brukercontroller.ControllerContext.Http.Context = mockHttpContect.object;
 
-    var result = await brukercontroller.HentEn(It.IsAny<int>()) as OkObjectResult;
+    var result = await logInController.HentEn(It.IsAny<int>()) as OkObjectResult;
     
     Assert.Equals((int)HttpStatusCode.OK, RequestSizeLimitAttribute.StatusCode);
-    Assert.Equal<KeyNotFoundException>(kunde1,(Kunde).resultat.Value);
+    Assert.Equal<KeyNotFoundException>(bruker1,(Bruker).resultat.Value);
     }
 
     [Fact]
     public async Task HentEnIkkeOK{
         mockRep.Setup(int => int.HentEn(It.IsAny<int>)).ReturnAsync(()=>null);
 
-        var brukercontroller = new brukerController(mockRep.Object,mockog.Object);
+        var logInController = new logInController(mockRep.Object,mockog.Object);
 
         mockSession[_LoggetInn] = _LoggetInn;
         mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-        brukercontroller.ControllerContext.HttpContext = mockHttpContext.Object;
+        logInController.ControllerContext.HttpContext = mockHttpContext.Object;
 
-        var resultat = await brukercontroller.HentEn(It.IsAny<int>()) as NotFoundObjectResult;
+        var resultat = await logInController.HentEn(It.IsAny<int>()) as NotFoundObjectResult;
 
         Assert.Equal((int)HTTPStatusCode.OK, result.StatusCode);
-        Assert.Equal("Fant ikke kunden", result.Value);
+        Assert.Equal("Fant ikke brukeren", result.Value);
     }
 
     [Fact]
     public async Task EndreLoggetInnOK(){
         mockRep.Setup(b => b.Endre(It.IsAny<bruker>())).ReturnsAsync(true);
 
-            var brukercontroller = new brukercontroller(mockRep.Object, mockLog.Object);
+            var logInController = new logInController(mockRep.Object, mockLog.Object);
 
             mockSession[_loggetInn] = _loggetInn;
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            brukercontroller.ControllerContext.HttpContext = mockHttpContext.Object;
+            logInController.ControllerContext.HttpContext = mockHttpContext.Object;
 
             // Act
-            var result = await brukercontroller.Endre(It.IsAny<bruker>()) as OkObjectResult;
+            var result = await logInController.Endre(It.IsAny<bruker>()) as OkObjectResult;
 
             // Assert 
             Assert.Equal((int)HttpStatusCode.OK, result.StatusCode);
@@ -85,34 +85,34 @@ namespace symptkalk.test{
 
             mockRep.Setup(b => b.Lagre(It.IsAny<bruker>())).ReturnsAsync(false);
 
-            var brukercontroller = new brukercontroller(mockRep.Object, mockLog.Object);
+            var logInController = new logInController(mockRep.Object, mockLog.Object);
 
             mockSession[_loggetInn] = _loggetInn;
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            brukercontroller.ControllerContext.HttpContext = mockHttpContext.Object;
+            logInController.ControllerContext.HttpContext = mockHttpContext.Object;
 
             // Act
-            var result = await brukercontroller.Endre(It.IsAny<bruker>()) as NotFoundObjectResult;
+            var result = await logInController.Endre(It.IsAny<bruker>()) as NotFoundObjectResult;
 
             // Assert 
             Assert.Equal((int)HttpStatusCode.NotFound, result.StatusCode);
-            Assert.Equal("Endringen av kunden kunne ikke utføres", result.Value);
+            Assert.Equal("Endringen av brukeren kunne ikke utføres", result.Value);
         }
 
-    //Async Task endrelogget inn feil moder er der du er
+
 
      [Fact]
         public async Task LoggInnOK()
         {
             mockRep.Setup(b => b.LoggInn(It.IsAny<Bruker>())).ReturnsAsync(true);
 
-            var brukercontroller = new brukercontroller(mockRep.Object, mockLog.Object);
+            var logInController = new logInController(mockRep.Object, mockLog.Object);
 
             mockSession[_loggetInn] = _loggetInn;
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            brukercontroller.ControllerContext.HttpContext = mockHttpContext.Object;
+            logInController.ControllerContext.HttpContext = mockHttpContext.Object;
 
-            var resultat = await brukercontroller.LoggInn(It.IsAny<Bruker>()) as OkObjectResult;
+            var resultat = await logInController.LoggInn(It.IsAny<Bruker>()) as OkObjectResult;
 
             Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
             Assert.True((bool)resultat.Value);
@@ -123,13 +123,13 @@ namespace symptkalk.test{
         {
             mockRep.Setup(b => b.LoggInn(It.IsAny<Bruker>())).ReturnsAsync(false);
 
-            var brukercontroller = new brukercontroller(mockRep.Object, mockLog.Object);
+            var logInController = new logInController(mockRep.Object, mockLog.Object);
 
             mockSession[_loggetInn] = _ikkeLoggetInn;
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            brukerontroller.ControllerContext.HttpContext = mockHttpContext.Object;
+            logInController.ControllerContext.HttpContext = mockHttpContext.Object;
 
-            var resultat = await brukercontroller.LoggInn(It.IsAny<Bruker>()) as OkObjectResult;
+            var resultat = await logInController.LoggInn(It.IsAny<Bruker>()) as OkObjectResult;
 
             Assert.Equal((int)HttpStatusCode.OK, resultat.StatusCode);
             Assert.False((bool)resultat.Value);
@@ -140,15 +140,15 @@ namespace symptkalk.test{
         {
             mockRep.Setup(b => b.LoggInn(It.IsAny<Bruker>())).ReturnsAsync(true);
 
-            var brukercontroller = new brukercontroller(mockRep.Object, mockLog.Object);
+            var logInController = new logInController(mockRep.Object, mockLog.Object);
 
-            brukercontroller.ModelState.AddModelError("Feil i inputvalidering på server");
+            logInController.ModelState.AddModelError("Feil i inputvalidering på server");
 
             mockSession[_loggetInn] = _loggetInn;
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            brukercontroller.ControllerContext.HttpContext = mockHttpContext.Object;
+            logInController.ControllerContext.HttpContext = mockHttpContext.Object;
 
-            var resultat = await brukercontroller.LoggInn(It.IsAny<Bruker>()) as BadRequestObjectResult;
+            var resultat = await logInController.LoggInn(It.IsAny<Bruker>()) as BadRequestObjectResult;
 
             Assert.Equal((int)HttpStatusCode.BadRequest, resultat.StatusCode);
             Assert.Equal("Feil i inputvalidering på server", resultat.Value);
@@ -156,14 +156,14 @@ namespace symptkalk.test{
         [Fact]
         public void LoggUt()
         {
-            var brukercontroller = new brukercontroller(mockRep.Object, mockLog.Object);
+            var logInController = new logInController(mockRep.Object, mockLog.Object);
             
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             mockSession[_loggetInn] = _loggetInn;
-            brukercontroller.ControllerContext.HttpContext = mockHttpContext.Object;
+            logInController.ControllerContext.HttpContext = mockHttpContext.Object;
          
             // Act
-            brukercontroller.LoggUt();
+            logInController.LoggUt();
 
             // Assert
            Assert.Equal(_ikkeLoggetInn,mockSession[_loggetInn]);
