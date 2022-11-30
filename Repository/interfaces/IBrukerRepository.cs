@@ -8,6 +8,8 @@ namespace diagnoseKalkulatorAngular.Repository.interfaces
     {
 
         public Task<bool> LoggInn(Bruker bruker);
+        public byte[] lagSalt();
+        public byte[] lagHash(string passord, byte[] salt);
 
     }
 }

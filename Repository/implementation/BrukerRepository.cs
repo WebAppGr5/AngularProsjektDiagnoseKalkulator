@@ -23,7 +23,7 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
 
 
 
-      public  byte[] lagHash(string passord, byte[] salt)
+        public byte[] lagHash(string passord, byte[] salt)
         {
             return KeyDerivation.Pbkdf2(
                 password: passord,
@@ -63,3 +63,4 @@ namespace obligDiagnoseVerktøyy.Repository.implementation
         }
     }
 }
+    
